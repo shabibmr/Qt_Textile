@@ -1,0 +1,299 @@
+[
+    {
+        "DB_Version": 17,
+        "StopOnError": false
+    },
+    {
+        "DB_Version": 18,
+        "StopOnError": false,
+        "TimeStamp": "Fri Apr 1 15:35:21 2022"
+    },
+    {
+        "DB_Version": 19,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT \\'L\\' as Ind , LEDGER_ID, LEDGER_NAME as \\'Ledger Name\\', (CASE WHEN CLOSING < 0 THEN -1*CLOSING ELSE NULL END) DEBIT, (CASE WHEN CLOSING > 0 THEN CLOSING ELSE NULL END) CREDIT FROM (SELECT LED.LEDGER_NAME, LED.LEDGER_ID, LED.LEDGER_TYPE, LED.GROUP_ID, CAST( ROUND(COALESCE(SUM(TRANS.CREDIT_AMOUNT),0),2) - ROUND(COALESCE(SUM(TRANS.DEBIT_AMOUNT),0),2) AS DECIMAL(10,2)) AS CLOSING FROM $master_db.Ledger_Master LED LEFT OUTER JOIN $trans_db.TRANSACTION_HELPER TRANS ON LED.LEDGER_ID = TRANS.LEDGER_ID AND TRANS.VOUCHER_DATE >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND TRANS.VOUCHER_DATE <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') GROUP BY LED.LEDGER_ID)A WHERE CLOSING <>0 ORDER BY LEDGER_TYPE,GROUP_ID' WHERE `ui_config`.`_id` = 23",
+        "StopOnError": false,
+        "TimeStamp": "Mon Apr 4 11:44:52 2022"
+    },
+    {
+        "DB_Version": 20,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT \\'V\\' , Voucher_No, Voucher_Prefix, \\'ContraVoucher\\', Voucher_Date as \\'Voucher Date\\', (case when (select gmvalue from config_settings where gmkey = \\'showPrefixInRegister\\') = 1 then concat(Voucher_Prefix, \\'-\\', Voucher_No) else CAST(Voucher_No as UNSIGNED) end) as \\'Voucher No\\', (SELECT Ledger_Name FROM $master_db.Ledger_Master WHERE Ledger_ID= sim.Ledger_ID) Ledger, Total FROM $trans_db.Contra_Voucher_Main sim WHERE Voucher_Date >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND Voucher_Date <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\')' WHERE `ui_config`.`_id` = 83",
+        "StopOnError": false,
+        "TimeStamp": "Tue Apr 5 15:12:34 2022"
+    },
+    {
+        "DB_Version": 21,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT 'V' , Voucher_No, Voucher_Prefix, 'RECEIPTVOUCHER', Voucher_Date as 'Voucher Date', (case when (select gmvalue from config_settings where gmkey = 'showPrefixInRegister') = 1 then concat(Voucher_Prefix, '-', Voucher_No) else CAST(Voucher_No as UNSIGNED) end) as 'Voucher No', (SELECT Ledger_Name FROM $master_db.Ledger_Master WHERE Ledger_ID= sim.Ledger_ID) 'Mode Of Pay', (SELECT Ledger_Name FROM $master_db.Ledger_Master WHERE Ledger_ID= (select ledger_id from receipt_voucher_details where voucher_no = sim.voucher_no and voucher_prefix = sim.voucher_prefix limit 1)) 'Ledger', Total FROM $trans_db.Receipt_Voucher_Main sim WHERE Voucher_Date >= str_to_date('$fromDateTime','%Y-%m-%d %H:%i:%s') AND Voucher_Date <= str_to_date('$toDateTime','%Y-%m-%d %H:%i:%s')', `display_options` = '{\"Totals\":[8], \"Hide\":[0,1,2,3], \"width-list\":[20,20,20,20,20], \"align-list\":[0,0,0,0,1], \"print-cols\":[4,5,6,7,8]}'  WHERE `ui_config`.`_id` = 49",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 7 15:25:35 2022"
+    },
+    {
+        "DB_Version": 22,
+        "Query": "INSERT INTO `widget_master` VALUES (258,150,'Room Types','Screen',0,'A|Masters','PMS',1,1),(259,116,'Rooms','Screen',0,'A|Masters','PMS',2,1),(260,117,'Bookings','Screen',0,'B|Transactions','PMS',1,1),(242,118,'Checkins','Screen',0,'B|Transactions','PMS',2,1),(244,1024,'Shift Entry','Screen',0,'B|Transactions','PMS',3,1),(245,119,'Check Out Report','Screen',0,'C|Reports','PMS',1,1),(246,120,'Cancellation History','Screen',0,'C|Reports','PMS',2,1),(247,121,'Non Printed Transactions','Screen',0,'C|Reports','PMS',3,1),(248,122,'Room Occupancy','Screen',0,'C|Reports','PMS',4,1),(249,12333,'Room Maintainance Audit','Screen',0,'C|Reports','PMS',4,1),(250,124,'Bookings & Forecast','Screen',0,'C|Reports','PMS',4,1),(251,125,'Inactive Rooms','Screen',0,'C|Reports','PMS',6,1),(252,5011,'Room Maintainance','Screen',0,'B|Transactions','PMS',5,1),(253,5012,'Third Party Receivables','Screen',0,'C|Reports','PMS',1,1),(254,5013,'Damage Entries','Screen',0,'B|Transactions','PMS',7,1),(255,5014,'Laundry Register','Screen',0,'B|Transactions','PMS',7,1),(256,5015,'Inventory Issue','Screen',0,'B|Transactions','PMS',6,1),(257,5016,'Stock Reports','Screen',0,'C|Reports','PMS',7,1)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Apr 8 14:53:05 2022"
+    },
+    {
+        "DB_Version": 23,
+        "Query": "INSERT INTO `ui_config` VALUES (150,'Room Types','PMS','Masters','PMSRT','SELECT \\'PMSRT\\',ROOM_TYPE_ID, TYPE_NAME as \\'Room Type\\', RATE, STD_OCC, MAX_OCC,GST_RATE, EXTRA_BED_RATE FROM ROOM_TYPE_MASTER ORDER BY RATE',NULL,'{ \\\"Hide\\\":[0,1,4,5,6,7], \\\"width-list\\\":[80,20], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[1,2], \\\"stretch\\\":1}',NULL,NULL),(116,'Rooms','PMS','Masters','PMSRM','SELECT \\'PMSRM\\',ROOM_ID, ROOM_NAME, ( SELECT TYPE_NAME FROM ROOM_TYPE_MASTER RT WHERE RT.ROOM_TYPE_ID = RM.ROOM_TYPE_ID ) as \\'Type\\' FROM ROOMS_MASTER RM ORDER BY ROOM_NAME',NULL,'{ \\\"Hide\\\":[0,1], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(117,'Bookings','PMS','Registers','RoomBooking','SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomBooking\\',Booking_Date, (select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Type_ID) Type ,`CheckIn_Date`,`Expected_CheckOut_Date` as \\'Check Out\\' FROM `room_bookings` rb WHERE status = 2 and Booking_Date >= str_to_date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and Booking_Date <= str_to_date(\\'$toDateTime\\', \\'%Y-%m-%d\\')','{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}','{\\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(118,'Checkins','PMS','Registers','RoomCheckins','SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomCheckins\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Type_ID) Type ,`CheckIn_Date`,`Expected_CheckOut_Date` as \\'Check Out\\' FROM `room_bookings` rb WHERE status = 3 and CheckIn_Date >= str_to_date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and CheckIn_Date <= str_to_date(\\'$toDateTime\\', \\'%Y-%m-%d\\')','{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}','{\\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(119,'Check Out Report','PMS','Reports','PMS','SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomCheckin\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Name_ID) Type ,`CheckIn_Date`,`Expected_CheckOut_Date` as \\'Check Out\\', status FROM `room_bookings` rb WHERE  Expected_CheckOut_Date >= str_to_date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and Expected_CheckOut_Date <= str_to_date(\\'$toDateTime\\', \\'%Y-%m-%d\\')','{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}','{\\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(120,'Cancellation History','PMS','Reports','PMS','SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomBooking\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Type_ID) Type ,`CheckIn_Date` as \\'Booking Date\\',`Expected_CheckOut_Date` as \\'Cancelled\\' , Purpose_Of_Visit as \\'Cancellation Reason\\' FROM `room_bookings` rb WHERE status = 5 and Booking_Date >= str_to_date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and Booking_Date <= str_to_date(\\'$toDateTime\\', \\'%Y-%m-%d\\')','{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}','{\\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(121,'Non Printed Transactions','PMS','Reports','PMS','SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomBooking\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Name_ID) Type ,`CheckIn_Date` as \\'Booking Date\\',`Expected_CheckOut_Date` as \\'Cancelled\\' FROM `room_bookings` rb WHERE status = 5','{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}','{\\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(122,'Room Occupancy History','PMS','Reports','PMS','SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomBooking\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Name_ID) Type ,`CheckIn_Date` as \\'Booking Date\\',`Expected_CheckOut_Date` as \\'Cancelled\\' FROM `room_bookings` rb WHERE status = 5','{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}','{\\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(123,'Room Maintainance Audit','PMS','Reports','PMS',NULL,'{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}',NULL,NULL,NULL),(124,'Bookings & Forecast','PMS','Reports','PMS','SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomBooking\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Name_ID) Type ,`CheckIn_Date` as \\'Booking Date\\',`Expected_CheckOut_Date` as \\'Cancelled\\' FROM `room_bookings` rb WHERE status = 5','{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}','{\\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":0}',NULL,NULL),(125,'Inactive Rooms','PMS','Reports','PMS',NULL,NULL,NULL,NULL,NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Apr 8 14:53:05 2022"
+    },
+    {
+        "DB_Version": 24,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomCheckins\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Type_ID) Type ,`CheckIn_Date`,`Expected_CheckOut_Date` as \\'Check Out\\' FROM `room_checkins` rb WHERE status = 3 and CheckIn_Date >= str_to_date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and CheckIn_Date <= str_to_date(\\'$toDateTime\\', \\'%Y-%m-%d\\')' WHERE `ui_config`.`_id` = 118",
+        "StopOnError": false,
+        "TimeStamp": "Fri Apr 8 15:26:07 2022"
+    },
+    {
+        "DB_Version": 25,
+        "Query": "\nUPDATE `ui_config` SET `query` = 'SELECT \\'V\\',Voucher_No,Voucher_Prefix,\\'RoomCheckin\\',(select ROOM_NAME from rooms_master rm where rm.ROOM_ID=rb.Room_Name_ID) as Room,(select TYPE_NAME from room_type_master rtm where rtm.Room_Type_ID=rb.Room_Name_ID) Type ,`CheckIn_Date`,`Expected_CheckOut_Date` as \\'Check Out\\', status FROM `room_checkins` rb WHERE Expected_CheckOut_Date >= str_to_date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and Expected_CheckOut_Date <= str_to_date(\\'$toDateTime\\', \\'%Y-%m-%d\\')' WHERE `ui_config`.`_id` = 119",
+        "StopOnError": false,
+        "TimeStamp": "Fri Apr 8 15:26:07 2022"
+    },
+    {
+        "DB_Version": 26,
+        "Query": "UPDATE `ui_config` SET `redirect_to` = '{\\\"redirect-to\\\":[{\\\"default\\\":{\\\"id\\\":14, \\\"keyList\\\":[{\\\"filter-type\\\":\\\"ledger\\\",\\\"var-name\\\":\\\"f1\\\", \\\"col-pos\\\":1}]}}]}' WHERE `ui_config`.`_id` = 90",
+        "StopOnError": false,
+        "TimeStamp": "Sat Apr 9 17:05:00 2022"
+    },
+    {
+        "DB_Version": 27,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT Ind, ID , Name,   CAST( COALESCE(SUM(TRANS.DEBIT_AMOUNT),0) AS DECIMAL(10,2)) AS Debit,   CAST( COALESCE(SUM(TRANS.CREDIT_AMOUNT),0) AS DECIMAL(10,2)) Credit  FROM (select accGrp1.group_name Name, led.ledger_id, \\'A\\' as Ind,accGrp1.group_id as ID from $master_db.ledger_master led inner join (with recursive cte (group_id, group_name, parent_id, ledger_id) as ( select grp.group_id,grp.group_name,grp.parent_id, led.ledger_id from $master_db.ledger_master led left outer join account_groups grp on led.group_id = grp.group_id union all select p.group_id, p.group_name,p.parent_id, ledger_id from $master_db.account_groups p inner join cte on p.group_id = cte.parent_id ) select cte.group_name, cte.ledger_id, cte.group_id from cte where cte.parent_id = \\'$f1\\') accGrp1 on accGrp1.ledger_id = led.ledger_id union select led2.ledger_name Name, led2.ledger_id, \\'L\\' as ind,led2.ledger_id as ID from $master_db.ledger_master led2 where led2.group_id = \\'$f1\\') LED  LEFT OUTER JOIN $trans_db.TRANSACTION_HELPER TRANS  ON LED.LEDGER_ID = TRANS.LEDGER_ID  AND TRANS.voucher_date >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d\\') AND TRANS.voucher_date <= str_to_date(\\'$toDateTime\\' ,\\'%Y-%m-%d\\') GROUP BY ID order by Ind, Name' WHERE `ui_config`.`_id` = 90",
+        "StopOnError": false,
+        "TimeStamp": "Mon Apr 11 12:57:21 2022"
+    },
+    {
+        "DB_Version": 28,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT \\'V\\' as Ind, \\'\\' RefNo, \\'\\' RefPrefix, RefType, min(VoucherDate) as \\'Voucher Date\\', \\'\\' as \\'Voucher No\\', RefType as \\'Voucher Type\\', (select round(sum(DebitAmount - creditAmount),2) from $trans_db.billwise_records where voucherNo = Ref.RefNo AND voucherType = Ref.RefType AND voucherPrefix = Ref.RefPrefix and LedgerId = \\'$f1\\' and Method_Of_Adj = \\'ON ACC\\' ) as \\'Bill Amount\\', round(SUM(COALESCE(DebitAmount,0)) -  SUM(COALESCE(CreditAmount,0)),2) as \\'Balance Amount\\'  FROM $trans_db.Billwise_Records Ref WHERE Ref.LedgerId = \\'$f1\\' AND Ref.VoucherDate <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND (Method_Of_Adj= \\'ON ACC\\' )  HAVING SUM(COALESCE(CreditAmount,0)) - SUM(COALESCE(DebitAmount,0)) <> 0 UNION SELECT \\'V\\' as Ind, RefNo, RefPrefix, RefType, min(VoucherDate) as \\'Voucher Date\\', RefNo as \\'Voucher No\\', RefType as \\'Voucher Type\\', (select round(sum(DebitAmount - creditAmount),2) from $trans_db.billwise_records where voucherNo = Ref.RefNo AND voucherType = Ref.RefType AND voucherPrefix = Ref.RefPrefix) as \\'Bill Amount\\', round(SUM(COALESCE(DebitAmount,0)) -  SUM(COALESCE(CreditAmount,0)),2) as \\'Balance Amount\\'  FROM $trans_db.Billwise_Records Ref WHERE Ref.LedgerId = \\'$f1\\' AND Ref.VoucherDate <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND (Method_Of_Adj<> \\'ON ACC\\' OR Method_Of_Adj IS NULL OR Method_Of_Adj = \\'\\') GROUP BY RefNo, RefType, RefPrefix HAVING SUM(COALESCE(CreditAmount,0)) - SUM(COALESCE(DebitAmount,0)) <> 0 ORDER BY 1' WHERE `ui_config`.`_id` = 15",
+        "StopOnError": false,
+        "TimeStamp": "Tue Apr 12 06:07:11 2022"
+    },
+    {
+        "DB_Version": 29,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT  Ind, ID, Name, (CASE WHEN CLOSING < 0 THEN -1*CLOSING  ELSE NULL END) Debit,   (CASE WHEN CLOSING > 0 THEN CLOSING  ELSE NULL END) Credit FROM  (SELECT Ind, LED.Name, LED.ID,   CAST( COALESCE(SUM(TRANS.CREDIT_AMOUNT),0) - COALESCE(SUM(TRANS.DEBIT_AMOUNT),0) AS DECIMAL(10,2)) AS CLOSING  FROM (select accGrp1.group_name Name, led.ledger_id, \\'A\\' as Ind,accGrp1.group_id as ID from $master_db.ledger_master led inner join (with recursive cte (group_id, group_name, parent_id, ledger_id) as ( select grp.group_id,grp.group_name,grp.parent_id, led.ledger_id from $master_db.ledger_master led left outer join account_groups grp on led.group_id = grp.group_id union all select p.group_id, p.group_name,p.parent_id, ledger_id from $master_db.account_groups p inner join cte on p.group_id = cte.parent_id ) select cte.group_name, cte.ledger_id, cte.group_id from cte where cte.parent_id = \\'$f1\\') accGrp1 on accGrp1.ledger_id = led.ledger_id union select led2.ledger_name Name, led2.ledger_id, \\'L\\' as ind,led2.ledger_id as ID from $master_db.ledger_master led2 where led2.group_id = \\'$f1\\') LED  LEFT OUTER JOIN $trans_db.TRANSACTION_HELPER TRANS  ON LED.LEDGER_ID = TRANS.LEDGER_ID  AND TRANS.VOUCHER_DATE <= \\'$toDateTime\\'  GROUP BY LED.ID)A  WHERE CLOSING <>0' WHERE `ui_config`.`_id` = 17",
+        "StopOnError": false,
+        "TimeStamp": "Tue Apr 12 06:39:30 2022"
+    },
+    {
+        "DB_Version": 30,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES (151, 'Ledgerwise Sales Register', 'Finance', 'Reports', 'Finance', 'SELECT \\'V\\' , Voucher_No, Voucher_Prefix, \\'SALESVOUCHER\\',  Voucher_Date as \\'Voucher Date\\', (case when (select gmvalue from config_settings where gmkey = \\'showPrefixInRegister\\') = 1 then concat(Voucher_Prefix, \\'-\\', Voucher_No) else CAST(Voucher_No as UNSIGNED) end) as \\'Voucher No\\',  Total FROM $trans_db.Sales_Invoice_Main sim WHERE Voucher_Date >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND Voucher_Date <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND Ledger_Id = \\'$f1\\'', '{\\\"filter by\\\":[{\\\"var-name\\\":\\\"f1\\\",\\\"var-value\\\":\\\"ledger\\\"}],\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}', '{\\\"Totals\\\":[6], \\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[20,20,30,20], \\\"align-list\\\":[0,0,0,1], \\\"print-cols\\\":[4,5,6], \\\"stretch\\\":6}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Wed Apr 13 15:51:52 2022"
+    },
+    {
+        "DB_Version": 31,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '151', 'Ledgerwise Sales Register', 'Screen', '0', 'C|Reports', 'Finance', '0', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Wed Apr 13 15:55:18 2022"
+    },
+    {
+        "DB_Version": 32,
+        "Query": "UPDATE `ui_config` SET `redirect_to` = '{\\\"redirect-to\\\":[{\\\"default\\\":{\\\"id\\\":151, \\\"keyList\\\":[{\\\"filter-type\\\":\\\"ledger\\\",\\\"var-name\\\":\\\"f1\\\", \\\"col-pos\\\":1}]}}]}' WHERE `ui_config`.`_id` = 104",
+        "StopOnError": false,
+        "TimeStamp": "Wed Apr 13 15:57:00 2022"
+    },
+    {
+        "DB_Version": 33,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT \\'V\\' , Voucher_No, Voucher_Prefix, \\'PURCHASEVOUCHER\\', Voucher_Date as \\'Voucher Date\\', (case when (select gmvalue from config_settings where gmkey = \\'showPrefixInRegister\\') = 1 then concat(Voucher_Prefix, \\'-\\', Voucher_No) else CAST(Voucher_No as UNSIGNED) end) as \\'Voucher No\\', (SELECT Ledger_Name FROM $master_db.Ledger_Master WHERE Ledger_ID= sim.Ledger_ID) Ledger, Total FROM $trans_db.Purchase_Invoice_Main sim WHERE Voucher_Date >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND Voucher_Date <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\')' WHERE `ui_config`.`_id` = 45",
+        "StopOnError": false,
+        "TimeStamp": "Mon Apr 18 10:22:53 2022"
+    },
+    {
+        "DB_Version": 34,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT \\'V\\' , Voucher_No, Voucher_Prefix, \\'PAYMENTVOUCHER\\', Voucher_Date as \\'Voucher Date\\', (case when (select gmvalue from config_settings where gmkey = \\'showPrefixInRegister\\') = 1 then concat(Voucher_Prefix, \\'-\\', Voucher_No) else CAST(Voucher_No as UNSIGNED) end) as \\'Voucher No\\', (SELECT Ledger_Name FROM $master_db.Ledger_Master WHERE Ledger_ID= sim.Ledger_ID) Ledger, Total FROM $trans_db.Payment_Voucher_Main sim WHERE Voucher_Date >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND Voucher_Date <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\')' WHERE `ui_config`.`_id` = 48",
+        "StopOnError": false,
+        "TimeStamp": "Mon Apr 18 10:23:31 2022"
+    },
+    {
+        "DB_Version": 35,
+        "Query": "UPDATE `ui_config` SET `filters` = '{\\\"filter by\\\":[{\\\"var-name\\\":\\\"f1\\\",\\\"var-value\\\":\\\"account_group\\\"}],\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}' WHERE `ui_config`.`_id` = 17",
+        "StopOnError": false,
+        "TimeStamp": "Wed Apr 27 03:19:16 2022"
+    },
+    {
+        "DB_Version": 36,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES (NULL, 'Salesman-wise Receipt Summary', 'Finance', 'Reports', 'Finance', ' select \\'E\\' as Ind, Salesman_ID, (select name from employee_details where _id = salesman_id) as SalesMan, sum(cr_amount) from receipt_voucher_details where ledger_id in ( select ledger_id from ledger_master where route_id = \\'$f1\\') and voucher_Date >= str_to_date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and voucher_Date <= str_to_date(\\'$toDateTime\\', \\'%Y-%m-%d\\') group by salesman_id', '{\\\"filter by\\\":[{\\\"var-name\\\":\\\"f1\\\",\\\"var-value\\\":\\\"route\\\"}],\\\"dateTime\\\":[\\\"fromDateTime\\\", \\\"toDateTime\\\"]}', '{\\\"Totals\\\":[3], \\\"Hide\\\":[0,1], \\\"width-list\\\":[40,20], \\\"align-list\\\":[0,1], \\\"print-cols\\\":[2,3], \\\"stretch\\\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jun 3 14:00:45 2022"
+    },
+    {
+        "DB_Version": 37,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '153', 'Salesmanwise Receipt Summary', 'Screen', '0', 'C|Reports', 'Finance', '25', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jun 3 14:03:28 2022"
+    },
+    {
+        "DB_Version": 38,
+        "Query": "UPDATE `ui_config` SET `query` = ' SELECT \\'V\\' , Voucher_No, Voucher_Prefix, \\'Stock Request\\', Voucher_Date as \\'Voucher Date\\', (case when (select gmvalue from config_settings where gmkey = \\'showPrefixInRegister\\') = 1 then concat(Voucher_Prefix, \\'-\\', Voucher_No) else CAST(Voucher_No as UNSIGNED) end) as \\'Voucher No\\', (select godown_name from $master_db.godown where godown_id = to_location) as \\'To Section\\' FROM $trans_db.Stock_Request_Main sim WHERE Voucher_Date >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND Voucher_Date <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\')' WHERE `ui_config`.`_id` = 57",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jun 15 13:21:11 2022"
+    },
+    {
+        "DB_Version": 39,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES (157, 'Brandwise Sales Report', 'Inventory', 'Reports', 'Inventory', 'Select \\'B\\' ,B._id, b.brand_name,sum(quantity) as Quantity, sum (subtotal) as amount from sales_invoice_details left join sales_inventory_items inv on inventory_item_id= inv.item_id join brands B on inv.brand_id = B._id where voucher_date>= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d\\') and voucher_date<= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d\\') group by B._id', '{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}', '{\\\"Totals\\\":[3,4], \\\"Hide\\\":[0,1], \\\"width-list\\\":[40,20,20], \\\"align-list\\\":[0,1,1], \\\"print-cols\\\":[2,3,4], \\\"stretch\\\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jun 28 14:18:51 2022"
+    },
+    {
+        "DB_Version": 40,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '157', 'Brandwise Sales Reports', 'Screen', '0', 'C|Reports', 'Inventory', '20', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jun   28 14:29:55 2022"
+    },
+    {
+        "DB_Version": 41,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES (158, 'Itemwise Sales By Bill', 'Inventory', 'Reports', 'Inventory', 'select \\'I\\' as Ind, inv.item_id, inv.item_name Item, sum(sales.quantity) Quantity, sum(sales.subTotal) Amount from $master_db.sales_inventory_items inv join $trans_db.sales_invoice_details sales on inv.item_id = sales.inventory_item_id join sales_invoice_main main on main.voucher_no = sales.voucher_no and main.voucher_prefix = sales.voucher_prefix where  cast(main.voucher_no as int) >= \\'$f1\\' and cast(main.voucher_no as int) <= \\'$f2\\' and voucher_prefix = \\'$f3\\' group by Item_Id', '{\\\"filter by\\\":[{\\\"var-name\\\":\\\"f1\\\",\\\"var-value\\\":\\\"from\\\"}, {\\\"var-name\\\":\\\"f2\\\",\\\"var-value\\\":\\\"to\\\"}, {\\\"var-name\\\":\\\"f3\\\",\\\"var-value\\\":\\\"prefix\\\"}]}', '{\\\"Totals\\\":[3,4], \\\"Hide\\\":[0,1], \\\"width-list\\\":[40,20,20], \\\"align-list\\\":[0,1,1], \\\"print-cols\\\":[2,3,4], \\\"stretch\\\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jun 28 16:11:39 2022"
+    },
+    {
+        "DB_Version": 42,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '158', 'Itemwise Sales By Bill', 'Screen', '0', 'C|Reports', 'Inventory', '18', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jun 28 16:11:39 2022"
+    },
+    {
+        "DB_Version": 43,
+        "Query": "\nUPDATE `ui_config` SET `query` = 'select \\'I\\' as Ind, inv.item_id, inv.item_name Item, sum(sales.quantity) Quantity, sum(sales.subTotal) Amount from $master_db.sales_inventory_items inv join $trans_db.sales_invoice_details sales on inv.item_id = sales.inventory_item_id join sales_invoice_main main on main.voucher_no = sales.voucher_no and main.voucher_prefix = sales.voucher_prefix where cast(main.voucher_no as int) >= \\'$f1\\' and cast(main.voucher_no as int) <= \\'$f2\\' and main.voucher_prefix = \\'$f3\\' group by Item_Id' WHERE `ui_config`.`_id` = 158",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jul 5 14:56:59 2022"
+    },
+    {
+        "DB_Version": 44,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES (159, 'Itemwise Batch Report', 'Inventory', 'Reports', 'Inventory', 'SELECT min(Voucher_Date) Voucher_Date, ItemID, Batch_Name, round(SUM(balance),3) as Stock ,  Purchase_Cost, Selling_Price from (  SELECT Voucher_Date, Ref_No, Ref_Type, Ref_Prefix, ItemID, SKU_ID, Batch_No, Batch_Name, serial_no_from,serial_no_to, Dr_Qty - Cr_Qty as balance,  Purchase_Cost, Selling_Price,   Mfg_Date, Expiry_Date,  Cr_qty  FROM `item_batch_helper`  where itemId = \\'$f1\\' and Voucher_Date<= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d\\') ) A group by  Batch_Name  HAVING round(sum(balance),3) <> 0  order by Voucher_Date', '{\\\"filter by\\\":[{\\\"var-name\\\":\\\"f1\\\",\\\"var-value\\\":\\\"item\\\"}],\\\"dateTime\\\":[\\\"toDateTime\\\"]}', '{\\\"Totals\\\":[3], \\\"Hide\\\":[1],  \\\"width-list\\\":[10,10,30,20,20], \\\"align-list\\\":[0,0,0,1,1], \\\"print-cols\\\":[0,2,3,4], \\\"stretch\\\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Sat Jul 9 13:43:28 2022"
+    },
+    {
+        "DB_Version": 45,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '159', 'Itemwise Batch Report', 'Screen', '0', 'D|Items', 'Inventory', '5', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Sat Jul 9 13:43:28 2022"
+    },
+    {
+        "DB_Version": 46,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT  Ind, ID, Name,  sum(Debit)  Debit,   sum(Credit)   Credit FROM  ( SELECT  Ind, ID, Name, (CASE WHEN CLOSING < 0 THEN (-1*CLOSING)  ELSE NULL END) Debit,   (CASE WHEN CLOSING > 0 THEN (CLOSING)  ELSE NULL END) Credit FROM  ( SELECT Ind, LED.Name, LED.ID,   CAST( COALESCE(SUM(TRANS.CREDIT_AMOUNT),0) - COALESCE(SUM(TRANS.DEBIT_AMOUNT),0) AS DECIMAL(10,2)) AS CLOSING  FROM (select accGrp1.group_name Name, led.ledger_id, \\'A\\' as Ind,accGrp1.group_id as ID from $master_db.ledger_master led inner join (with recursive cte (group_id, group_name, parent_id, ledger_id) as ( select grp.group_id,grp.group_name,grp.parent_id, led.ledger_id from $master_db.ledger_master led left outer join account_groups grp on led.group_id = grp.group_id union all select p.group_id, p.group_name,p.parent_id, ledger_id from $master_db.account_groups p inner join cte on p.group_id = cte.parent_id ) select cte.group_name, cte.ledger_id, cte.group_id from cte where cte.parent_id = \\'$f1\\') accGrp1 on accGrp1.ledger_id = led.ledger_id union select led2.ledger_name Name, led2.ledger_id, \\'L\\' as ind,led2.ledger_id as ID from $master_db.ledger_master led2 where led2.group_id = \\'$f1\\') LED  LEFT OUTER JOIN $trans_db.TRANSACTION_HELPER TRANS  ON LED.LEDGER_ID = TRANS.LEDGER_ID  AND TRANS.VOUCHER_DATE <= \\'$toDateTime\\'  GROUP BY LED.LEDGER_ID)A ) B WHERE debit <>0 or credit <> 0 group by id' WHERE `ui_config`.`_id` = 17",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jul 11 13:08:14 2022"
+    },
+    {
+        "DB_Version": 47,
+        "Query": "UPDATE `ui_config` SET `Extras` = '[{\\\"widget-type\\\":\\\"QtMaterialFlatButton\\\", \\\"Layout\\\":\\\"filterLayout\\\", \\\"widget-id\\\":1, \\\"text\\\":\\\"Print All Ledgers \\\", \\\"action\\\":\\\"printAllLedgers\\\", \\\"widget-align\\\":\\\"AlignRight\\\"}]' WHERE `ui_config`.`_id` = 17",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jul 11 13:10:00 2022"
+    },
+    {
+        "DB_Version": 48,
+        "Query": " UPDATE `ui_config` SET `redirect_to` = '{\\\"redirect-to\\\":[{\\\"default\\\":{\\\"id\\\":14, \\\"keyList\\\":[{\\\"filter-type\\\":\\\"ledger\\\",\\\"var-name\\\":\\\"f1\\\", \\\"col-pos\\\":1}]}}]}' WHERE `ui_config`.`_id` = 17",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jul 11 13:10:00 2022"
+    },
+    {
+        "DB_Version": 49,
+        "Query": "UPDATE `ui_config` SET `query` = 'select \\'R\\' as Ind, Route_id , Route_Name as \\'Route\\', Description as \\'Description\\' from $master_db.route_master' WHERE `ui_config`.`_id` = 93",
+        "StopOnError": false,
+        "TimeStamp": "Sun Oct 30 09:56:53 2022"
+    },
+    {
+        "DB_Version": 50,
+        "Query": "UPDATE `ui_config` SET `query` = 'select \\'V\\', EntryId, \\'\\' as prefix, \\'UsageEntry\\' as vtype, Entry_Date \\'Date\\', (select Ledger_Name from Ledger_Master where Ledger_ID = Usage_Entry.Ledger_Id) as Type,  Reading, UsageValue as \\'Usage\\' From Usage_Entry where Entry_Date >= str_to_Date(\\'$fromDateTime\\', \\'%Y-%m-%d\\') and Entry_Date <= str_to_Date(\\'$toDateTime\\', \\'%Y-%m-%d\\')' , `display_options` = '{\\\"Totals\\\":[7], \\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[60,20,20], \\\"align-list\\\":[0,1,0,1], \\\"print-cols\\\":[4,5,6,7], \\\"stretch\\\":0}' WHERE `ui_config`.`_id` = 167",
+        "StopOnError": false,
+        "TimeStamp": "Fri Nov 4 10:19:25 2022"
+    },
+    {
+        "DB_Version": 51,
+        "Query": "UPDATE `ui_config` SET `query` = 'Select \\'UC\\', _id, (select UOM_Name from uomlist where uom_id = baseUnit) as \\'Base Unit\\', (select UOM_Name from uomlist where uom_id = toUnit) as \\'To Unit\\', conValue as \\'COnversion Rate\\' from uom_conversion where itemID is null or length(itemID) = 0' WHERE `ui_config`.`_id` = 65",
+        "StopOnError": false,
+        "TimeStamp": "Wed Nov 9 10:56:51 2022"
+    },
+    {
+        "DB_Version": 52,
+        "Query": "UPDATE `ui_config` SET `display_options` = '{\\\"Totals\\\":[7], \\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[60,20,20], \\\"align-list\\\":[0,1,0,1], \\\"print-cols\\\":[4,5,6,7], \\\"stretch\\\":0}' WHERE `ui_config`.`_id` = 167",
+        "StopOnError": false,
+        "TimeStamp": "Mon Dec 12 12:28:59 2022"
+    },
+    {
+        "DB_Version": 53,
+        "Query": "UPDATE `ui_config` SET `display_options` = '{\\\"Totals\\\":[5], \\\"Hide\\\":[0,1,2,3], \\\"width-list\\\":[20,20,30], \\\"align-list\\\":[0,0,1], \\\"print-cols\\\":[4,5,6]}' WHERE `ui_config`.`_id` = 168",
+        "StopOnError": false,
+        "TimeStamp": "Mon Dec 12 12:57:19 2022"
+    },
+    {
+        "DB_Version": 54,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES ('5016', 'Godownwise Stock Report', 'PMS', 'Reports', 'PMS', 'select \\'I\\', itemId, (select item_name from Sales_Inventory_items where item_id = ItemID) as Item, sum(Laundry) as \\'Stock in Laundry\\', sum(Store) as \\'Stock In Store\\' from ( select itemId, case when godown = \\'A2\\' then sum(qty) end as \\'Laundry\\', case when godown = \\'GODOWN\\' then sum(qty) end as  Store from (select itemId, to_location as Godown, sum(Dr_Qty) as qty from transaction_item_helper where voucherDate <= str_to_Date(\\'$toDateTime\\', \\'%Y-%m-%d\\') group by ItemID, To_Location union all select ItemID, From_Location, -1*sum(Cr_Qty) from transaction_item_helper where  voucherDate <= str_to_Date(\\'$toDateTime\\', \\'%Y-%m-%d\\') group by ItemID, From_Location) A group by ItemId, godown) B', '{\"dateTime\\\":[\\\"toDateTime\\\"]}', '{\\\"Totals\\\":[3,4], \\\"Hide\\\":[0,1], \\\"width-list\\\":[40,20,20], \\\"align-list\\\":[0,1,1], \\\"print-cols\\\":[2,3,4], \\\"stretch\\\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Mon Dec 12 14:26:14 2022"
+    },
+    {
+        "DB_Version": 55,
+        "Query": "UPDATE `ui_config` SET `query` = 'select \\'E\\', employee_id,  Employee, worked_days as \\'Worked Days\\',  total_num_of_Days - worked_days as \\'No.of Leaves Taken\\',   OverTime from  ( SELECT a.Employee_Id, E.Name as Employee,  sum(case when a.Working_Hours >0 and HalfDay =0 then 1  when a.Working_Hours >0 and HalfDay = 1 then 0.5 else 0 end ) as worked_days ,  case when E.date_of_joining  >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d\\') then datediff(str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d\\'), date_of_joining) +1 else  datediff(str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d\\'), str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d\\')) +1 end as total_num_of_days,  sum(a.Overtime) as OverTime  FROM Attendance_Details a JOIN Employee_Details E ON A.Employee_Id = E._id  WHERE Working_Day >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d\\') and Working_Day <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d\\') group by Employee_Id) X ', `display_options` = '{\\\"Hide\\\":[0,1],  \\\"width-list\\\":[30,20,20,20], \\\"align-list\\\":[0,0,1,1], \\\"print-cols\\\":[2,3,4,5], \\\"stretch\\\":0}' WHERE `ui_config`.`_id` = 71",
+        "StopOnError": false,
+        "TimeStamp": "Wed Dec 21 11:14:19 2022"
+    },
+    {
+        "DB_Version": 56,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES (180, 'Itemwise Sales By Salesman', 'Inventory', 'Reports', 'Inventory', 'select \\'I\\' as Ind, inv.item_id, inv.item_name Item, sum(sales.quantity) Quantity, sum(sales.subTotal) Amount from $master_db.sales_inventory_items inv join $trans_db.sales_invoice_details sales on inv.item_id = sales.inventory_item_id join sales_invoice_main main on main.voucher_no = sales.voucher_no and main.voucher_prefix = sales.voucher_prefix where  str_to_date(concat(main.Voucher_Date , substr(main.timestamp, 11,19)), \\'%Y-%m-%d %H:%i:%s\\')>=str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\')  AND str_to_date(concat(main.Voucher_Date , substr(main.timestamp, 11,19)), \\'%Y-%m-%d %H:%i:%s\\') <=str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') and main.salesman_id = \\'$f1\\' group by Item_Id', '{\\\"filter by\\\":[{\\\"var-name\\\":\\\"f1\\\",\\\"var-value\\\":\\\"employee\\\"}],\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"], \\\"useTimeStamp\\\":true}', '{\\\"Totals\\\":[3,4], \\\"Hide\\\":[0,1], \\\"width-list\\\":[40,20,20], \\\"align-list\\\":[0,1,1], \\\"print-cols\\\":[2,3,4], \\\"stretch\\\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Sun Jan 1 19:24:28 2023"
+    },
+    {
+        "DB_Version": 57,
+        "Query": "\nINSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '180', 'Itemwise Sales By Salesman', 'Screen', '0', 'D|Items', 'Inventory', '2', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Sun Jan 1 19:24:28 2023"
+    },
+    {
+        "DB_Version": 62,
+        "Query": "UPDATE `ui_config` SET `query` = 'SELECT min(Voucher_Date) Voucher_Date, ItemID,Batch_No,Batch_Name,serial_no, round(SUM(balance),3) as Stock , Purchase_Cost, Selling_Price from ( SELECT Voucher_Date, Ref_No, Ref_Type, Ref_Prefix, ItemID, SKU_ID, Batch_No, Batch_Name, serial_no,serial_no_from,serial_no_to, Dr_Qty - Cr_Qty as balance, Purchase_Cost, Selling_Price, Mfg_Date, Expiry_Date, Cr_qty FROM `item_batch_helper` where itemId = \\'$f1\\' and Voucher_Date<= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d\\') ) A group by Batch_No, Serial_No HAVING round(sum(balance),3) <> 0 order by Voucher_Date, Serial_No,Batch_No WHERE `ui_config`.`_id` = 159",
+        "StopOnError": false,
+        "TimeStamp": "Sat Apr 15 05:32:46 2023"
+    },
+    {
+        "DB_Version": 63,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES ('250', 'Itemwise Sales Reports', 'Inventory', 'Reports', 'Inventory', 'select \\'I\\' as Ind, inv.item_id, inv.item_name_arabic Item, sum(sales.quantity) Quantity, sum(sales.subTotal) Amount from $master_db.sales_inventory_items inv join $trans_db.sales_invoice_details sales on inv.item_id = sales.inventory_item_id join sales_invoice_main main on main.voucher_no = sales.voucher_no and main.voucher_prefix = sales.voucher_prefix where str_to_date(concat(main.Voucher_Date , substr(main.timestamp, 11,19)), \\'%Y-%m-%d %H:%i:%s\\')>=str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND str_to_date(concat(main.Voucher_Date , substr(main.timestamp, 11,19)), \\'%Y-%m-%d %H:%i:%s\\') <=str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') group by Item_Id', '{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"], \\\"useTimeStamp\\\":true}', '{\\\"Totals\\\":[3,4], \\\"Hide\\\":[0,1], \\\"width-list\\\":[40,20,20], \\\"align-list\\\":[0,1,1], \\\"print-cols\\\":[2,3,4], \\\"stretch\\\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Sun Nov 26 06:33:29 2023"
+    },
+    {
+        "DB_Version": 64,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '250', 'Itemwise Sales Report Arabic', 'Screen', '0', 'C|Reports', 'Inventory', '6', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Sat Nov 15 05:32:46 2023"
+    },
+    {
+        "DB_Version": 65,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`,  `display_options`,`filters`, `redirect_to`, `Extras`) VALUES (NULL, 'Tables', 'Inventory', 'Masters', 'Tab', 'SELECT \\'Tab\\', `Table_id`, `Table_Name`, `Capacity`, `Floor` FROM `tables_master` ORDER BY `Table_Name`', '{ \\\"Hide\\\":[0,1], \\\"width-list\\\":[40,30,30], \\\"align-list\\\":[0,1,1], \\\"print-cols\\\":[2,3,4], \\\"stretch\\\":2}', NULL, NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 00:44:10 2024"
+    },
+    {
+        "DB_Version": 66,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '5019', 'Tables', 'Screen', '0', 'A|Masters', 'Inventory', '3', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 00:47:40 2024"
+    },
+    {
+        "DB_Version": 67,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES (NULL, 'Table Reservations', 'Inventory', 'Registers', 'Reservations', 'SELECT \\'TRES\\', `Reservation_id`,`Reservation_Date` as \\'Date\\',  (SELECT TABLE_NAME FROM TABLES_MASTER TM WHERE TM.TABLE_ID=TR.TABLE_ID) as \\'Table Name\\', `From_Time`, `To_Time`,(SELECT NAME FROM ADDRESS_BOOK AB WHERE AB.ADDRESS_ID=TR.CONTACT_ID) \\'Name\\',(SELECT PHONE_NUMBER FROM ADDRESS_BOOK AB WHERE AB.ADDRESS_ID=TR.CONTACT_ID) as \\'Phone\\', `PAX` FROM `Table_Reservations` TR WHERE Reservation_Date >= str_to_date(\\'$fromDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') AND Reservation_Date <= str_to_date(\\'$toDateTime\\',\\'%Y-%m-%d %H:%i:%s\\') ORDER BY 3,4', '{\\\"dateTime\\\":[\\\"fromDateTime\\\",\\\"toDateTime\\\"]}', '{\\\"Hide\\\":[0,1], \\\"width-list\\\":[50,50], \\\"align-list\\\":[0,0,0,0,0], \\\"print-cols\\\":[2,3,4,5,6,7], \\\"stretch\\\":0}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 22:29:12 2024"
+    },
+    {
+        "DB_Version": 68,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '5020', 'Table Reservations', 'Screen', '0', 'B|Transactions', 'Inventory', '3', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 22:31:29 2024"
+    },
+    {
+        "DB_Version": 69,
+        "Query": "INSERT INTO `ui_config` (`_id`, `ui_name`, `Module`, `ui_type`, `sub_type`, `query`, `filters`, `display_options`, `redirect_to`, `Extras`) VALUES ('6000', 'Measurements', 'Inventory', 'Masters', NULL, 'SELECT \'MS\', `MEASUREMENT_ID`, `MEASUREMENT_NAME` FROM `measurement_master`', NULL, '{ \"Hide\":[0,1], \"width-list\":[50], \"align-list\":[0], \"print-cols\":[2], \"stretch\":2}', NULL, NULL)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 22:29:12 2024"
+    },
+    {
+        "DB_Version": 70,
+        "Query": "INSERT INTO `widget_master` (`_id`, `Widget_Id`, `Widget_Name`, `Category`, `Parent_Widget`, `Widget_Type`, `Modules`, `Priority`, `isConfiguredInDb`) VALUES (NULL, '6000', 'Measurements', 'Screen', '0', 'A|Masters', 'Inventory', '4', '1')",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 22:31:29 2024"
+    }
+]

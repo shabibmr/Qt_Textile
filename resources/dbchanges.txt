@@ -1,0 +1,927 @@
+ALTER TABLE `sales_invoice_main` ADD `Discount_Amount` FLOAT NULL AFTER `LPO_Ref`, ADD `Discount_Percentage` FLOAT NULL AFTER `Discount_Amount`, ADD `Vat_Amount` FLOAT NULL AFTER `Discount_Percentage`, ADD `Gross_Total` FLOAT NULL AFTER `Vat_Amount`, ADD `ContactID` INT NULL AFTER `Gross_Total`;
+
+CREATE TABLE `settings` (
+  `_id` int(11) NOT NULL,
+  `Cash_Out` int(11) DEFAULT NULL,
+  `Delivery` int(11) DEFAULT NULL,
+  `All_Other` int(11) DEFAULT NULL,
+  `MAC_ID` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`_id`);
+
+
+ALTER TABLE `settings`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `sales_order_main` ADD `Discount_Amount` FLOAT NULL AFTER `LPO_Ref`, ADD `Discount_Percentage` FLOAT NULL AFTER `Discount_Amount`, ADD `Vat_Amount` FLOAT NULL AFTER `Discount_Percentage`, ADD `Gross_Total` FLOAT NULL AFTER `Vat_Amount`, ADD `ContactID` INT NULL AFTER `Gross_Total`
+
+
+CREATE TABLE `shifttable` (
+  `_id` int(11) NOT NULL,
+  `ShiftDate` datetime NOT NULL,
+  `StartVoucherNo` int(11) NOT NULL,
+  `StopVoucherNo` int(11) NOT NULL,
+  `SalesValue` float NOT NULL,
+  `OpeningBalance` float DEFAULT NULL,
+  `CashSales` float DEFAULT NULL,
+  `CardSales` float DEFAULT NULL,
+  `CreditSales` float DEFAULT NULL,
+  `ZomatoSales` float DEFAULT NULL,
+  `ZomatoCash` float DEFAULT NULL,
+  `ZomatoCredit` float DEFAULT NULL,
+  `PurchaseCash` float DEFAULT NULL,
+  `PurchaseCredit` float DEFAULT NULL,
+  `PurchaseTotal` float DEFAULT NULL,
+  `PaymentCash` float DEFAULT NULL,
+  `ReceiptCash` float DEFAULT NULL,
+  `cashierID` int(11) DEFAULT NULL,
+  `voucherPrefix` varchar(10) DEFAULT NULL,
+  `MacID` varchar(30) DEFAULT NULL,
+  `POSNumber` varchar(30) DEFAULT NULL,
+  `paxCount` int(11) DEFAULT NULL,
+  `Narration` varchar(1000) DEFAULT NULL,
+  `ShiftStart_DateTime` datetime DEFAULT NULL,
+  `ShiftEnd_DateTime` datetime DEFAULT NULL,
+  `TotalCash` float DEFAULT NULL,
+  `CasinCounter` float DEFAULT NULL,
+  `CashWithDrawn` float DEFAULT NULL,
+  `CashBalance` float DEFAULT NULL,
+  `TillDifference` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `shifttable`
+  ADD PRIMARY KEY (`_id`);
+
+
+ALTER TABLE `shifttable`
+  MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `user_group_permissions` ADD `MaxDiscountPercent` FLOAT NULL AFTER `DraftStatus`;
+
+
+
+ALTER TABLE `sales_order_main` ADD `Reference` VARCHAR(50) NULL AFTER `ContactID`;
+ALTER TABLE `sales_invoice_main` ADD `Reference` VARCHAR(50) NULL AFTER `ContactID`;
+
+ALTER TABLE `sales_inventory_items` ADD `isPurchaseItem` BOOLEAN NULL AFTER `Dimension`, ADD `isSalesItem` BOOLEAN NULL AFTER `isPurchaseItem`, ADD `KOT_Printer` VARCHAR(100) NULL AFTER `isSalesItem`;
+
+ALTER TABLE `sales_inventory_items` ADD `Default_Input_Tax_Ledger` VARCHAR(500) NULL AFTER `Default_PurchaseLedger_id`, ADD `Default_Output_Tax_Ledger` VARCHAR(500) NULL AFTER `Default_Input_Tax_Ledger`, ADD `Default_Sales_Return_Ledger` VARCHAR(500) NULL AFTER `Default_Output_Tax_Ledger`, ADD `Default_Purchase_Return_Ledger` VARCHAR(500) NULL AFTER `Default_Sales_Return_Ledger`;
+
+CREATE TABLE `gmdatabase`.`Work_Order_Detail` ( `_id` INT NOT NULL AUTO_INCREMENT , `WorkOrder_id` VARCHAR(100) NULL , `SalesOrder_Id` VARCHAR(100) NULL , `requirement_no` VARCHAR(100) NULL , `qty_No` INT NULL , `itemID` VARCHAR(100) NULL , `SerialNo` VARCHAR(100) NULL , `status` VARCHAR(50) NULL , `TechnicanID` VARCHAR(50) NULL , `CompletedDate` DATETIME NULL , `TimeStamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`_id`)) ENGINE = InnoDB;
+
+ALTER TABLE `Work_Order_Detail` ADD `Remarks` VARCHAR(500) NULL AFTER `TimeStamp`;
+
+ALTER TABLE `work_order_detail` ADD `DN_id` VARCHAR(100) NULL AFTER `Remarks`;
+
+ALTER TABLE `settings` ADD `Type_Of_Trade` VARCHAR(30) NULL AFTER `MAC_ID`;
+
+ALTER TABLE `settings` ADD `Default_Cash` VARCHAR(100) NULL AFTER `Type_Of_Trade`;
+
+ALTER TABLE `settings` ADD `POS_Number` VARCHAR(30) NULL AFTER `Default_Cash`;
+
+ALTER TABLE `transaction_item_helper` CHANGE `Qty` `Cr_Qty` FLOAT NULL;
+ALTER TABLE `transaction_item_helper` ADD `Dr_Qty` FLOAT NULL AFTER `Cr_Qty`;
+
+ALTER TABLE `transaction_helper` ADD `Debit_Amount` FLOAT NULL AFTER `isAdditional`, ADD `Credit_Amount` FLOAT NULL AFTER `Debit_Amount`, ADD `Ledger_ID` VARCHAR(100) NULL AFTER `Credit_Amount`, ADD `Against_Ledger` VARCHAR(100) NULL AFTER `Ledger_ID`;
+ALTER TABLE `quotation_main` ADD `Location` VARCHAR(500) NULL AFTER `LPO_Ref`;
+
+ALTER TABLE `purchase_invoice_details` ADD `Dimension` VARCHAR(500) NULL AFTER `Requirement_ItemID`, ADD `Length` FLOAT NULL AFTER `Dimension`;
+ALTER TABLE `credit_note_details` ADD `Requirement_ItemID` INT NULL AFTER `Salesman_ID`, ADD `Dimension` VARCHAR(500) NULL AFTER `Requirement_ItemID`, ADD `Length` FLOAT NULL AFTER `Dimension`;
+ALTER TABLE `debit_note_details` ADD `Requirement_ItemID` INT NULL AFTER `Salesman_ID`, ADD `Dimension` VARCHAR(500) NULL AFTER `Requirement_ItemID`, ADD `Length` FLOAT NULL AFTER `Dimension`;
+
+ALTER TABLE `transaction_item_helper` ADD `Time` TIME NULL AFTER `Narration`;
+
+ALTER TABLE `ingredients` ADD `TakeAway` TINYINT NULL AFTER `purchase_item_qty`;
+
+ALTER TABLE `sales_inventory_groups` ADD `GroupNameArabic` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL AFTER `Group_Type`;
+
+ALTER TABLE `settings` ADD `Voucher_Prefix` VARCHAR(50) NULL AFTER `KOT_Copy`;
+ALTER TABLE `settings` ADD `Port_No` VARCHAR(50) NULL AFTER `POS_Number`;
+ALTER TABLE `transaction_item_helper` CHANGE `Amount` `Cr_Amount` FLOAT NULL;
+ALTER TABLE `transaction_item_helper` ADD `Dr_Amount` FLOAT NULL AFTER `Cr_Amount`;
+
+ALTER TABLE `sales_inventory_images` CHANGE `Image` `Image` MEDIUMBLOB NULL;
+
+ALTER TABLE `settings` ADD `SplitTables` INT(11) NULL AFTER `Port_No`;
+ALTER TABLE `settings` CHANGE `SplitTables` `SplitTables` BOOLEAN NULL DEFAULT NULL;
+
+ALTER TABLE `account_groups` ADD `DefaultRecord` BOOLEAN NULL AFTER `Group_Category`;
+ALTER TABLE `settings` ADD `Round_Off` FLOAT NULL AFTER `Voucher_Prefix`;
+ALTER TABLE `ledger_master` ADD `DefaultRecord` BOOLEAN NULL AFTER `TRN`;
+
+ALTER TABLE `ingredients` ADD `TakeAway` BOOLEAN NULL AFTER `purchase_item_qty`;
+
+ALTER TABLE `settings` ADD `Start_Time` TIME NULL AFTER `Round_Off`, ADD `End_Time` TIME NULL AFTER `Start_Time`,ADD `End_Day` INT NULL AFTER `End_Time`;
+
+ALTER TABLE `stock_journal_details` CHANGE `Quantity` `drQty` FLOAT NULL;
+ALTER TABLE `stock_journal_details` ADD `crQty` FLOAT NULL AFTER `drQty`;
+
+ALTER TABLE `sales_inventory_items` ADD `Favourite` BOOLEAN NULL AFTER `Item_Name_Arabic`;
+
+ALTER TABLE `purchase_invoice_main` ADD `Discount_In_Amount` FLOAT NULL AFTER `VoucherStatus`, ADD `Discount_In_Percent` FLOAT NULL AFTER `Discount_In_Amount`, ADD `Gross_Total` FLOAT NULL AFTER `Discount_In_Percent`, ADD `VATAmount` FLOAT NULL AFTER `Gross_Total`;
+
+
+/// Wholesale
+
+ALTER TABLE `sales_invoice_details` ADD `Time` TIME NULL AFTER `Length`;
+
+ALTER TABLE `billwise_records` ADD `Due_Date` Date NULL;
+ALTER TABLE `billwise_records` CHANGE `RefernceNo` RefNo VARCHAR(200) NULL;
+
+
+
+ALTER TABLE `sales_invoice_main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `sales_order_main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `Credit_Note_Main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `Debit_Note_Main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `Purchase_invoice_main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `Delivery_Note_Main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `Material_IN_MAIN` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `purchase_order_main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `Quotation_Main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `Requirement_Main` CHANGE `Converted_To_Sales_Order` `Converted_To_Sales_Order` VARCHAR(100) NULL DEFAULT NULL;
+
+//LEDGER TABLE
+
+INSERT INTO `ledger_master` (`sl_no`, `LEDGER_ID`, `Ledger_Name`, `Ledger_Type`, `Group_Id`, `Opening_Balance`, `Opening_Balance_Date`, `Closing_Balance`, `Turn_Over`, `isIndividual`, `Narration`, `City`, `Address`, `Email`, `Phone_Number`, `Contact_Person_Name`, `Mobile_Number`, `Website`, `Contact_Person`, `Contant_Person_Number`, `PoBox`, `Country`, `Registration_Number`, `Default_Price_List_Id`, `State`, `Birth_Date`, `Credit_Period`, `ParentCompany`, `Fax`, `creditAllowed`, `paymentTerms`, `Tax_Rate`, `Type_Of_Supply`, `Default_Tax_Ledger`, `TRN`, `DefaultRecord`) VALUES
+(1, '0x5x23x1', 'Cash', '', '0x5x23', '0', NULL, 0, 0, 0, '', '', '2016-09-16', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(2, '0x5x21x2', 'HDFC', '', '0x5x21', '0.00', NULL, 0, 0, 0, '', '', '2016-09-16', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(3, '0x7x3', 'Sales', '', '0x7', '0', NULL, 0, 0, 0, '', '', '2016-10-26', '', '', '', '', '', '', '', '', '', '', '', '', '', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, '0x8x4', 'Purchases', '', '0x8', '0', NULL, 0, 0, 0, '', '', '2016-10-26', '', '', '', '', '', '', '', '', '', '', '', '', '', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(5, '0x7x5', 'Sales @ 5%', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Thu Nov 30 2017', 0, '', '', NULL, NULL, 0, NULL, '', NULL, 1),
+(6, '0x2x14x6', 'Output Vat @ 5%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Thu Nov 30 2017', 173664896, '', '', NULL, NULL, 0, NULL, '', NULL, 1),
+(7, '0x2x14x7', 'Input Vat @ 5%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Thu Nov 30 2017', 2, '', '', NULL, NULL, 0, NULL, '', NULL, 1),
+(8, '0x8x8', 'Purchase @ 5%', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Thu Nov 30 2017', -1, '', '', NULL, NULL, 0, NULL, '', NULL, 1),
+(9, '0x8x9', 'Purchase Returns @ 5%', '', '0x8', '0.00', NULL, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Mon Dec 11 2017', 2, '', '', NULL, NULL, 0, '', '0.00', NULL, 1),
+(10, '0x7x10', 'Sales Return @5%', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Mon Dec 11 2017', 2, '', '', NULL, NULL, 0, '', '', NULL, 1),
+(11, '0x12x11', 'Round Off', '', '0x12', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Mon Dec 11 2017', 2, '', '', NULL, NULL, 0, '', '', NULL, 1),
+(12, '0x12x12', 'Discounts', '', '0x12', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Mon Dec 11 2017', 2, '', '', NULL, NULL, 0, '', '', NULL, 1),
+(13, '0x7x13', 'Sales Return', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(14, '0x8x14', 'Purchase Return', '', '0x8', '0.00', NULL, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 7602286, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(15, '0x2x14xICG25', 'Input CGST @ 2.5%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(16, '0x2x14xISG25', 'Input SGST @ 2.5%', '', '0x2x14', '0.00', NULL, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', -8750470, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(17, '0x2x14xOCG25', 'Output CGST @ 2.5%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(18, '0x2x14xOSG25', 'Output SGST @ 2.5%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(19, '0x2x14xICG6', 'Input CGST @ 6%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(20, '0x2x14xISG6', 'Input SGST @ 6%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(21, '0x2x14xOCG6', 'Output CGST @ 6%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(22, '0x2x14xOSG6', 'Output SGST @ 6%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(23, '0x2x14xICG9', 'Input CGST @ 9%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(24, '0x2x14xISG9', 'Input SGST @ 9%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(25, '0x2x14xOCG9', 'Output CGST @ 9%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(26, '0x2x14xOSG9', 'Output SGST @ 9%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(27, '0x2x14xICG14', 'Input CGST @ 14%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(28, '0x2x14xISG14', 'Input SGST @ 14%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(29, '0x2x14xOCG14', 'Output CGST @ 14%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(30, '0x2x14xOSG14', 'Output SGST @ 14%', '', '0x2x14', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(31, '0x7xSV5', 'Sales @ 5% GST', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(32, '0x8xPV5', 'Purchases @ 5% GST', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(33, '0x7xSV12', 'Sales @ 12% GST', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(34, '0x7xSV18', 'Sales @ 18% GST', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(35, '0x7xSV28', 'Sales @ 28 % GST', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(36, '0x8xPV12', 'Purchases @ 12% GST', '', '0x8', '0.00', NULL, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(37, '0x8xPV18', 'Purchases @ 18% GST', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(38, '0x8xPV28', 'Purchases @ 28% GST', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '0.00', '', 1),
+(39, '0x8xPR5', 'Purchase Return @ 5%', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(40, '0x8xPR12', 'Purchase Return @ 12%', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(41, '0x8xPR18', 'Purchase Return @ 18%', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(42, '0x8xPR28', 'Purchase Return @ 28%', '', '0x8', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(43, '0x7xSR5', 'Sales Return @ 5%', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(44, '0x7xSR12', 'Sales Return @ 12%', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(45, '0x7xSR18', 'Sales Return @ 18%', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1),
+(46, '0x7xSR28', 'Sales Return @ 28%', '', '0x7', '0.00', NULL, 0, 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 'Wed Mar 20 2019', 0, '', '', NULL, NULL, 0, '', '', '', 1);
+
+
+// GODOWN
+
+ALTER TABLE `godown`  ADD `Godown_ID` VARCHAR(50) NOT NULL  AFTER `_id`;
+
+create table voucher_no_seq
+(
+voucher_type varchar(100),
+voucher_prefix varchar(100),
+voucher_no varchar(100)
+);
+
+
+UPDATE ledger_master led SET LEDGER_TYPE = (SELECT GROUP_TYPE FROM account_groups where group_id = led.Group_Id);
+
+
+ALTER TABLE `account_groups` ADD INDEX(`Group_ID`, `parent_id`, `group_type`);
+ALTER TABLE `transaction_helper` ADD INDEX(`Voucher_Date`, `ledger_id`);
+ALTER TABLE `transaction_item_helper` ADD INDEX(`ItemID`, voucherID, voucherDate, from_Ledger, to_Ledger);
+
+
+ALTER TABLE `ledger_master` ADD `DbName` VARCHAR(20) NULL AFTER `DefaultRecord`;
+
+//6/13 - Fathima - Item Requirement_ItemID
+
+
+ALTER TABLE `sales_order_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) NULL DEFAULT NULL;
+ALTER TABLE `delivery_note_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) NULL DEFAULT NULL;
+
+ALTER TABLE `payment_voucher_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `journal_voucher_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `contra_voucher_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `wastage_entry_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `stock_entry_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `stock_journal_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `credit_note_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `debit_note_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `material_in_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `purchase_voucher_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+ALTER TABLE `purchase_order_main` ADD `Voucher_Status` INT NULL DEFAULT NULL;
+
+
+
+
+
+//07/29 -- voucher tables
+
+ALTER TABLE `sales_order_main`
+  DROP `Discount_Total`,
+  DROP `Discount_Amount`,
+  DROP `Discount_Percentage`;
+
+ALTER TABLE `sales_order_main` ADD `Currency` VARCHAR(10) NULL AFTER `Reference`,
+ADD `Boxes_Count` INT NULL AFTER `Currency`,
+ADD `Total_Weight` FLOAT NULL AFTER `Boxes_Count`,
+ADD `LR_No` VARCHAR(20) NULL AFTER `Total_Weight`,
+ADD `Voucher_No_Display` VARCHAR(20) NULL AFTER `LR_No`,
+ADD `Requirement_Voucher_List` LONGTEXT NULL AFTER `Voucher_No_Display`,
+ADD `Origin` INT NULL AFTER `Requirement_Voucher_List`;
+ALTER TABLE `sales_order_main` ADD `Round_Off` FLOAT NULL;
+ALTER TABLE `sales_order_main` ADD `PaymentCompleted` VARCHAR(50) NULL AFTER `Salesman_ID`;
+
+ALTER TABLE `sales_order_main` ADD `Customer_Expected_Date` DATE NULL AFTER `Origin`;
+ALTER TABLE `sales_order_details` ADD `Time` TIME NULL AFTER `itemProductionStatus`;
+
+ALTER TABLE `sales_invoice_main` DROP `Discount_Total`, DROP `Discount_Amount`, DROP `Discount_Percentage`;
+ALTER TABLE `sales_invoice_main` ADD `Currency` VARCHAR(10) NULL AFTER `Reference`,
+ADD `Boxes_Count` INT NULL AFTER `Currency`,
+ADD `Total_Weight` FLOAT NULL AFTER `Boxes_Count`,
+ADD `LR_No` VARCHAR(20) NULL AFTER `Total_Weight`,
+ADD `Voucher_No_Display` VARCHAR(20) NULL AFTER `LR_No`,
+ADD `Requirement_Voucher_List` LONGTEXT NULL AFTER `Voucher_No_Display`,
+ADD `Origin` INT NULL AFTER `Requirement_Voucher_List`,
+ADD `Customer_Expected_Date` DATE NULL AFTER `Round_Off`;
+
+
+ALTER TABLE `sales_invoice_details`add `ItemVoucherStatus` FLOAT NULL DEFAULT '0', add `itemProductionStatus` FLOAT NULL DEFAULT '0';
+
+ALTER TABLE `purchase_invoice_main`
+ADD `MODE_OF_SERVICE` varchar(10) DEFAULT NULL,
+ADD `Vat_Amount` float DEFAULT NULL,
+ADD `ContactID` int(11) DEFAULT NULL,
+ADD `Reference` varchar(50) DEFAULT NULL,
+ADD `Round_Off` float DEFAULT NULL,
+ADD `Customer_Expected_Date` date DEFAULT NULL,
+ADD `Currency` VARCHAR(10) NULL AFTER `Reference`,
+ADD `Boxes_Count` INT NULL ,
+ADD `Total_Weight` FLOAT NULL,
+ADD `LR_No` VARCHAR(20) NULL ,
+ADD `Voucher_No_Display` VARCHAR(20) NULL ,
+ADD `Requirement_Voucher_List` LONGTEXT NULL ,
+ADD `Origin` INT NULL;
+
+
+
+ALTER TABLE `purchase_order_main` ADD `MODE_OF_SERVICE` varchar(10) DEFAULT NULL, ADD `Vat_Amount` float DEFAULT NULL, ADD `ContactID` int(11) DEFAULT NULL, ADD `Reference` varchar(50) DEFAULT NULL, ADD `Round_Off` float DEFAULT NULL, ADD `Customer_Expected_Date` date DEFAULT NULL, ADD `Currency` VARCHAR(10) NULL AFTER `Reference`, ADD `Boxes_Count` INT NULL , ADD `Total_Weight` FLOAT NULL, ADD `LR_No` VARCHAR(20) NULL , ADD `Voucher_No_Display` VARCHAR(20) NULL , ADD `Requirement_Voucher_List` LONGTEXT NULL , ADD `Origin` INT NULL
+ALTER TABLE `payment_voucher_details` ADD `Cr_Amount` FLOAT NULL AFTER `Amount`, ADD `Dr_Amount` FLOAT NULL AFTER `Cr_Amount`;
+ALTER TABLE `receipt_voucher_details` ADD `Cr_Amount` FLOAT NULL AFTER `Amount`, ADD `Dr_Amount` FLOAT NULL AFTER `Cr_Amount`;
+
+
+ALTER TABLE `log` CHANGE `data` `data` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `log` ADD `client_id` VARCHAR(10) NULL AFTER `status`;
+
+
+ALTER TABLE `ledger_master` CHANGE `DbName` `DbName` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+
+CREATE TABLE `sendchannel` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `notification_data` text NOT NULL,
+ `todbname` varchar(255) NOT NULL,
+ `time_stamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+ `typeofdata` varchar(255) NOT NULL,
+ `generated_transactionid` varchar(20) NOT NULL,
+ `Action` int(11) NOT NULL,
+ PRIMARY KEY (`id`),
+ UNIQUE KEY `id` (`id`)
+);
+
+CREATE TABLE `receivechannel` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `notification_data` text NOT NULL,
+ `fromdbname` varchar(255) NOT NULL,
+ `time_stamp` datetime(6) DEFAULT NULL,
+ `typeofdata` varchar(255) NOT NULL,
+ `generated_transactionid` varchar(20) NOT NULL,
+ `Action` int(11) NOT NULL,
+ `isReceived` tinyint(1) DEFAULT 0,
+ `isAccepted` tinyint(1) DEFAULT NULL,
+ `isRejected` tinyint(1) DEFAULT NULL,
+ PRIMARY KEY (`id`),
+ UNIQUE KEY `id` (`id`)
+);
+
+
+ALTER TABLE `godown` ADD `isProfitCentre` BOOLEAN NULL AFTER `Godown_Narration`;
+ALTER TABLE `proxy_transaction_helper` ADD `isProfitCentre` VARCHAR(50) NULL ;
+ALTER TABLE `transaction_helper` ADD `isProfitCentre` VARCHAR(50) NULL ;
+
+ALTER TABLE `work_order_detail` ADD `Voucher_Prefix` VARCHAR(10) NULL AFTER `DN_id`;
+ALTER TABLE `work_order_detail`  ADD `Start_TimeStamp` TIMESTAMP NULL  AFTER `Voucher_Prefix`,  ADD `Completion_Timestamp` TIMESTAMP NULL  AFTER `Start_TimeStamp`,  ADD `Section` VARCHAR(20) NULL  AFTER `Completion_Timestamp`;
+ALTER TABLE `work_order_detail` ADD `Price` FLOAT NULL AFTER `qty_No`;
+ALTER TABLE `work_order_detail` CHANGE `qty_No` `Quantity` INT(11) NULL DEFAULT NULL;
+
+
+ALTER TABLE `sales_order_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `purchase_order_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `sales_invoice_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `purchase_invoice_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `Delivery_Note_Main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `receipt_note_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `Credit_Note_Main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `debit_note_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `payment_voucher_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+ALTER TABLE `receipt_voucher_main` ADD `TransactionId` VARCHAR(20) NULL AFTER `Round_Off`;
+
+CREATE TABLE `wastage_entry_main` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `Voucher_No` varchar(100) NOT NULL,
+ `Voucher_Prefix` varchar(100) NOT NULL,
+ `Date_Created` date NOT NULL,
+ `Voucher_Date` date NOT NULL,
+ `TimeStamp` timestamp NOT NULL DEFAULT current_timestamp(),
+ `Ledger_ID` varchar(100) NULL,
+ `Billing_Name` varchar(100) DEFAULT NULL,
+ `Total` float DEFAULT NULL,
+ `Discount_in_Amount` float DEFAULT NULL,
+ `Discount_in_Percent` float DEFAULT NULL,
+ `Narration` varchar(2000) DEFAULT NULL,
+ `Added_By` varchar(100) DEFAULT NULL,
+ `Delivery_Date` date DEFAULT NULL,
+ `Completion_Probability` float DEFAULT NULL,
+ `Credit_Period` int(11) DEFAULT NULL,
+ `POC_Name` varchar(100) DEFAULT NULL,
+ `POC_Phone` varchar(100) DEFAULT NULL,
+ `POC_Email` varchar(100) DEFAULT NULL,
+ `Project_ID` varchar(100) DEFAULT NULL,
+ `Revision_Number` varchar(100) DEFAULT NULL,
+ `Converted_To_Sales_Order` varchar(100) DEFAULT NULL,
+ `Quotation_Dropped` tinyint(1) DEFAULT NULL,
+ `VoucherStatus` varchar(50) DEFAULT NULL,
+ `Quotation_Dropped_Reason` varchar(2000) DEFAULT NULL,
+ `Requirement_Voucher_No` varchar(100) DEFAULT NULL,
+ `Salesman_ID` varchar(100) DEFAULT NULL,
+ `PaymentCompleted` varchar(50) DEFAULT NULL,
+ `LPO_Ref` varchar(100) DEFAULT NULL,
+ `MODE_OF_SERVICE` varchar(10) DEFAULT NULL,
+ `Vat_Amount` float DEFAULT NULL,
+ `Gross_Total` float DEFAULT NULL,
+ `ContactID` int(11) DEFAULT NULL,
+ `Reference` varchar(50) DEFAULT NULL,
+ `Currency` varchar(10) DEFAULT NULL,
+ `Boxes_Count` int(11) DEFAULT NULL,
+ `Total_Weight` float DEFAULT NULL,
+ `LR_No` varchar(20) DEFAULT NULL,
+ `Voucher_No_Display` varchar(20) DEFAULT NULL,
+ `Requirement_Voucher_List` longtext DEFAULT NULL,
+ `Origin` int(11) DEFAULT NULL,
+ `Round_Off` float DEFAULT NULL,
+ `Customer_Expected_Date` date DEFAULT NULL,
+ PRIMARY KEY (`_id`)
+) ;
+
+CREATE TABLE `wastage_entry_details` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `Voucher_No` varchar(100) NOT NULL,
+ `Voucher_Prefix` varchar(100) NOT NULL,
+ `Voucher_Date` date NOT NULL,
+ `Inventory_Item_ID` varchar(100) NOT NULL,
+ `Quantity` float NOT NULL,
+ `Price` float NOT NULL,
+ `UOM_id` varchar(50) DEFAULT NULL,
+ `PriceLevel` varchar(100) DEFAULT NULL,
+ `isCompoundItem` tinyint(1) DEFAULT NULL,
+ `subItemOff_list_ID` varchar(100) DEFAULT NULL,
+ `Discount_Percent` float DEFAULT NULL,
+ `Discount_Amount` float DEFAULT NULL,
+ `Subtotal` float DEFAULT NULL,
+ `Dimension` varchar(500) DEFAULT NULL,
+ `Project_ID` varchar(100) DEFAULT NULL,
+ `Item_Narration` varchar(2000) DEFAULT NULL,
+ `Item_Description` varchar(2000) DEFAULT NULL,
+ `Salesman_ID` varchar(100) DEFAULT NULL,
+ `Requirement_ItemID` int(11) DEFAULT NULL,
+ `Length` float DEFAULT NULL,
+ `Time` time DEFAULT NULL,
+ `ItemVoucherStatus` float DEFAULT 0,
+ `itemProductionStatus` float DEFAULT 0,
+ PRIMARY KEY (`_id`)
+);
+
+alter TABLE ingredients add  `purchase_unit` varchar(10) DEFAULT NULL;
+
+CREATE TABLE `error_reporting` (
+  `id` int(11) NOT NULL,
+  `error` varchar(255) NOT NULL,
+  `tablename` varchar(255) NOT NULL,
+  `query` varchar(255) NOT NULL,
+`time_stamp` timestamp NOT NULL
+) ;
+
+ALTER TABLE `error_reporting`
+  ADD PRIMARY KEY (`id`);
+
+CREATE TABLE `stock_entry_details` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `Entry_id` int(11) NOT NULL,
+ `Item_Name` varchar(50) NOT NULL,
+ `Quantity` float NOT NULL,
+ `Defective` varchar(50) DEFAULT NULL,
+ `Date` varchar(50) DEFAULT NULL,
+ PRIMARY KEY (`_id`)
+);
+
+
+ALTER TABLE `voucher_no_seq` ADD `_id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`_id`);
+
+
+CREATE TABLE `transaction_bom_helper` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `ItemID` varchar(200) NOT NULL,
+ `From_Ledger` varchar(200) DEFAULT NULL,
+ `To_Ledger` varchar(200) DEFAULT NULL,
+ `VoucherID` varchar(100) DEFAULT NULL,
+ `VoucherPrefix` varchar(20) DEFAULT NULL,
+ `VoucherDate` datetime DEFAULT NULL,
+ `VoucherType` varchar(100) DEFAULT NULL,
+ `From_Location` varchar(100) DEFAULT NULL,
+ `To_Location` varchar(100) DEFAULT NULL,
+ `Cr_Qty` float DEFAULT NULL,
+ `Dr_Qty` float DEFAULT NULL,
+ `Cr_Amount` float DEFAULT NULL,
+ `Dr_Amount` float DEFAULT NULL,
+ `Narration` varchar(1000) DEFAULT NULL,
+ `Time` time DEFAULT NULL,
+ PRIMARY KEY (`_id`)
+) ;
+
+insert into transaction_bom_helper (`ItemID`, `From_Ledger`, `To_Ledger`, `VoucherID`, `VoucherPrefix`, `VoucherDate`, `VoucherType`, `From_Location`, `To_Location`, `Cr_Qty`, `Dr_Qty`, `cr_Amount`, `Narration`, `Time`, `dr_Amount` )
+SELECT  ing.purchase_item, `From_Ledger`, `To_Ledger`, `VoucherID`, `VoucherPrefix`, `VoucherDate`, `VoucherType`, `From_Location`, `To_Location`, `Cr_Qty`*ing.purchase_item_qty/ing.sales_item_qty, `Dr_Qty`*ing.purchase_item_qty/ing.sales_item_qty, `cr_Amount`*ing.purchase_item_qty/ing.sales_item_qty, `Narration`, `Time`, `dr_Amount`*ing.purchase_item_qty/ing.sales_item_qty FROM `transaction_item_helper` trans
+INNER JOIN ingredients ing
+ON trans.itemID = ing.sales_item
+AND (SELECT isSalesItem from sales_inventory_items where item_id = trans.itemID) = 1;
+
+
+
+################################### clean slate #################################
+
+##8/15
+
+CREATE TABLE `item_label_Data`
+( `_id` INT NOT NULL AUTO_INCREMENT ,
+`item_id` VARCHAR(100) NULL ,
+`nutritions` LONGTEXT NOT NULL ,
+`MRP` FLOAT NOT NULL ,
+`Allergen_advice` TEXT NOT NULL ,
+`Net_weight` FLOAT NOT NULL ,
+`Unit` VARCHAR NOT NULL ,
+`Ingredients` TEXT NOT NULL ,
+`is_Veg` BOOLEAN NOT NULL ,
+PRIMARY KEY (`_id`));
+
+ALTER TABLE `receivechannel` DROP `isReceived`, DROP `isAccepted`, DROP `isRejected`;
+ALTER TABLE `receivechannel` ADD `Status` INT NOT NULL DEFAULT '0' AFTER `Action`;
+
+ALTER TABLE `log` CHANGE `timestamp` `timestamp` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6);
+ALTER TABLE `log` ADD UNIQUE(`timestamp`);
+
+ALTER TABLE `time_details`
+CHANGE `A` `A` TIMESTAMP(6) NOT NULL,
+CHANGE `B` `B` TIMESTAMP(6) NOT NULL,
+CHANGE `C` `C` TIMESTAMP(6) NOT NULL;
+
+
+ALTER TABLE `time_details` ADD `C` TIMESTAMP(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000';
+INSERT INTO `time_details` (`client_id`, `A`, `B`, `C`, `D`, `E`, `dbName`) VALUES ('E', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', '');
+
+
+ALTER TABLE `purchase_invoice_main`  ADD `Invoice_No` VARCHAR(20) NULL  AFTER `Customer_Expected_Date`;
+ALTER TABLE `purchase_invoice_main`  ADD `Invoice_Date` DATE  NULL  AFTER `Customer_Expected_Date`;
+
+ALTER TABLE `credit_note_main`  ADD `Invoice_No` VARCHAR(20) NULL  AFTER `Customer_Expected_Date`;
+ALTER TABLE `credit_note_main`  ADD `Invoice_Date` DATE  NULL  AFTER `Customer_Expected_Date`;
+
+ALTER TABLE `debit_note_main`  ADD `Invoice_No` VARCHAR(20) NULL  AFTER `Customer_Expected_Date`;
+ALTER TABLE `debit_note_main`  ADD `Invoice_Date` DATE  NULL  AFTER `Customer_Expected_Date`;
+
+
+DELIMITER $$
+CREATE DEFINER=`user2grey`@`%` PROCEDURE `UpdateVoucherNo`(IN `VoucherType` VARCHAR(100), IN `VoucherPrefix` VARCHAR(100), OUT `VoucherNo` VARCHAR(100))
+BEGIN
+
+DECLARE v_no VARCHAR(100);
+
+UPDATE voucher_no_seq
+SET voucher_no =  cast(voucher_no as int) + 1
+WHERE voucher_type = VoucherType
+AND voucher_prefix = VoucherPrefix;
+
+SELECT voucher_no into VoucherNo
+FROM voucher_no_seq
+WHERE voucher_type = VoucherType
+AND voucher_prefix = VoucherPrefix;
+
+
+END$$
+DELIMITER ;
+
+ALTER TABLE `sales_invoice_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `purchase_invoice_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `purchase_order_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `sales_order_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `debit_note_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `credit_note_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `delivery_note_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `receipt_note_details` CHANGE `Requirement_ItemID` `Requirement_ItemID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `sendchannel` CHANGE `time_stamp` `time_stamp` TIMESTAMP(6) NULL;
+ALTER TABLE `receivechannel` CHANGE `time_stamp` `time_stamp` TIMESTAMP(6) NULL;
+
+ALTER TABLE `transaction_item_helper` ADD `Requirement_ItemID` VARCHAR(100) NULL AFTER `Time`;
+
+ALTER TABLE `credit_note_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+ALTER TABLE `debit_note_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+ALTER TABLE `sales_invoice_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+ALTER TABLE `sales_order_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+ALTER TABLE `purchase_invoice_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+ALTER TABLE `purchase_order_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+ALTER TABLE `delivery_note_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+ALTER TABLE `receipt_note_details`  ADD `Tax_Rate` FLOAT NULL  AFTER `itemProductionStatus`,  ADD `Tax_Amount` FLOAT NULL  AFTER `Tax_Rate`;
+
+
+ALTER TABLE `contra_voucher_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `credit_note_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `debit_note_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `delivery_note_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `journal_voucher_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `material_in_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `payment_voucher_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `purchase_invoice_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `purchase_order_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `receipt_note_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `receipt_voucher_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `sales_invoice_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `sales_order_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `stock_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `wastage_entry_main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `Stock_Journal_Main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `Quotation_Main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `Godown_Transfer_Main` ADD `Last_Updated` DATETIME(6) NULL DEFAULT CURRENT_TIMESTAMP AFTER `TimeStamp`;
+ALTER TABLE `wastage_entry_main` ADD `Last_Updated` DATETIME(6) NULL AFTER `TimeStamp`;
+
+//&&&&&&&&&&&&&&&&&&&&&
+
+ALTER TABLE `sendchannel` CHANGE `time_stamp` `time_stamp` TIMESTAMP(6) NULL DEFAULT CURRENT_TIMESTAMP(6);
+
+CREATE TABLE `work_order_main` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `Voucher_No` varchar(100) NOT NULL,
+ `Voucher_Prefix` varchar(100) NOT NULL,
+ `Date_Created` date NOT NULL,
+ `Voucher_Date` date NOT NULL,
+ `TimeStamp` timestamp NOT NULL DEFAULT current_timestamp(),
+ `Last_Updated` datetime(6) DEFAULT current_timestamp(6),
+ `Ledger_ID` varchar(100) DEFAULT NULL,
+ `Billing_Name` varchar(100) DEFAULT NULL,
+ `Total` float NOT NULL,
+ `Discount_in_Amount` float DEFAULT NULL,
+ `Discount_in_Percent` float DEFAULT NULL,
+ `Narration` varchar(2000) DEFAULT NULL,
+ `Added_By` varchar(100) DEFAULT NULL,
+ `Delivery_Date` date DEFAULT NULL,
+ `Completion_Probability` float DEFAULT NULL,
+ `Credit_Period` int(11) DEFAULT NULL,
+ `POC_Name` varchar(100) DEFAULT NULL,
+ `POC_Phone` varchar(100) DEFAULT NULL,
+ `POC_Email` varchar(100) DEFAULT NULL,
+ `Project_ID` varchar(100) DEFAULT NULL,
+ `Revision_Number` varchar(100) DEFAULT NULL,
+ `Converted_To_Sales_Order` varchar(100) DEFAULT NULL,
+ `Quotation_Dropped` tinyint(1) DEFAULT NULL,
+ `Quotation_Dropped_Reason` varchar(2000) DEFAULT NULL,
+ `Requirement_Voucher_No` varchar(100) DEFAULT NULL,
+ `Salesman_ID` varchar(100) DEFAULT NULL,
+ `PaymentCompleted` varchar(50) DEFAULT NULL,
+ `VoucherStatus` varchar(50) DEFAULT NULL,
+ `LPO_Ref` varchar(100) DEFAULT NULL,
+ `MODE_OF_SERVICE` varchar(10) DEFAULT NULL,
+ `Vat_Amount` float DEFAULT NULL,
+ `Gross_Total` float DEFAULT NULL,
+ `ContactID` int(11) DEFAULT NULL,
+ `Reference` varchar(50) DEFAULT NULL,
+ `Currency` varchar(10) DEFAULT NULL,
+ `Boxes_Count` int(11) DEFAULT NULL,
+ `Total_Weight` float DEFAULT NULL,
+ `LR_No` varchar(20) DEFAULT NULL,
+ `Voucher_No_Display` varchar(20) DEFAULT NULL,
+ `Requirement_Voucher_List` longtext DEFAULT NULL,
+ `Origin` int(20) DEFAULT NULL,
+ `Customer_Expected_Date` date DEFAULT NULL,
+ `Round_Off` float DEFAULT NULL,
+ `TransactionId` varchar(20) DEFAULT NULL,
+ PRIMARY KEY (`_id`)
+) ;
+
+
+ALTER TABLE `work_order_detail` ADD `Expected_Date` DATE NULL AFTER `CompletedDate`;
+CREATE TABLE `Stock_Request_Main` ( `_id` INT NOT NULL AUTO_INCREMENT , `Voucher_No` VARCHAR(100) NOT NULL , `Voucher_Date` DATE NOT NULL , `Kitchen_Area` VARCHAR(100) NULL , `Time_Stamp` TIMESTAMP NULL , `Last_Updated` DATETIME(6) NULL , `Added_By` VARCHAR(100) NULL , `Narration` VARCHAR(2000) NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB;
+CREATE TABLE `Stock_Request_Details` ( `_id` INT NOT NULL AUTO_INCREMENT , `Voucher_No` VARCHAR(100) NOT NULL , `Item_ID` VARCHAR(100) NOT NULL , `UOM_ID` VARCHAR(50) NULL , `Time_Stamp` TIMESTAMP NULL , `Request_Qty` FLOAT NULL , `Issue_qty` FLOAT NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB;
+ALTER TABLE `Stock_Request_Main` ADD `Voucher_Prefix` VARCHAR(50) NOT NULL AFTER `Voucher_No`;
+ALTER TABLE `Stock_Request_Details` ADD `Voucher_Prefix` VARCHAR(50) NOT NULL AFTER `Voucher_No`;
+ALTER TABLE `stock_request_main` CHANGE `Voucher_Date` `Voucher_Date` DATE NULL;
+
+ALTER TABLE `work_order_detail`
+ADD `UOM_Id` VARCHAR(50) NULL AFTER `Section`,
+ADD `ItemVoucherStatus` INT NULL AFTER `UOM_Id`,
+ADD `itemProductionStatus` INT NULL AFTER `ItemVoucherStatus`,
+ADD `Requirement_ItemID` VARCHAR(100) NULL AFTER `itemProductionStatus`,
+ADD `Salesman_ID` VARCHAR(100) NULL AFTER `Requirement_ItemID`,
+ADD `Project_ID` VARCHAR(100) NULL AFTER `Salesman_ID`;
+
+
+
+
+ALTER TABLE `voucher_no_seq` ADD UNIQUE( `voucher_type`, `voucher_prefix`);
+ALTER TABLE `voucher_no_seq`
+CHANGE `voucher_type` `voucher_type` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+CHANGE `voucher_prefix` `voucher_prefix` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+CHANGE `voucher_no` `voucher_no` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+
+
+
+ALTER TABLE `transaction_item_helper` ADD `Consumed` FLOAT(10,2) NULL AFTER `Requirement_ItemID`;
+
+ALTER TABLE `transaction_item_helper` ADD `Price` FLOAT(10,2) NULL AFTER `Requirement_ItemID`;
+
+ALTER TABLE `transaction_bom_helper` ADD `Consumed` FLOAT(10,2) NULL AFTER `Requirement_ItemID`;
+
+ALTER TABLE `transaction_bom_helper` ADD `Price` FLOAT(10,2) NULL AFTER `Requirement_ItemID`;
+
+
+ALTER TABLE `sales_invoice_main` ADD `PaymentSplit` BOOLEAN NOT NULL DEFAULT FALSE AFTER `Customer_Expected_Date`;
+
+ALTER TABLE `companyprofile` ADD `To_Mail_Addresses` VARCHAR(2000) NULL AFTER `Installation_Date`;
+ALTER TABLE `error_reporting` CHANGE `id` `_id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `settings` ADD `Token_System` BOOLEAN NULL AFTER `SplitTables`;
+ALTER TABLE `settings` ADD `Inclusive` BOOLEAN NULL AFTER `SplitTables`;
+
+
+CREATE TABLE `godown_tranfer_main` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `Voucher_No` varchar(100) NOT NULL,
+ `Voucher_Prefix` varchar(100) NOT NULL,
+ `Date_Created` date NOT NULL,
+ `Voucher_Date` date NOT NULL,
+ `TimeStamp` timestamp NOT NULL DEFAULT current_timestamp(),
+ `Last_Updated` datetime(6) DEFAULT current_timestamp(6),
+ `Ledger_ID` varchar(100) DEFAULT NULL,
+ `Billing_Name` varchar(100) DEFAULT NULL,
+ `Total` float DEFAULT NULL,
+ `Narration` varchar(2000) DEFAULT NULL,
+ `Added_By` varchar(100) DEFAULT NULL,
+ `Delivery_Date` date DEFAULT NULL,
+ `Completion_Probability` float DEFAULT NULL,
+ `Credit_Period` int(11) DEFAULT NULL,
+ `POC_Name` varchar(100) DEFAULT NULL,
+ `POC_Phone` varchar(100) DEFAULT NULL,
+ `POC_Email` varchar(100) DEFAULT NULL,
+ `Project_ID` varchar(100) DEFAULT NULL,
+ `Revision_Number` varchar(100) DEFAULT NULL,
+ `Requirement_Voucher_No` varchar(100) DEFAULT NULL,
+ `Salesman_ID` varchar(100) DEFAULT NULL,
+ `From_Location` varchar(100) DEFAULT NULL,
+ `To_Location` varchar(100) DEFAULT NULL,
+ PRIMARY KEY (`_id`)
+) ;
+
+ALTER TABLE `stock_request_main` ADD `From_Location` VARCHAR(100) NULL AFTER `Narration`,
+ADD `To_Location` VARCHAR(100) NULL AFTER `From_Location`;
+ALTER TABLE work_order_main ADD `Section` VARCHAR(100) NULL;
+ALTER TABLE sales_inventory_items ADD `Section` VARCHAR(100) NULL;
+
+CREATE TABLE `godown_transfer_details` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `Voucher_No` varchar(100) NOT NULL,
+ `Voucher_Prefix` varchar(100) NOT NULL,
+ `Voucher_Date` date NOT NULL,
+ `Inventory_Item_ID` varchar(100) NOT NULL,
+ `Quantity` float NOT NULL,
+ `Price` float NOT NULL,
+ `UOM_id` varchar(50) DEFAULT NULL,
+ `PriceLevel` varchar(100) DEFAULT NULL,
+ `isCompoundItem` tinyint(1) DEFAULT NULL,
+ `subItemOff_list_ID` varchar(100) DEFAULT NULL,
+ `Discount_Percent` float DEFAULT NULL,
+ `Discount_Amount` float DEFAULT NULL,
+ `Subtotal` float DEFAULT NULL,
+ `Project_ID` varchar(100) DEFAULT NULL,
+ `Item_Narration` varchar(2000) DEFAULT NULL,
+ `Item_Description` varchar(2000) DEFAULT NULL,
+ `Salesman_ID` varchar(100) DEFAULT NULL,
+ `Adj_value` decimal(10,2) DEFAULT NULL,
+ PRIMARY KEY (`_id`)
+);
+
+
+
+ALTER TABLE `settings` ADD `Fifo_Valuation` BOOLEAN NULL DEFAULT FALSE AFTER `Token_System`;
+
+
+ALTER TABLE `stock_request_details` ADD `WorkOrder_Id` VARCHAR(50) NULL AFTER `Issue_qty`;
+ALTER TABLE `stock_request_details` ADD `Calulated_Qty` FLOAT NULL AFTER `Time_Stamp`;
+ALTER TABLE `sales_inventory_items` ADD `Flags` LONGTEXT NULL AFTER `Section`;
+
+
+ALTER TABLE `wastage_entry_main` CHANGE `Ledger_ID` `Ledger_ID` VARCHAR(100) NULL;
+
+
+// UNIQUE CONSTRAINTS
+ALTER TABLE `sales_inventory_groups` ADD UNIQUE( `Group_Id`);
+ALTER TABLE `sales_inventory_items` ADD UNIQUE( `Item_ID`);
+ALTER TABLE `account_groups` ADD UNIQUE( `Group_ID`);
+ALTER TABLE `ledger_master` ADD UNIQUE( `Ledger_ID`);
+ALTER TABLE `godown` ADD UNIQUE( `Godown_ID`);
+ALTER TABLE `price_lists` ADD UNIQUE( `Price_List_ID`);
+ALTER TABLE `uomlist` ADD UNIQUE( `UOM_ID`);
+
+ALTER TABLE `sales_invoice_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `purchase_invoice_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `sales_order_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `purchase_order_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `delivery_note_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `receipt_note_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `credit_note_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `debit_note_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `payment_voucher_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `receipt_voucher_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `journal_voucher_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `contra_voucher_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `work_order_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `stock_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `wastage_entry_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `stock_journal_main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+ALTER TABLE `Stock_Request_Main` ADD UNIQUE( `Voucher_No`, `Voucher_Prefix`);
+
+
+ALTER TABLE `sales_inventory_items` ADD `Category` VARCHAR(100) NULL ;
+ALTER TABLE `sales_inventory_items` ADD `DefaultLedgerID` VARCHAR(100) NULL ;
+
+ALTER TABLE `sales_inventory_items` CHANGE `PRICEW` `IsStockItem` BOOLEAN NULL DEFAULT NULL;
+ALTER TABLE `ReceiveChannel` CHANGE `time_stamp` `time_stamp` TIMESTAMP(6) NULL DEFAULT CURRENT_TIMESTAMP(6);
+
+ALTER TABLE `transaction_bom_helper` ADD `Requirement_ItemID` VARCHAR(100) NULL AFTER `Time`;
+
+ALTER TABLE `companyprofile` ADD `VoucherPrefix` VARCHAR(10) NOT NULL AFTER `UseBom`, ADD `ClientID` VARCHAR(10) NOT NULL AFTER `VoucherPrefix`;
+
+
+// indexes
+
+ALTER TABLE `sales_inventory_groups` ADD INDEX( `Group_ID`, `Group_Name`, `Parent_ID`);
+ALTER TABLE `transaction_item_helper` ADD INDEX( `ItemID`, `VoucherDate`, `From_Location`, `To_Location`, `Cr_Qty`, `Dr_Qty`, `Cr_Amount`, `Dr_Amount`);
+
+
+ALTER TABLE `transaction_helper` CHANGE `Transaction_Amount` `Transaction_Amount` FLOAT(10,2) NULL DEFAULT NULL;
+ALTER TABLE `transaction_helper` CHANGE `Credit_Amount` `Credit_Amount` FLOAT(10,2) NULL DEFAULT NULL;
+ALTER TABLE `transaction_helper` CHANGE `Debit_Amount` `Debit_Amount` FLOAT(10,2) NULL DEFAULT NULL;
+
+ALTER TABLE `transaction_item_helper`
+CHANGE `Cr_Qty` `Cr_Qty` FLOAT(10,3) NULL DEFAULT NULL,
+CHANGE `Dr_Qty` `Dr_Qty` FLOAT(10,3) NULL DEFAULT NULL,
+CHANGE `Cr_Amount` `Cr_Amount` FLOAT(10,2) NULL DEFAULT NULL,
+CHANGE `Dr_Amount` `Dr_Amount` FLOAT(10,2) NULL DEFAULT NULL,
+CHANGE `Price` `Price` FLOAT(10,2) NULL DEFAULT NULL,
+CHANGE `Consumed` `Consumed` FLOAT(10,3) NULL DEFAULT NULL;
+
+ALTER TABLE `transaction_item_helper` ADD `Consumed_ReqId` VARCHAR(100) NULL AFTER `Consumed`;
+ALTER TABLE `transaction_bom_helper`  ADD `Consumed_ReqId` VARCHAR(100) NULL  AFTER `Consumed`;
+ALTER TABLE `stock_request_Details` ADD `Requirement_ItemID` VARCHAR(100) NULL
+
+
+ALTER TABLE `error_reporting` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `error_reporting` CHANGE `error` `error` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `error_reporting` CHANGE `query` `query` LONGTEXT NOT NULL;
+
+
+CREATE TABLE `Attendance_Details`
+( `_id` INT NOT NULL AUTO_INCREMENT ,
+`Employee_Id` VARCHAR(20) NOT NULL ,
+`Working_Day` DATE NOT NULL ,
+`Start_Time` TIME NOT NULL ,
+`End_Time` TIME NOT NULL ,
+`Working_Hours` INT NOT NULL ,
+`OverTime` INT NOT NULL ,
+`HalfDay` BOOLEAN NOT NULL ,
+PRIMARY KEY (`_id`)) ;
+ALTER TABLE `attendance_details` ADD `Narration` VARCHAR(200) NULL AFTER `HalfDay`;
+
+
+
+CREATE TABLE `employee_salary_details`
+( `_id` INT NOT NULL AUTO_INCREMENT , `Employee_Id` VARCHAR(20) NOT NULL ,
+`Basic_Salary` FLOAT(10,2) NULL ,
+`DA` FLOAT(10,2) NULL , `HRA` FLOAT(10,2) NULL , `Conveyance` FLOAT(10,2) NULL ,
+`Monthly_Leave` INT NULL , `Weekly_Leave` INT NULL , `Annual_Leave` INT NULL ,
+PRIMARY KEY (`_id`), UNIQUE (`Employee_Id`(20))) ;
+ALTER TABLE `employee_salary_details` ADD `Working_Hours` INT NULL AFTER `Annual_Leave`;
+ALTER TABLE `employee_salary_details` ADD `OverTime_Pay` FLOAT NULL AFTER `Working_Hours`;
+
+CREATE TABLE `payslip_main` (
+ `_id` int(11) NOT NULL AUTO_INCREMENT,
+ `Salary_Period_Start` date DEFAULT NULL,
+ `Salary_Period_End` date DEFAULT NULL,
+ `Date_Created` date DEFAULT NULL,
+ `Created_By` varchar(25) DEFAULT NULL,
+ `Narration` varchar(200) DEFAULT NULL,
+ PRIMARY KEY (`_id`)
+) ;
+
+ALTER TABLE `Employee_Salary_Details` ADD `isActive` BOOLEAN NULL AFTER `OverTime_Pay`;
+ALTER TABLE `attendance_details` CHANGE `Start_Time` `Start_Time` TIMESTAMP NOT NULL;
+ALTER TABLE `attendance_details` CHANGE `End_Time` `End_Time` TIMESTAMP NOT NULL;
+
+UPDATE `account_groups` g SET `Group_Type`= (select group_type from account_groups p where p.group_id = g.parent_id ) where group_type is null;
+;
+
+update ledger_master l set ledger_type = (select group_type from account_groups where Group_ID = l.group_id)
+
+CREATE TABLE `Config_Settings` ( `_id` INT(11) NOT NULL AUTO_INCREMENT , `Key` VARCHAR(100) NOT NULL , `Value` VARCHAR(250) NULL , `Time_Stamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `Data_Type` VARCHAR(50) NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB;;
+ALTER TABLE `config_settings` ADD `Text_To_Display` VARCHAR(200) NULL AFTER `Data_Type`,
+ADD `Value_Type` VARCHAR(100) NULL AFTER `Text_To_Display`, ADD `Possible_Values` VARCHAR(500) NULL AFTER `Value_Type`,
+ADD `IsLogged` BOOLEAN NULL AFTER `Possible_Values`;
+ALTER TABLE `stock_request_main` ADD `VoucherStatus` VARCHAR(250) NULL AFTER `To_Location`;
+
+
+ALTER TABLE `employee_salary_details` ADD `Working_Hours` INT NULL AFTER `Annual_Leave`;
+ALTER TABLE `employee_salary_details` ADD `OverTime_Pay` FLOAT NULL AFTER `Working_Hours`;
+
+ALTER TABLE `employee_salary_details` ADD `Salary_Ledger` VARCHAR(20) NULL
+, ADD `Adv_Salary_Ledger`  VARCHAR(20)  NULL;
+
+
+DROP TABLE `accounts_group`, `allsalesbills`, `allvouchers`, `company_info`, `config`, `credit_details`, `credit_voucher`, `debit_details`, `debit_voucher`, `employee`, `intent_entry`, `intent_group`, `inventory`, `item_id_mapping`, `item_stock_helper`, `item_tmp`, `journal_details`, `journal_voucher`, `payment_details`, `payment_voucher`, `purchase_details`, `purchase_inventory_group`, `purchase_inventory_item`, `purchase_voucher`, `receipt_details`, `receipt_voucher`, `sales_details`, `sales_inv_items_used`, `sales_voucher`, `stock_entry`, `stock_entry_details`, `temp_sales_details`, `temp_sales_voucher`, `testjson`, `transcation_helper`, `users`, `wastage_details`, `wastage_voucher`;
+ALTER TABLE Ledger_Master Change Ledger_Type Ledger_Type Varchar(50) NULL;
+
+
+DROP TABLE `accounts_group`, `allsalesbills`, `allvouchers`, `company_info`, `credit_details`, `credit_voucher`, `daily_shift`, `debit_details`, `debit_voucher`, `employee`, `inventory`, `journal_details`, `journal_voucher`, `payment_details`, `payment_voucher`, `purchase_details`, `purchase_inventory_group`, `purchase_inventory_item`, `purchase_voucher`, `quotation_details`, `quotation_details_old`, `quotation_main`, `quotation_main_old`, `receipt_details`, `receipt_voucher`, `requirement_details`, `requirement_main`, `sales_details`, `sales_voucher`, `temp_sales_details`, `temp_sales_voucher`, `wastage_details`, `wastage_voucher`,`intent_entry`,`intent_group`,`old_kot_details`,`old_kot_voucher`,`transcation_helper`,`users`,`stock_entry`, `stock_entry_details`,`testjson`,`config`,`deleted_kot`,`item_stock_helper`;
+ALTER TABLE `sales_inventory_images` CHANGE `ItemId` `Item_Id` VARCHAR(1000);
+
+
+ALTER TABLE `receipt_voucher_details` CHANGE `Narration` `Narration` VARCHAR(2000);
+alter table error_Reporting add client_id varchar(20) null;
+
+ALTER TABLE `ledger_master` ADD `Discount_Percentage` Float(10,2) NULL AFTER `DbName`, ADD `isFrequent` BOOLEAN NULL AFTER `Discount_Percentage`;
+CREATE TABLE `ui_config` ( `_id` INT NOT NULL AUTO_INCREMENT , `ui_name` VARCHAR(50) NOT NULL , `ui_type` VARCHAR(20) NULL , `sub_type` VARCHAR(20) NULL , `query` LONGTEXT NULL , `filters` LONGTEXT NULL , `display_options` LONGTEXT NULL , `redirect_to` INT NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB;
+
+ALTER TABLE `payslip_main` ADD `Employee_Id` VARCHAR(50) NULL AFTER `_id`, ADD `Voucher_No` VARCHAR(20) NULL AFTER `Employee_Id`, ADD `Voucher_Type` VARCHAR(20) NULL AFTER `Voucher_No`, ADD `Voucher_Prefix` VARCHAR(20) NULL AFTER `Voucher_Type`;
+
+DROP TABLE `account_groups`, `employee_details`, `employee_salary_details`, `godown`, `ingredients`, `inventory_group_images`, `ledger_master`, `pricelist_entries`, `price_lists`, `sales_inventory_groups`, `sales_inventory_images`, `sales_inventory_items`, `uomlist`, `uom_conversion`;
+
+update transaction_item_helper set From_Location = 'OUT' WHERE From_Location not in ('GODOWN', 'A2', 'OUT');
+ALTER TABLE `journal_voucher_main` CHANGE `Ledger_ID` `Ledger_ID` VARCHAR(100)  NULL DEFAULT NULL;
+ALTER TABLE `journal_voucher_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL DEFAULT NULL;
+ALTER TABLE `material_in_main` CHANGE `Ledger_ID` `Ledger_ID` VARCHAR(100)  NULL DEFAULT NULL;
+
+ALTER TABLE `purchase_order_itemwise` CHANGE `_id` `_id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`_id`);
+insert into employee_salary_details (Employee_Id, isActive) select _id, isActive from employee_details where _id not in (SELECT Employee_Id from employee_salary_details);
+
+CREATE TABLE `sofis_0325`.`menu_details` ( `_id` INT NOT NULL AUTO_INCREMENT , `Menu_Date` DATE NULL , `Menu_Time` VARCHAR(20) NULL , `Item_Id` VARCHAR(50) NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB;
+
+ alter table address_book add Delivery_Charges float(10,2) null;
+
+
+Alter table address_book ADD `DateOfBirth` date DEFAULT NULL, ADD   `Contact_Uuid` varchar(256) CHARACTER SET utf8 DEFAULT NULL, ADD   `isActive` tinyint(1) DEFAULT NULL, ADD   `Delivery_Charges` float(10,2) DEFAULT NULL;
+
+
+CREATE TABLE `menu_details` (   `_id` int(11) NOT NULL AUTO_INCREMENT,   `Menu_Date` date DEFAULT NULL,   `Menu_time` time DEFAULT NULL,   `Item_Id` varchar(50) DEFAULT NULL,   `status` varchar(20) DEFAULT NULL,   `isEditableTill` timestamp NULL DEFAULT NULL,   PRIMARY KEY (`_id`));
+
+ALTER TABLE `proxy_transaction_helper` ADD `Debit_Amount` FLOAT(10,2) NULL AFTER `isProfitCentre`, ADD `Credit_Amount` FLOAT(10,2) NULL AFTER `Debit_Amount`, ADD `Ledger_Id` VARCHAR(100) NULL AFTER `Credit_Amount`, ADD `Against_Ledger` VARCHAR(100) NULL AFTER `Ledger_Id`;
+ALTER TABLE `sales_order_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL;
+ALTER TABLE `sales_order_main` ADD `Location` VARCHAR(250) NULL ;
+ALTER TABLE `sales_invoice_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL;
+ALTER TABLE `sales_invoice_main` ADD `Location` VARCHAR(250) NULL ;
+ALTER TABLE `purchase_invoice_main` ADD `Location` VARCHAR(250) NULL ;
+ALTER TABLE `purchase_order_main` ADD `Location` VARCHAR(250) NULL ;
+ALTER TABLE `delivery_note_main` ADD `Location` VARCHAR(250) NULL ;
+ALTER TABLE `receipt_note_main` ADD `Location` VARCHAR(250) NULL ;
+ALTER TABLE `credit_note_main` ADD `Location` VARCHAR(250) NULL ;
+ALTER TABLE `debit_note_main` ADD `Location` VARCHAR(250) NULL ;
+
+
+ALTER TABLE `menu_details` ADD `isEnabled` BOOLEAN NULL AFTER `isEditableTill`;

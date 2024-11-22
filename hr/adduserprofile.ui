@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddUserProfile</class>
+ <widget class="QWidget" name="AddUserProfile">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>645</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Employee Profile</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>Personal Information</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="1" column="0">
+          <widget class="QLabel" name="nameLabel">
+           <property name="text">
+            <string>Name:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="nameLineEdit"/>
+         </item>
+         <item row="2" column="1">
+          <widget class="QCheckBox" name="showEmployee">
+           <property name="text">
+            <string>Show Employee</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="fatherSNameLabel">
+           <property name="text">
+            <string>Father's Name:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="fatherSNameLineEdit"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="dateOfBirthLabel">
+           <property name="text">
+            <string>Date of Birth:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QDateEdit" name="dateOfBirthDateEdit">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="genderLabel">
+           <property name="text">
+            <string>Gender:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="genderComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="nationalityLabel">
+           <property name="text">
+            <string>Nationality:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="nationalityLineEdit"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="maritalStatusLabel">
+           <property name="text">
+            <string>Marital Status:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QComboBox" name="maritalStatusComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="emailLabel">
+           <property name="text">
+            <string>Email:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="emailLineEdit"/>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="phoneLabel">
+           <property name="text">
+            <string>Phone:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLineEdit" name="phoneLineEdit"/>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="addressLabel">
+           <property name="text">
+            <string>Address:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QTextEdit" name="addressTextEdit">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="personalInfoLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Personal Information:</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_6">
+      <attribute name="title">
+       <string>Employee Details</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Login Details:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <layout class="QFormLayout" name="loginForm">
+           <property name="bottomMargin">
+            <number>6</number>
+           </property>
+           <item row="1" column="0" colspan="2">
+            <widget class="QWidget" name="UserLoginWidget" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>50</height>
+              </size>
+             </property>
+             <layout class="QFormLayout" name="formLayout_5">
+              <item row="0" column="0">
+               <widget class="QLabel" name="usernameLabel">
+                <property name="text">
+                 <string>Username:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="usernameLineEdit"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="passwordLabel">
+                <property name="text">
+                 <string>Password:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="passwordLineEdit">
+                <property name="echoMode">
+                 <enum>QLineEdit::Password</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="userGroupcomboBox"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>User Group</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="employeeIDLabel">
+           <property name="text">
+            <string>Employee ID:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="employeeIDLineEdit"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="designationLabel">
+           <property name="text">
+            <string>Designation:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="designationLineEdit"/>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="departmentLabel">
+           <property name="text">
+            <string>Department:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="departmentLineEdit"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="dateOfJoiningLabel">
+           <property name="text">
+            <string>Date of Joining:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QDateEdit" name="dateOfJoiningDateEdit">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="passportNoLabel">
+           <property name="text">
+            <string>Passport No.:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="passportNoLineEdit"/>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="passportExpiryLabel">
+           <property name="text">
+            <string>Passport Expiry:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QDateEdit" name="passportExpiryDateEdit">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="visaNoLabel">
+           <property name="text">
+            <string>Visa No.:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QLineEdit" name="visaNoLineEdit"/>
+         </item>
+         <item row="11" column="0">
+          <widget class="QLabel" name="visaExpiryLabel">
+           <property name="text">
+            <string>Visa Expiry:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1">
+          <widget class="QDateEdit" name="visaExpiryDateEdit">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="bankAccountNoLabel">
+           <property name="text">
+            <string>Bank Account No.:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="QLineEdit" name="bankAccountNoLineEdit"/>
+         </item>
+         <item row="13" column="0">
+          <widget class="QLabel" name="bankNameLabel">
+           <property name="text">
+            <string>Bank Name:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1">
+          <widget class="QLineEdit" name="bankNameLineEdit"/>
+         </item>
+         <item row="14" column="0">
+          <widget class="QLabel" name="bankBranchLabel">
+           <property name="text">
+            <string>Bank Branch:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="14" column="1">
+          <widget class="QLineEdit" name="bankBranchLineEdit"/>
+         </item>
+         <item row="15" column="0">
+          <widget class="QLabel" name="bankCodeLabel">
+           <property name="text">
+            <string>Bank Code:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="15" column="1">
+          <widget class="QLineEdit" name="bankCodeLineEdit"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_7">
+      <attribute name="title">
+       <string>Other Info</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QFormLayout" name="formLayout_4">
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Emergency Contact:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="nameLabel_2">
+           <property name="text">
+            <string>Name:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="nameLineEdit_2"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="contactNoLabel">
+           <property name="text">
+            <string>Contact No.:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="contactNoLineEdit"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="relationLabel">
+           <property name="text">
+            <string>Relation:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="relationLineEdit"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QFormLayout" name="formLayout_7">
+         <item row="1" column="0">
+          <widget class="QLabel" name="highestQualificationLabel">
+           <property name="text">
+            <string>Highest Qualification:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="highestQualificationLineEdit"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="dateOfQualificationLabel">
+           <property name="text">
+            <string>Date of Qualification:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QDateEdit" name="dateOfQualificationDateEdit">
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_5">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Qualifications:</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_8">
+      <attribute name="title">
+       <string>Salary</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QFormLayout" name="formLayout_3">
+         <item row="1" column="0">
+          <widget class="QLabel" name="basicSalaryLabel">
+           <property name="text">
+            <string>Basic Salary</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="basicSalaryLineEdit"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="hRALabel">
+           <property name="text">
+            <string>HRA</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="hRALineEdit"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="conveyanceLabel">
+           <property name="text">
+            <string>Conveyance</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="conveyanceLineEdit"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="dALabel">
+           <property name="text">
+            <string>DA</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="dALineEdit"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="weeklyPaidLeaveLabel">
+           <property name="text">
+            <string>Weekly Paid Leave</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="monthlyPaidLeaveLabel">
+           <property name="text">
+            <string>Monthly Paid Leave</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="annualPaidLeaveLabel">
+           <property name="text">
+            <string>Annual Paid Leave</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QSpinBox" name="weeklyLeaveSpinBox"/>
+         </item>
+         <item row="6" column="1">
+          <widget class="QSpinBox" name="MonthlySpinBox"/>
+         </item>
+         <item row="7" column="1">
+          <widget class="QSpinBox" name="AnnualLeaveSpinBox"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="noOfWorkingHoursLabel">
+           <property name="text">
+            <string>No.Of Working Hours</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="noOfWorkingHoursSpinBox"/>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="hourlyPayForOverTimeLabel">
+           <property name="text">
+            <string>Hourly Pay For OverTime</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="hourlyPayForOverTimeLineEdit"/>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="salaryLedgerLabel">
+           <property name="text">
+            <string>Salary Ledger</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="advanceSalaryLedgerLabel">
+           <property name="text">
+            <string>Advance Salary Ledger</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QComboBox" name="advanceSalaryLedgerComboBox"/>
+         </item>
+         <item row="9" column="1">
+          <widget class="QComboBox" name="salaryLedgercomboBox"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

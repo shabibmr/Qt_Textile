@@ -1,0 +1,1301 @@
+[
+    {
+        "DB_Version": 0,
+        "Query": " CREATE TABLE `config_settings` (  `_id` int(11) NOT NULL AUTO_INCREMENT,  `GMKey` varchar(100) NOT NULL,  `GMValue` varchar(250) DEFAULT NULL,  `Time_Stamp` timestamp NOT NULL DEFAULT current_timestamp(),  `Data_Type` varchar(50) DEFAULT NULL,  `Text_To_Display` varchar(200) DEFAULT NULL,  `Value_Type` varchar(100) DEFAULT NULL,  `Possible_Values` varchar(500) DEFAULT NULL,  `IsLogged` tinyint(1) DEFAULT NULL,  PRIMARY KEY (`_id`) ) ",
+        "TimeStamp": "Mon Mar 16 19:56:01 2020"
+    },
+    {
+        "DB_Version": 0.1,
+        "Query": " ALTER TABLE `config_settings` CHANGE `Key` `GMKey` VARCHAR(100) NOT NULL, CHANGE `Value` `GMValue` VARCHAR(250) NULL DEFAULT NULL",
+        "TimeStamp": "Mon Mar 16 19:56:01 2020"
+    },
+    {
+        "DB_Version": 1,
+        "Query": "ALTER TABLE `error_reporting` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT",
+        "TimeStamp": "Wed Feb 12 14:25:35 2020"
+    },
+    {
+        "DB_Version": 1.5,
+        "Query": "ALTER TABLE `error_reporting` CHANGE `error` `error` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL",
+        "TimeStamp": "Wed Feb 12 14:25:35 2020"
+    },
+    {
+        "DB_Version": 2,
+        "Query": "ALTER TABLE `error_reporting` CHANGE `query` `query` LONGTEXT NOT NULL",
+        "TimeStamp": "Wed Feb 12 14:25:35 2020"
+    },
+    {
+        "DB_Version": 3,
+        "Query": "CREATE TABLE `Attendance_Details`( `_id` INT NOT NULL AUTO_INCREMENT ,`Employee_Id` VARCHAR(20) NOT NULL ,`Working_Day` DATE NOT NULL ,`Start_Time` TIME NOT NULL ,`End_Time` TIME NOT NULL ,`Working_Hours` INT NOT NULL ,`OverTime` INT NOT NULL ,`HalfDay` BOOLEAN NOT NULL ,PRIMARY KEY (`_id`)) ",
+        "TimeStamp": "Wed Feb 12 14:27:54 2020"
+    },
+    {
+        "DB_Version": 4,
+        "Query": "ALTER TABLE `attendance_details` ADD `Narration` VARCHAR(200) NULL AFTER `HalfDay`",
+        "TimeStamp": "Wed Feb 12 14:27:54 2020"
+    },
+    {
+        "DB_Version": 5,
+        "Query": "CREATE TABLE `employee_salary_details`( `_id` INT NOT NULL AUTO_INCREMENT , `Employee_Id` VARCHAR(20) NOT NULL ,`Basic_Salary` FLOAT(10,2) NULL ,`DA` FLOAT(10,2) NULL , `HRA` FLOAT(10,2) NULL , `Conveyance` FLOAT(10,2) NULL ,`Monthly_Leave` INT NULL , `Weekly_Leave` INT NULL , `Annual_Leave` INT NULL ,PRIMARY KEY (`_id`), UNIQUE (`Employee_Id`(20))) ",
+        "TimeStamp": "Wed Feb 12 14:27:54 2020"
+    },
+    {
+        "DB_Version": 6,
+        "Query": "ALTER TABLE `employee_salary_details` ADD `Working_Hours` INT NULL AFTER `Annual_Leave`",
+        "TimeStamp": "Wed Feb 12 14:27:54 2020"
+    },
+    {
+        "DB_Version": 7,
+        "Query": "ALTER TABLE `employee_salary_details` ADD `OverTime_Pay` FLOAT NULL AFTER `Working_Hours`",
+        "TimeStamp": "Wed Feb 12 14:27:54 2020"
+    },
+    {
+        "DB_Version": 8,
+        "Query": "ALTER TABLE `stock_request_main` ADD `VoucherStatus` VARCHAR(250) NULL AFTER `To_Location`",
+        "TimeStamp": "Tue Feb 18 12:06:45 2020"
+    },
+    {
+        "DB_Version": 9,
+        "Query": "DROP TABLE `accounts_group`, `allsalesbills`, `allvouchers`, `company_info`, `config`, `credit_details`, `credit_voucher`, `debit_details`, `debit_voucher`, `employee`, `intent_entry`, `intent_group`, `inventory`, `item_id_mapping`, `item_stock_helper`, `item_tmp`, `journal_details`, `journal_voucher`, `payment_details`, `payment_voucher`, `purchase_details`, `purchase_inventory_group`, `purchase_inventory_item`, `purchase_voucher`, `receipt_details`, `receipt_voucher`, `sales_details`, `sales_inv_items_used`, `sales_voucher`, `stock_entry`, `stock_entry_details`, `temp_sales_details`, `temp_sales_voucher`, `testjson`, `transcation_helper`, `users`, `wastage_details`, `wastage_voucher`",
+        "TimeStamp": "Tue Feb 18 12:19:59 2020"
+    },
+    {
+        "DB_Version": 10,
+        "Query": "ALTER TABLE Ledger_Master Change Ledger_Type Ledger_Type Varchar(50) NULL",
+        "TimeStamp": "Tue Feb 18 12:19:59 2020"
+    },
+    {
+        "DB_Version": 11,
+        "Query": "ALTER TABLE `stock_journal_main` CHANGE `Ledger_ID` `Ledger_ID` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL",
+        "TimeStamp": "Tue Feb 18 12:19:59 2020"
+    },
+    {
+        "DB_Version": 12,
+        "Query": "ALTER TABLE `stock_journal_details` ADD `crQty` FLOAT NULL AFTER `Salesman_ID`, ADD `drQty` FLOAT NULL AFTER `crQty`",
+        "TimeStamp": "Tue Feb 18 12:19:59 2020"
+    },
+    {
+        "DB_Version": 13,
+        "Query": "ALTER TABLE contra_voucher_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 14,
+        "Query": "ALTER TABLE credit_note_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 15,
+        "Query": "ALTER TABLE debit_note_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 16,
+        "Query": "ALTER TABLE delivery_note_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 17,
+        "Query": "ALTER TABLE godown_tranfer_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 18,
+        "Query": "ALTER TABLE journal_voucher_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 19,
+        "Query": "ALTER TABLE material_in_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 20,
+        "Query": "ALTER TABLE payment_voucher_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 21,
+        "Query": "ALTER TABLE proforma_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 22,
+        "Query": "ALTER TABLE purchase_invoice_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 23,
+        "Query": "ALTER TABLE purchase_order_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 24,
+        "Query": "ALTER TABLE quotation_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 25,
+        "Query": "ALTER TABLE quotation_main_old CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 26,
+        "Query": "ALTER TABLE receipt_note_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 27,
+        "Query": "ALTER TABLE receipt_voucher_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 28,
+        "Query": "ALTER TABLE requirement_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 29,
+        "Query": "ALTER TABLE sales_invoice_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 30,
+        "Query": "ALTER TABLE sales_invoice_main_deleted CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 31,
+        "Query": "ALTER TABLE sales_order_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 32,
+        "Query": "ALTER TABLE stock_journal_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 33,
+        "Query": "ALTER TABLE stock_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 34,
+        "Query": "ALTER TABLE wastage_entry_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 35,
+        "Query": "ALTER TABLE work_order_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Fri Aug 21 12:37:58 2020"
+    },
+    {
+        "DB_Version": 36,
+        "Query": "ALTER TABLE `pricelist_entries` ADD `UOM_Id` VARCHAR(20) NULL AFTER `percent`",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 26 12:23:15 2020"
+    },
+    {
+        "DB_Version": 37,
+        "Query": "ALTER TABLE `sales_inventory_images` ADD `FileName` VARCHAR(500) NULL AFTER `type`",
+        "StopOnError": false,
+        "TimeStamp": "Tue Oct 6 11:48:07 2020"
+    },
+    {
+        "DB_Version": 38,
+        "Query": "CREATE TABLE `inventory_group_images` ( `_id` int(11) NOT NULL AUTO_INCREMENT, `Group_Id` varchar(1000) NOT NULL, `Image` mediumblob DEFAULT NULL, `Narration` varchar(50) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(20) DEFAULT NULL, `FileName` varchar(500) DEFAULT NULL, PRIMARY KEY (`_id`))",
+        "StopOnError": false,
+        "TimeStamp": "Tue Oct 6 11:48:07 2020"
+    },
+    {
+        "DB_Version": 39,
+        "Query": "ALTER TABLE `sales_inventory_images` CHANGE `ItemId` `Item_Id` VARCHAR(1000)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Oct 8 11:29:08 2020"
+    },
+    {
+        "DB_Version": 40,
+        "Query": "ALTER TABLE `error_reporting` CHANGE `time_stamp` `time_stamp` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Oct 15 11:29:34 2020"
+    },
+    {
+        "DB_Version": 41,
+        "Query": "Alter table error_reporting add client_id varchar(20) null",
+        "StopOnError": false,
+        "TimeStamp": "Thu Oct 15 11:29:34 2020"
+    },
+    {
+        "DB_Version": 42,
+        "Query": "ALTER TABLE `ledger_master` ADD `Discount_Percentage` Float(10,2) NULL AFTER `DbName`, ADD `isFrequent` BOOLEAN NULL AFTER `Discount_Percentage`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Oct 15 11:29:34 2020"
+    },
+    {
+        "DB_Version": 43,
+        "Query": "ALTER TABLE `payslip_main` ADD `Employee_Id` VARCHAR(50) NULL AFTER `_id`, ADD `Voucher_No` VARCHAR(20) NULL AFTER `Employee_Id`, ADD `Voucher_Type` VARCHAR(20) NULL AFTER `Voucher_No`, ADD `Voucher_Prefix` VARCHAR(20) NULL AFTER `Voucher_Type`",
+        "StopOnError": false,
+        "TimeStamp": "Tue Oct 27 18:02:21 2020"
+    },
+    {
+        "DB_Version": 44,
+        "Query": "CREATE TABLE `SKU_MASTER` ( `_id` INT NOT NULL AUTO_INCREMENT , `SKU_ID` VARCHAR(200) NOT NULL , `ITEM_ID` VARCHAR(200) NOT NULL , `SKU_DESCRIPTION` VARCHAR(2000) NULL , `SKU_TYPE` INT NULL , `SKU_POSSIBLE_VALUES` LONGTEXT NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Sun Nov 8 01:23:02 2020"
+    },
+    {
+        "DB_Version": 45,
+        "Query": "ALTER TABLE `sku_master` ADD `SKU_VALUE` VARCHAR(500) NULL AFTER `SKU_POSSIBLE_VALUES`",
+        "StopOnError": false,
+        "TimeStamp": "Sun Nov 8 15:32:40 2020"
+    },
+    {
+        "DB_Version": 46,
+        "Query": "CREATE TABLE `transaction_fifo_mapping` (  `_id` int(11) NOT NULL AUTO_INCREMENT,  `transaction_id` int(11) NOT NULL,  `Voucher_Date` datetime DEFAULT NULL,  `Item_Id` varchar(200) DEFAULT NULL,  `godown` varchar(100) DEFAULT NULL,  `voucher_no` varchar(100) DEFAULT NULL,  `voucher_prefix` varchar(20) DEFAULT NULL,  `voucher_type` varchar(100) DEFAULT NULL,  `requirement_itemid` varchar(100) DEFAULT NULL,  `consumed_voucher_no` varchar(100) DEFAULT NULL,  `consumed_voucher_prefix` varchar(20) DEFAULT NULL,  `consumed_voucher_type` varchar(100) DEFAULT NULL,  `consumed_reqid` varchar(100) DEFAULT NULL,  `cr_qty` float(10,3) DEFAULT NULL,  `dr_qty` float(10,3) DEFAULT NULL,  `cr_amount` float(10,2) DEFAULT NULL,  `dr_amount` float(10,2) DEFAULT NULL,  `Price` float(10,2) DEFAULT NULL,  PRIMARY KEY (`_id`) ) ",
+        "StopOnError": false,
+        "TimeStamp": "Wed Dec 2 15:36:23 2020"
+    },
+    {
+        "DB_Version": 47,
+        "Query": "ALTER TABLE `journal_voucher_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Tue Dec 29 11:14:34 2020"
+    },
+    {
+        "DB_Version": 48,
+        "Query": "ALTER TABLE `journal_voucher_main` CHANGE `Ledger_ID` `Ledger_ID` VARCHAR(100)  NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Tue Dec 29 11:14:34 2020"
+    },
+    {
+        "DB_Version": 49,
+        "Query": "ALTER TABLE `wastage_entry_details` ADD `Requirement_ItemID` VARCHAR(100) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Tue Dec 29 16:08:53 2020"
+    },
+    {
+        "DB_Version": 50,
+        "Query": "ALTER TABLE `material_in_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Tue Dec 29 17:19:12 2020"
+    },
+    {
+        "DB_Version": 51,
+        "Query": "ALTER TABLE `material_in_main` CHANGE `Ledger_ID` `Ledger_ID` VARCHAR(100)  NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Tue Dec 29 17:19:12 2020"
+    },
+    {
+        "DB_Version": 52,
+        "Query": "ALTER TABLE `stock_details` ADD `Requirement_ItemID` VARCHAR(100) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Wed Dec 30 16:02:13 2020"
+    },
+    {
+        "DB_Version": 53,
+        "Query": "CREATE TABLE `visitorsregister` (  `_ID` int(11) NOT NULL AUTO_INCREMENT,  `DATEVAL` datetime NOT NULL,  `PHONENUMBER` varchar(100) DEFAULT NULL,  `NAME` varchar(500) DEFAULT NULL,  `ADDRESS` varchar(500) DEFAULT NULL,  `TEMPERATURE` float DEFAULT NULL,  `TIME_STAMP` timestamp NOT NULL DEFAULT current_timestamp(),  PRIMARY KEY (`_ID`) )",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jan 6 11:33:15 2021"
+    },
+    {
+        "DB_Version": 54,
+        "Query": "ALTER TABLE `tempbill` ADD `printer` VARCHAR(100) NULL",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jan 6 11:36:48 2021"
+    },
+    {
+        "DB_Version": 55,
+        "Query": " ALTER TABLE `tempbill` ADD `EntryTime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP AFTER `printer`",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jan 6 11:36:48 2021"
+    },
+    {
+        "DB_Version": 56,
+        "Query": "ALTER TABLE `Godown_Tranfer_Main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jan 11 12:02:30 2021"
+    },
+    {
+        "DB_Version": 57,
+        "Query": " ALTER TABLE Godown_Tranfer_Main ADD `VoucherStatus` varchar(50) DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jan 11 12:02:30 2021"
+    },
+    {
+        "DB_Version": 58,
+        "Query": "UPDATE `ledger_master` SET `Opening_Balance_Date`= '2000-01-01' WHERE Opening_Balance_Date is null",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jan 20 20:12:11 2021"
+    },
+    {
+        "DB_Version": 59,
+        "Query": " insert into employee_salary_details (Employee_Id, isActive) select _id, show_Employee from employee_details where _id not in (SELECT Employee_Id from employee_salary_details)",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jan 20 20:12:11 2021"
+    },
+    {
+        "DB_Version": 60,
+        "Query": "UPDATE `transaction_helper` SET `Voucher_Date`='2000-01-01' WHERE Voucher_Type = 'OPENING BALANCE' and Voucher_Date is null",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jan 20 20:23:17 2021"
+    },
+    {
+        "DB_Version": 61,
+        "Query": " UPDATE `transaction_item_helper` SET `VoucherDate` = '2000-01-01' WHERE VoucherType = 'OPENING STOCK' and VoucherDate is null",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jan 20 20:23:17 2021"
+    },
+    {
+        "DB_Version": 62,
+        "Query": "ALTER TABLE `customer_details` ADD `Route` VARCHAR(30) NULL AFTER `Address`",
+        "StopOnError": false,
+        "TimeStamp": "Mon Feb 15 11:40:58 2021"
+    },
+    {
+        "DB_Version": 63,
+        "Query": "ALTER TABLE `material_in_details` ADD `crQty` FLOAT NULL AFTER `Salesman_ID`, ADD `drQty` FLOAT NULL AFTER `crQty`",
+        "StopOnError": false,
+        "TimeStamp": "Tue Mar 2 14:36:41 2021"
+    },
+    {
+        "DB_Version": 64,
+        "Query": "ALTER TABLE `uom_conversion` ADD `barcode` VARCHAR(50) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Sat Mar 13 14:50:38 2021"
+    },
+    {
+        "DB_Version": 65,
+        "Query": "update `uom_conversion` set barcode = (select item_code from sales_inventory_items where default_uom_id = tounit and item_id = itemID) where baseUnit = toUnit and (select length(item_code) from sales_inventory_items where default_uom_id = tounit and item_id = itemID) >=1",
+        "StopOnError": false,
+        "TimeStamp": "Mon Mar 15 10:38:29 2021"
+    },
+    {
+        "DB_Version": 66,
+        "Query": "ALTER TABLE `employee_salary_details` ADD `adv_salary_ledger` VARCHAR(200) NULL AFTER `isActive`, ADD `salary_ledger` VARCHAR(200) NOT NULL AFTER `adv_salary_ledger`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 67,
+        "Query": "  ALTER TABLE `sales_inventory_images` CHANGE `ItemId` `Item_Id` VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 68,
+        "Query": "  ALTER TABLE `wastage_entry_main` ADD `VoucherStatus` VARCHAR(50) NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 69,
+        "Query": "  ALTER TABLE `config_settings` CHANGE `Key` `GMKey` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `Value` `GMValue` VARCHAR(250) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 70,
+        "Query": "  ALTER TABLE `ledger_master` ADD `Discount_Percentage` Float(10,2) NULL AFTER `DbName`, ADD `isFrequent` BOOLEAN NULL AFTER `Discount_Percentage`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 71,
+        "Query": "  ALTER TABLE `godown` ADD `isDefault` BOOLEAN NULL AFTER `isProfitCentre`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 72,
+        "Query": "  ALTER TABLE Sales_Inventory_Items ADD `isSerailNumbered` BOOLEAN NULL DEFAULT FALSE AFTER `DefaultLedgerID`, ADD `isBatchProcessed` BOOLEAN NULL DEFAULT FALSE AFTER `isSerailNumbered`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 73,
+        "Query": "  ALTER TABLE `godown_transfer_details` ADD `itemVoucherStatus` INT NULL AFTER `Adj_value`, ADD `itemProductionStatus` INT NULL AFTER `itemVoucherStatus`, ADD `CurrTime` TIME NULL AFTER `itemProductionStatus`, ADD `Requirement_ItemID` VARCHAR(100) NULL AFTER `CurrTime`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 74,
+        "Query": "  ALTER TABLE `ledger_master` ADD `Credit_Limit` FLOAT(10,2) NULL AFTER `Credit_Period`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 75,
+        "Query": "  ALTER TABLE `contra_voucher_details` ADD `Cr_Amount` FLOAT(10,2) NULL AFTER `Salesman_ID`, ADD `Dr_Amount` FLOAT(10,2) NULL AFTER `Cr_Amount`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 76,
+        "Query": "  ALTER TABLE `delivery_note_details` ADD `Quantity_Full` FLOAT NULL AFTER `Tax_Amount`, ADD `Quantity_Disc` FLOAT NULL AFTER `Quantity_Full`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 77,
+        "Query": "  ALTER TABLE `receipt_note_details` ADD `Quantity_Full` FLOAT NULL AFTER `Tax_Amount`, ADD `Quantity_Disc` FLOAT NULL AFTER `Quantity_Full`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 78,
+        "Query": "  ALTER TABLE `purchase_invoice_details` ADD `Quantity_Full` FLOAT NULL AFTER `Tax_Amount`, ADD `Quantity_Disc` FLOAT NULL AFTER `Quantity_Full`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 79,
+        "Query": "  ALTER TABLE `proforma_details` ADD `Quantity_Full` FLOAT NULL AFTER `Tax_Amount`, ADD `Quantity_Disc` FLOAT NULL AFTER `Quantity_Full`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 80,
+        "Query": "  ALTER TABLE `debit_note_details` ADD `Quantity_Full` FLOAT NULL AFTER `Tax_Amount`, ADD `Quantity_Disc` FLOAT NULL AFTER `Quantity_Full`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 81,
+        "Query": "  ALTER TABLE `credit_note_details` ADD `Quantity_Full` FLOAT NULL AFTER `Tax_Amount`, ADD `Quantity_Disc` FLOAT NULL AFTER `Quantity_Full`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 82,
+        "Query": "  ALTER TABLE `ingredients` CHANGE `sales_item_qty` `sales_item_qty` FLOAT(10,3) NOT NULL, CHANGE `purchase_item_qty` `purchase_item_qty` FLOAT(10,3) NOT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 83,
+        "Query": "  ALTER TABLE `quotation_main` ADD `TransactionId` VARCHAR(30) NULL AFTER `Customer_Expected_Date`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 84,
+        "Query": "  ALTER TABLE `pricelist_entries` CHANGE `Price` `Price` FLOAT(10,2) NOT NULL, CHANGE `Price_List_ID` `Price_List_ID` INT NOT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 85,
+        "Query": " ALTER TABLE `sales_order_details` CHANGE `Time` `TimeDate` DATETIME NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 86,
+        "Query": "  ALTER TABLE `sales_order_details` ADD `ContainerCount` FLOAT NULL AFTER `TimeDate`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 87,
+        "Query": "ALTER TABLE `purchase_order_details` CHANGE `Time` `TimeDate` DATETIME NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 88,
+        "Query": "  ALTER TABLE `purchase_order_details` ADD `Quantity_Full` FLOAT NULL AFTER `Tax_Amount`, ADD `Quantity_Disc` FLOAT NULL AFTER `Quantity_Full`, ADD `ContainerCount` FLOAT NULL AFTER `Quantity_Disc`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 89,
+        "Query": "  create table if not EXISTS `purchase_order_itemwise` (select * from sales_order_itemwise where 1=0)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Mar 18 15:44:16 2021"
+    },
+    {
+        "DB_Version": 90,
+        "Query": "ALTER TABLE `customer_details` ADD `Code` VARCHAR(30) NULL",
+        "StopOnError": false,
+        "TimeStamp": "Wed Mar 31 12:22:37 2021"
+    },
+    {
+        "DB_Version": 91,
+        "Query": "ALTER TABLE `uom_conversion` ADD `barcode` VARCHAR(50) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Sat Mar 13 14:50:38 2021"
+    },
+    {
+        "DB_Version": 92,
+        "Query": "update `uom_conversion` set barcode = (select item_code from sales_inventory_items where default_uom_id = tounit and item_id = itemID) where narration =  'self conversion' ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Mar 15 10:38:29 2021"
+    },
+    {
+        "DB_Version": 92.1,
+        "Query": "update `uom_conversion` set barcode = (select item_code from sales_inventory_items where default_uom_id = tounit and item_id = itemID) where baseUnit = toUnit and (select length(item_code) from sales_inventory_items where default_uom_id = tounit and item_id = itemID) >=1",
+        "StopOnError": false,
+        "TimeStamp": "Sat Mar 20 12:12:33 2021"
+    },
+    {
+        "DB_Version": 93,
+        "Query": "update transaction_item_helper set From_Location = 'GODOWN' where Cr_Qty > 0 and  (From_Location is null or length(From_Location) =0)",
+        "StopOnError": false,
+        "TimeStamp": "Sat Apr 3 18:42:01 2021"
+    },
+    {
+        "DB_Version": 94,
+        "Query": "  update transaction_item_helper set to_Location = 'GODOWN' where Dr_Qty > 0 and  (To_Location is null or length(to_Location) =0)",
+        "StopOnError": false,
+        "TimeStamp": "Sat Apr 3 18:42:01 2021"
+    },
+    {
+        "DB_Version": 95,
+        "Query": "ALTER TABLE `stock_journal_details` ADD `Requirement_ItemID` VARCHAR(100) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Fri Apr 9 16:42:05 2021"
+    },
+    {
+        "DB_Version": 96,
+        "Query": "ALTER TABLE `material_in_details` ADD `Requirement_ItemID` VARCHAR(100) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Apr 10 13:36:09 2021"
+    },
+    {
+        "DB_Version": 97,
+        "Query": "TRUNCATE `address_book`",
+        "StopOnError": false,
+        "TimeStamp": "Wed May 5 08:34:54 2021"
+    },
+    {
+        "DB_Version": 97.1,
+        "Query": "ALTER TABLE `address_book` ADD `Location_Details` LONGTEXT NULL AFTER `Fax`, ADD `Route` VARCHAR(20) NULL AFTER `Location_Details`, ADD `CustomerCode` VARCHAR(20) NULL AFTER `Route`",
+        "StopOnError": false,
+        "TimeStamp": "Wed May 5 08:34:54 2021"
+    },
+    {
+        "DB_Version": 97.2,
+        "Query": "INSERT INTO address_book (Name, Phone_Number, Address, Route, CustomerCode) SELECT `Name`, `phone`, `Address`, `Route`, `Code` FROM `customer_details`",
+        "StopOnError": false,
+        "TimeStamp": "Wed May 5 08:34:54 2021"
+    },
+    {
+        "DB_Version": 97.3,
+        "Query": "ALTER TABLE `address_book` ADD `DateOfBirth` DATE NULL AFTER `CustomerCode`, ADD `Contact_Uuid` VARCHAR(100) NULL AFTER `DateOfBirth`, ADD `isActive` BOOLEAN NULL DEFAULT FALSE AFTER `Contact_Uuid`, ADD `Delivery_Charges` FLOAT(10,2) NULL AFTER `isActive`",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jun 11 13:38:57 2021"
+    },
+    {
+        "DB_Version": 99,
+        "Query": " ALTER TABLE `sales_order_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 100,
+        "Query": " ALTER TABLE `sales_order_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 101,
+        "Query": " ALTER TABLE `sales_invoice_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 102,
+        "Query": " ALTER TABLE `sales_invoice_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 103,
+        "Query": " ALTER TABLE `purchase_invoice_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 103.1,
+        "Query": " ALTER TABLE `purchase_invoice_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 104,
+        "Query": " ALTER TABLE `purchase_order_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 104.1,
+        "Query": " ALTER TABLE `purchase_order_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 105,
+        "Query": " ALTER TABLE `delivery_note_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 105.1,
+        "Query": " ALTER TABLE `delivery_note_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 106,
+        "Query": " ALTER TABLE `receipt_note_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 106.1,
+        "Query": " ALTER TABLE `receipt_note_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 107,
+        "Query": " ALTER TABLE `credit_note_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 107.1,
+        "Query": " ALTER TABLE `credit_note_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 108,
+        "Query": " ALTER TABLE `debit_note_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 108.1,
+        "Query": " ALTER TABLE `debit_note_main` ADD `Location` VARCHAR(250) NULL ",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 109,
+        "Query": "ALTER TABLE `proxy_transaction_helper` ADD `Debit_Amount` FLOAT(10,2) NULL AFTER `isProfitCentre`, ADD `Credit_Amount` FLOAT(10,2) NULL AFTER `Debit_Amount`, ADD `Ledger_Id` VARCHAR(100) NULL AFTER `Credit_Amount`, ADD `Against_Ledger` VARCHAR(100) NULL AFTER `Ledger_Id`",
+        "StopOnError": false,
+        "TimeStamp": "Mon Jun 21 13:31:25 2021"
+    },
+    {
+        "DB_Version": 110,
+        "Query": "alter table  address_book add Address_Id varchar(500) not null after `_id`",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jun 30 11:34:18 2021"
+    },
+    {
+        "DB_Version": 111,
+        "Query": "update address_book set address_id = uuid()",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jun 30 11:49:53 2021"
+    },
+    {
+        "DB_Version": 112,
+        "Query": "ALTER TABLE `address_book` ADD `Location_Details` LONGTEXT NULL AFTER `Fax`",
+        "StopOnError": false,
+        "TimeStamp": "Wed May 5 08:34:54 2021"
+    },
+    {
+        "DB_Version": 112.1,
+        "Query": "ALTER TABLE `address_book` ADD `Route` VARCHAR(20) NULL AFTER `Location_Details`, ADD `CustomerCode` VARCHAR(20) NULL AFTER `Route`",
+        "StopOnError": false,
+        "TimeStamp": "Wed May 5 08:34:54 2021"
+    },
+    {
+        "DB_Version": 113,
+        "Query": "INSERT INTO address_book (Name, Phone_Number, Address, Route, CustomerCode) SELECT `Name`, `phone`, `Address`, `Route`, `Code` FROM `customer_details` where phone not in (select phone_number from address_book) ",
+        "StopOnError": false,
+        "TimeStamp": "Wed May 5 08:34:54 2021"
+    },
+    {
+        "DB_Version": 114,
+        "Query": "ALTER TABLE `address_book` ADD `DateOfBirth` DATE NULL AFTER `CustomerCode`, ADD `Contact_Uuid` VARCHAR(100) NULL AFTER `DateOfBirth`, ADD `isActive` BOOLEAN NULL DEFAULT FALSE AFTER `Contact_Uuid`, ADD `Delivery_Charges` FLOAT(10,2) NULL AFTER `isActive`",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jun 11 13:38:57 2021"
+    },
+    {
+        "DB_Version": 115,
+        "Query": "truncate billwise_records",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 8 13:37:51 2021"
+    },
+    {
+        "DB_Version": 116,
+        "Query": "INSERT INTO `billwise_records`( `voucherPrefix`, `VoucherType`, `VoucherNo`, `LedgerID`, `RefType`, `RefNo`, `RefPrefix`, `DebitAmount`, `CreditAmount`, `VoucherDate`, `Method_of_adj`) SELECT 'A', 'OPENING', 'OPENING', ledger_id, 'OPENING', 'OPENING', 'A', case when bal < 0 then -1* bal else 0 end as Debit_Amount, case when bal > 0 then  bal else 0 end as Credit_Amount, CURRENT_DATE, 'ON ACC' FROM (\nSELECT ledger_id, sum(credit_Amount - debit_Amount) bal FROM `transaction_helper` GROUP by Ledger_ID) t\nwhere ledger_id in (select ledger_id from ledger_master where group_id in (select group_id from account_groups where group_name in ('Sundry Debtors', 'Sundry Creditors')))",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 8 13:37:51 2021"
+    },
+    {
+        "DB_Version": 117,
+        "Query": "ALTER TABLE `address_book` ADD `Location_Details` LONGTEXT NULL AFTER `Fax`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 8 13:51:20 2021"
+    },
+    {
+        "DB_Version": 118,
+        "Query": " ALTER TABLE `address_book` ADD `Route` VARCHAR(20) NULL AFTER `Location_Details`, ADD `CustomerCode` VARCHAR(20) NULL AFTER `Route`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 8 13:51:20 2021"
+    },
+    {
+        "DB_Version": 119,
+        "Query": " INSERT INTO address_book (Name, Phone_Number, Address, Route, CustomerCode) SELECT `Name`, `phone`, `Address`, `Route`, `Code` FROM `customer_details` where phone not in (select phone_number from address_book)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 8 13:51:20 2021"
+    },
+    {
+        "DB_Version": 120,
+        "Query": " ALTER TABLE `address_book` ADD `DateOfBirth` DATE NULL AFTER `CustomerCode`, ADD `Contact_Uuid` VARCHAR(100) NULL AFTER `DateOfBirth`, ADD `isActive` BOOLEAN NULL DEFAULT FALSE AFTER `Contact_Uuid`, ADD `Delivery_Charges` FLOAT(10,2) NULL AFTER `isActive`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 8 13:51:20 2021"
+    },
+    {
+        "DB_Version": 121,
+        "Query": "ALTER TABLE `stock_journal_details` ADD `Requirement_ItemID` VARCHAR(100) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 9 11:03:30 2021"
+    },
+    {
+        "DB_Version": 122,
+        "Query": "DROP PROCEDURE IF EXISTS `UpdateVoucherNo`; CREATE DEFINER=`user2grey`@`%` PROCEDURE `UpdateVoucherNo`(IN `VoucherType` VARCHAR(100), IN `VoucherPrefix` VARCHAR(100), OUT `VoucherNo` VARCHAR(100)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN DECLARE v_no VARCHAR(100); UPDATE voucher_no_seq SET voucher_no = cast(voucher_no as int) + 1 WHERE voucher_type = VoucherType AND voucher_prefix = VoucherPrefix; SELECT voucher_no into VoucherNo FROM voucher_no_seq WHERE voucher_type = VoucherType AND voucher_prefix = VoucherPrefix; END",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 9 13:27:15 2021"
+    },
+    {
+        "DB_Version": 123,
+        "Query": "UPDATE address_book join (SELECT @code := 0) dm SET customerCode = (@code := @code + 1)",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jul 13 12:15:40 2021"
+    },
+    {
+        "DB_Version": 124,
+        "Query": "DROP PROCEDURE IF EXISTS `UpdateVoucherNo`; CREATE DEFINER=`user2grey`@`%` PROCEDURE `UpdateVoucherNo`(IN `VoucherType` VARCHAR(100), IN `VoucherPrefix` VARCHAR(100), OUT `VoucherNo` VARCHAR(100)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN DECLARE v_no VARCHAR(100); UPDATE voucher_no_seq SET voucher_no = cast(voucher_no as int) + 1 WHERE voucher_type = VoucherType AND voucher_prefix = VoucherPrefix; SELECT voucher_no into VoucherNo FROM voucher_no_seq WHERE voucher_type = VoucherType AND voucher_prefix = VoucherPrefix; END",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 9 13:27:15 2021"
+    },
+    {
+        "DB_Version": 125,
+        "Query": "ALTER TABLE `work_order_main` ADD `TransactionId` VARCHAR(30)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 16 23:38:50 2021"
+    },
+    {
+        "DB_Version": 126,
+        "Query": " ALTER TABLE `stock_request_main` ADD `TransactionId` VARCHAR(30)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 16 23:38:50 2021"
+    },
+    {
+        "DB_Version": 127,
+        "Query": " ALTER TABLE `stock_journal_main` ADD `TransactionId` VARCHAR(30)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 16 23:38:50 2021"
+    },
+    {
+        "DB_Version": 128,
+        "Query": " ALTER TABLE `stock_main` ADD `TransactionId` VARCHAR(30)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 16 23:38:50 2021"
+    },
+    {
+        "DB_Version": 129,
+        "Query": " ALTER TABLE `material_in_main` ADD `TransactionId` VARCHAR(30)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 16 23:38:50 2021"
+    },
+    {
+        "DB_Version": 130,
+        "Query": " ALTER TABLE `godown_tranfer_main` ADD `TransactionId` VARCHAR(30)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 16 23:38:50 2021"
+    },
+    {
+        "DB_Version": 131,
+        "Query": " ALTER TABLE `wastage_entry_main` ADD `TransactionId` VARCHAR(30)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 16 23:38:50 2021"
+    },
+    {
+        "DB_Version": 132,
+        "Query": "alter table receivechannel add notification_id varchar(10)",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jul 27 14:49:19 2021"
+    },
+    {
+        "DB_Version": 133,
+        "Query": " alter table sendchannel add notification_id varchar(10)",
+        "StopOnError": false,
+        "TimeStamp": "Tue Jul 27 14:49:19 2021"
+    },
+    {
+        "DB_Version": 134,
+        "Query": "ALTER TABLE `material_in_details` ADD `crQty` FLOAT NULL AFTER `Salesman_ID`, ADD `drQty` FLOAT NULL AFTER `crQty`",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 9 16:41:59 2021"
+    },
+    {
+        "DB_Version": 135,
+        "Query": " CREATE TABLE `user_access_permissions` (   `_id` int(11) NOT NULL AUTO_INCREMENT,   `User_Group_Id` int(11) DEFAULT NULL,   `Ui_Id` int(11) DEFAULT NULL,   `Allow_Create` tinyint(1) DEFAULT NULL,   `Allow_Read` tinyint(1) DEFAULT NULL,   `Allow_Update` tinyint(1) DEFAULT NULL,   `Allow_Delete` tinyint(1) DEFAULT NULL,   `Allow_Share` tinyint(1) DEFAULT NULL,   `Extras` longtext DEFAULT NULL,   PRIMARY KEY (`_id`) )",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 9 16:41:59 2021"
+    },
+    {
+        "DB_Version": 136,
+        "Query": " ALTER TABLE `stock_request_main` ADD `Salesman_ID` VARCHAR(100) NULL DEFAULT AFTER `VoucherStatus`",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 9 16:41:59 2021"
+    },
+    {
+        "DB_Version": 146,
+        "Query": "create table category (_id int(11) auto_increment primary key, category_id int(11) not null, category_name varchar(20) null, Description varchar(50) null)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 29 11:00:49 2021"
+    },
+    {
+        "DB_Version": 147,
+        "Query": " insert into category (category_id, category_name) values (1,'STORE'), (2,'BAKERY'), (3,'RESTAUARANT'),  (4,''), (5,''), (6,'')",
+        "StopOnError": false,
+        "TimeStamp": "Thu Jul 29 11:00:49 2021"
+    },
+    {
+        "DB_Version": 148,
+        "Query": " ALTER TABLE `stock_request_main` ADD `Salesman_ID` VARCHAR(100) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Fri Jul 9 16:41:59 2021"
+    },
+    {
+        "DB_Version": 149,
+        "Query": "ALTER TABLE `work_order_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL;ALTER TABLE `work_order_main` ADD `Completed_TimeStamp` DATETIME NULL AFTER `Section`;",
+        "StopOnError": false,
+        "TimeStamp": "Thu Aug 12 02:55:19 2021"
+    },
+    {
+        "DB_Version": 150,
+        "Query": "ALTER TABLE `work_order_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Tue Aug 31 16:51:41 2021"
+    },
+    {
+        "DB_Version": 151,
+        "Query": "ALTER TABLE `godown` ADD `isProduction` BOOLEAN NULL DEFAULT FALSE ; ALTER TABLE `price_lists` ADD `Price_List_ShowInPos` BOOLEAN NULL DEFAULT TRUE;",
+        "StopOnError": false,
+        "TimeStamp": "Tue Sep 1 16:51:41 2021"
+    },
+    {
+        "DB_Version": 152,
+        "Query": "ALTER TABLE `tempbill` ADD `Voucher_Prefix` VARCHAR(100) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Tue Sep 7 22:20:36 2021"
+    },
+    {
+        "DB_Version": 153,
+        "Query": "ALTER TABLE `shifttable`   DROP `ZomatoSales`,   DROP `ZomatoCash`,   DROP `ZomatoCredit`",
+        "StopOnError": false,
+        "TimeStamp": "Fri Sep 10 11:01:59 2021"
+    },
+    {
+        "DB_Version": 154,
+        "Query": "     ALTER TABLE `shifttable` ADD `PurchaseCard` FLOAT(10,2) NULL AFTER `PurchaseTotal`, ADD `ReceiptCard` FLOAT(10,2) NULL AFTER `ReceiptCash`,  ADD `ReceiptTotal` FLOAT(10,2) NULL AFTER `ReceiptCard`, ADD `PaymentCard` FLOAT(10,2) NULL AFTER `ReceiptTotal`,  ADD `PaymentTotal` FLOAT(10,2) NULL AFTER `PaymentCard`",
+        "StopOnError": false,
+        "TimeStamp": "Fri Sep 10 11:01:59 2021"
+    },
+    {
+        "DB_Version": 155,
+        "Query": "ALTER TABLE `sales_invoice_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 156,
+        "Query": " ALTER TABLE `sales_order_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 157,
+        "Query": " ALTER TABLE `purchase_invoice_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 158,
+        "Query": " ALTER TABLE `purchase_order_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 159,
+        "Query": " ALTER TABLE `delivery_note_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 160,
+        "Query": " ALTER TABLE `receipt_note_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 161,
+        "Query": " ALTER TABLE `credit_note_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 162,
+        "Query": " ALTER TABLE `debit_note_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 163,
+        "Query": " ALTER TABLE `proforma_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 164,
+        "Query": " ALTER TABLE `payment_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 165,
+        "Query": " ALTER TABLE `receipt_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 166,
+        "Query": " ALTER TABLE `journal_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 167,
+        "Query": " ALTER TABLE `contra_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 168,
+        "Query": " ALTER TABLE `stock_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 169,
+        "Query": " ALTER TABLE `stock_request_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 170,
+        "Query": " ALTER TABLE `stock_journal_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 171,
+        "Query": " ALTER TABLE `godown_tranfer_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 172,
+        "Query": " ALTER TABLE `material_in_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 173,
+        "Query": " ALTER TABLE `quotation_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 174,
+        "Query": " ALTER TABLE `sales_invoice_main_deleted` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Sat Sep 11 22:04:28 2021"
+    },
+    {
+        "DB_Version": 175,
+        "Query": "ALTER TABLE receipt_voucher_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:49:46 2021"
+    },
+    {
+        "DB_Version": 176,
+        "Query": " ALTER TABLE `receipt_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:49:46 2021"
+    },
+    {
+        "DB_Version": 177,
+        "Query": "ALTER TABLE payment_voucher_main CHANGE `delivery_date` `delivery_date` timestamp",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:49:46 2021"
+    },
+    {
+        "DB_Version": 178,
+        "Query": " ALTER TABLE `payment_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:49:46 2021"
+    },
+    {
+        "DB_Version": 179,
+        "Query": "ALTER TABLE `payment_voucher_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:53:26 2021"
+    },
+    {
+        "DB_Version": 180,
+        "Query": " ALTER TABLE `payment_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:53:26 2021"
+    },
+    {
+        "DB_Version": 181,
+        "Query": " ALTER TABLE `receipt_voucher_main` CHANGE `delivery_date` `delivery_date` TIMESTAMP NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:53:26 2021"
+    },
+    {
+        "DB_Version": 182,
+        "Query": " ALTER TABLE `receipt_voucher_main` CHANGE `TransactionId` `TransactionId` VARCHAR(50) NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Sep 16 17:53:26 2021"
+    },
+    {
+        "DB_Version": 183,
+        "Query": "alter table receivechannel change notification_id notification_id varchar(50)",
+        "StopOnError": false,
+        "TimeStamp": "Wed Nov 3 12:40:35 2021"
+    },
+    {
+        "DB_Version": 184,
+        "Query": "alter table sendchannel change notification_id notification_id varchar(50)",
+        "StopOnError": false,
+        "TimeStamp": "Wed Nov 3 12:48:38 2021"
+    },
+    {
+        "DB_Version": 185,
+        "Query": " alter table sendchannel change generated_Transactionid generated_Transactionid varchar(50) not null",
+        "StopOnError": false,
+        "TimeStamp": "Wed Nov 3 12:48:38 2021"
+    },
+    {
+        "DB_Version": 186,
+        "Query": " alter table receivechannel change generated_Transactionid generated_Transactionid varchar(50) not null",
+        "StopOnError": false,
+        "TimeStamp": "Wed Nov 3 12:48:38 2021"
+    },
+    {
+        "DB_Version": 187,
+        "Query": "ALTER TABLE `employee_details` ADD `googleUUID` VARCHAR(50) NULL AFTER `Show_Employee`, ADD `gmailAddress` VARCHAR(200) NULL AFTER `googleUUID`, ADD `defaultVoucherPrefix` VARCHAR(10) NULL AFTER `gmailAddress`, ADD `allowAllPrefix` BOOLEAN NULL AFTER `defaultVoucherPrefix`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 01:41:02 2021"
+    },
+    {
+        "DB_Version": 188,
+        "Query": "ALTER TABLE `ledger_master` ADD `Date_Created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP , ADD `Last_Modified` TIMESTAMP NULL",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 01:58:33 2021"
+    },
+    {
+        "DB_Version": 189,
+        "Query": "ALTER TABLE `ledger_master` ADD `Distance` FLOAT(10,3) NULL , ADD `DeliveryRatePer` FLOAT(10,3) NULL AFTER `Distance`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 01:58:53 2021"
+    },
+    {
+        "DB_Version": 190,
+        "Query": "ALTER TABLE `account_groups` ADD `Date_Created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP , ADD `Last_Modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP AFTER `Date_Created`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 01:59:09 2021"
+    },
+    {
+        "DB_Version": 191,
+        "Query": "ALTER TABLE `godown` ADD `Last_Modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP AFTER `isProduction`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 01:59:22 2021"
+    },
+    {
+        "DB_Version": 192,
+        "Query": "ALTER TABLE `sales_inventory_groups` ADD `Last_Modified` TIMESTAMP NULL AFTER `Group_Name_Arabic`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 01:59:35 2021"
+    },
+    {
+        "DB_Version": 193,
+        "Query": "ALTER TABLE `uomlist` ADD `Last_Modified` TIMESTAMP NULL AFTER `timestamp`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 01:59:48 2021"
+    },
+    {
+        "DB_Version": 194,
+        "Query": "ALTER TABLE `price_lists` ADD `Last_Modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP AFTER `Price_List_ShowInPos`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 02:00:06 2021"
+    },
+    {
+        "DB_Version": 195,
+        "Query": "ALTER TABLE `brands` ADD `Last_Modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP AFTER `Brand_Description`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 02:00:18 2021"
+    },
+    {
+        "DB_Version": 197,
+        "Query": "ALTER TABLE `employee_Details` ADD `Last_Modified` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ",
+        "StopOnError": false,
+        "TimeStamp": "Thu Nov 4 02:00:18 2021"
+    },
+    {
+        "DB_Version": 198,
+        "Query": "ALTER TABLE `company_profile` ADD `Bank_Details` VARCHAR(500) NULL",
+        "StopOnError": false,
+        "TimeStamp": "Wed Dec 1 12:40:23 2021"
+    },
+    {
+        "DB_Version": 199,
+        "Query": "create table route_master (_id int(11) auto_increment primary key, route_id int(11) not null, route_name varchar(20) null, Description varchar(50) null)",
+        "StopOnError": false,
+        "TimeStamp": "Fri Dec 3 16:27:12 2021"
+    },
+    {
+        "DB_Version": 203,
+        "Query": "ALTER TABLE `company_profile` ADD `Expiry_Date` DATE NULL AFTER `Bank_Details`, ADD `Expiry_Msg` VARCHAR(1000) NULL AFTER `Expiry_Date`",
+        "StopOnError": false,
+        "TimeStamp": "Tue Nov 15 19:09:09 2022"
+    },
+    {
+        "DB_Version": 204,
+        "Query": "ALTER TABLE `Sales_Order_Main` CHANGE `Customer_Expected_Date` `Customer_Expected_Date` DATETIME NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Fri May 5 03:52:30 2023"
+    },
+    {
+        "DB_Version": 205,
+        "Query": "ALTER TABLE `Sales_Inovice_Main` CHANGE `Customer_Expected_Date` `Customer_Expected_Date` DATETIME NULL DEFAULT NULL",
+        "StopOnError": false,
+        "TimeStamp": "Fri May 5 03:52:30 2023"
+    },
+    {
+        "DB_Version": 206,
+        "Query": "CREATE TABLE `items_bundle_master` ( `_id` INT NOT NULL AUTO_INCREMENT , `Base_Item` VARCHAR(200) NOT NULL , `Free_Item` VARCHAR(200) NOT NULL , `Free_Quantity` FLOAT(10,3) NOT NULL , `Free_UOM` INT NOT NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Mon May 8 02:49:28 2023"
+    },
+    {
+        "DB_Version": 207,
+        "Query": "CREATE TABLE `items_bundle_transaction` ( `_id` INT NOT NULL AUTO_INCREMENT , `Ledger_ID` VARCHAR(200) NULL , `Contact_ID` VARCHAR(200) NULL , `Voucher_Type` VARCHAR(100) NULL , `Voucher_Date` DATETIME NULL , `Voucher_No` VARCHAR(200) NULL , `Voucher_Prefix` VARCHAR(50) NULL , `Transaction_ID` VARCHAR(100) NULL , `Ref_Transaction_ID` VARCHAR(100) NULL , `Item_ID` VARCHAR(200) NULL , `Free_Quantity` FLOAT(10,3) NULL DEFAULT '0' , `Used_Quantity` FLOAT(10,3) NULL DEFAULT '0' , PRIMARY KEY (`_id`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Mon May 8 02:49:28 2023"
+    },
+    {
+        "DB_Version": 208,
+        "Query": "ALTER TABLE `sales_inventory_items` ADD `Hide_in_Bill` BOOLEAN NOT NULL DEFAULT FALSE",
+        "StopOnError": false,
+        "TimeStamp": "Wed Jun 21 03:25:40 2023"
+    },
+    {
+        "DB_Version": 209,
+        "Query": "CREATE TABLE `tables_master` ( `_id` INT NOT NULL AUTO_INCREMENT , `Table_Name` VARCHAR(200) NOT NULL , `Capacity` INT NULL , `Min` INT NULL , `Max` INT NULL , `Floor` VARCHAR(200) NULL , PRIMARY KEY (`_id`), UNIQUE `tableunique` (`Table_Name`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Wed Apr 24 02:12:21 2024"
+    },
+    {
+        "DB_Version": 210,
+        "Query": "CREATE TABLE `table_reservations` ( `_id` INT NOT NULL AUTO_INCREMENT , `Reservation_id` VARCHAR(100) NULL , `Added_Date` DATE NULL , `Reservation_Date` DATE NULL , `From_Time` TIME NULL , `To_Time` TIME NULL , `Contact_Id` VARCHAR(100) NULL , `Is_Confirmed` BOOLEAN NULL , `Narration` VARCHAR(2000) NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Wed Apr 24 02:12:44 2024"
+    },
+    {
+        "DB_Version": 211,
+        "Query": "ALTER TABLE `tables_master` ADD `Table_ID` VARCHAR(200) NOT NULL AFTER `_id`, ADD UNIQUE `idd` (`Table_ID`)",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 01:31:14 2024"
+    },
+    {
+        "DB_Version": 212,
+        "Query": "ALTER TABLE `table_reservations` ADD `PAX` INT NULL AFTER `Contact_Id`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 02:39:08 2024"
+    },
+    {
+        "DB_Version": 213,
+        "Query": "ALTER TABLE `table_reservations` ADD `Table_id` VARCHAR(200) NULL AFTER `Reservation_id`",
+        "StopOnError": false,
+        "TimeStamp": "Thu Apr 25 02:41:44 2024"
+    },
+    {
+        "DB_Version": 214,
+        "Query": "ALTER TABLE `sales_order_main` ADD `Assigned_Time` DATETIME NULL DEFAULT NULL AFTER `Location`",
+        "StopOnError": false,
+        "TimeStamp": "Fri May 3 23:55:28 2024"
+    },
+    {
+        "DB_Version": 215,
+        "Query": "CREATE TABLE `measurement_master` ( `_id` INT NOT NULL AUTO_INCREMENT , `MEASUREMENT_ID` VARCHAR(200) NOT NULL , `MEASUREMENT_NAME` VARCHAR(200) NOT NULL , PRIMARY KEY (`_id`), UNIQUE (`MEASUREMENT_ID`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Thu Aug 29 03:45:11 2024"
+    },
+    {
+        "DB_Version": 216,
+        "Query": "CREATE TABLE `measurement_lables` ( `_id` INT NOT NULL AUTO_INCREMENT , `Measure_Lable_ID` VARCHAR(200) NOT NULL , `Measure_Master_ID` VARCHAR(200) NOT NULL , `Measure_Lable_Name` VARCHAR(200) NOT NULL , PRIMARY KEY (`_id`), UNIQUE (`Measure_Lable_ID`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Thu Aug 29 03:45:52 2024"
+    },
+    {
+        "DB_Version": 217,
+        "Query": "CREATE TABLE `contact_measurements_main` ( `_id` INT NOT NULL AUTO_INCREMENT , `Contact_Measurement_ID` VARCHAR(200) NOT NULL , `Contact_ID` VARCHAR(200) NOT NULL , `Measure_Master_ID` VARCHAR(200) NOT NULL , `MEASURE_Reference` VARCHAR(200) NOT NULL , PRIMARY KEY (`_id`), UNIQUE (`Contact_Measurement_ID`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Thu Aug 29 03:46:20 2024"
+    },
+    {
+        "DB_Version": 218,
+        "Query": "CREATE TABLE `contact_measurements_details` ( `_id` INT NOT NULL AUTO_INCREMENT , `Contact_Measurement_ID` VARCHAR(200) NOT NULL , `Measure_Lable_ID` VARCHAR(200) NOT NULL , `Measure_Lable_Name` VARCHAR(200) NULL , `Measurement_Value` VARCHAR(200) NULL , PRIMARY KEY (`_id`)) ENGINE = InnoDB",
+        "StopOnError": false,
+        "TimeStamp": "Thu Aug 29 03:46:43 2024"
+    },
+    {
+        "DB_Version": 219,
+        "Query": "ALTER TABLE `contact_measurements_main` ADD `CREATED_DATE` DATETIME NULL DEFAULT CURRENT_TIMESTAMP , ADD `last_modified_on` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP AFTER `CREATED_DATE`",
+        "StopOnError": false,
+        "TimeStamp": "Sun Sep 8 19:10:42 2024"
+    }
+]

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>addItemRequirement</class>
+ <widget class="QWidget" name="addItemRequirement">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>938</width>
+    <height>742</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Add Item</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="indent">
+      <number>0</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="itemTab">
+      <attribute name="title">
+       <string>Item</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Row Count :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="rowCount"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="unitOfMeasurementLabel">
+             <property name="text">
+              <string>Unit Of Measurement:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="unitOfMeasurementComboBox">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+             <property name="minimumContentsLength">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Model No.:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="modelNoLineEdit"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Brand:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="brandLineEdit"/>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="quantityLabel">
+             <property name="text">
+              <string>Quantity: </string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="quantityLineEdit"/>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="lengthLabel">
+             <property name="text">
+              <string>Length (mm)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <layout class="QHBoxLayout" name="dimensionsLayoout">
+             <item>
+              <widget class="QLineEdit" name="lengthLineEdit"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="dimlabel">
+               <property name="text">
+                <string>(wxh)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="dimLineEdit"/>
+             </item>
+            </layout>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="priceLevelLabel">
+             <property name="text">
+              <string>Price Level:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QComboBox" name="priceLevelComboBox">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="priceLabel">
+             <property name="text">
+              <string>Price:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QLineEdit" name="priceLineEdit"/>
+           </item>
+           <item row="12" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Sub Items Total</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="1">
+            <widget class="QLineEdit" name="subItemsSubTotalLineEdit_2"/>
+           </item>
+           <item row="13" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Sub Total</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <widget class="QLineEdit" name="itemSubTotalLineEdit"/>
+           </item>
+           <item row="14" column="0">
+            <widget class="QLabel" name="discountLabel">
+             <property name="text">
+              <string>Discount:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="1">
+            <widget class="QLineEdit" name="discountLineEdit"/>
+           </item>
+           <item row="15" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QLineEdit" name="vatPercent"/>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="vatAmt"/>
+             </item>
+            </layout>
+           </item>
+           <item row="17" column="0">
+            <widget class="QLabel" name="itemTotalLabel">
+             <property name="text">
+              <string>Item Total:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="17" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLineEdit" name="itemTotalLineEdit"/>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="optionalCheckBox">
+               <property name="text">
+                <string>Optional</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="19" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Item Description:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="19" column="1">
+            <widget class="QPlainTextEdit" name="descriptionTextEdit"/>
+           </item>
+           <item row="20" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Narration</string>
+             </property>
+            </widget>
+           </item>
+           <item row="20" column="1">
+            <widget class="QPlainTextEdit" name="narrationEdit">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>60</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="0">
+            <widget class="QLabel" name="vatLabel">
+             <property name="text">
+              <string>Vat</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Stock</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="stockLineEdit">
+             <property name="font">
+              <font>
+               <family>Arial</family>
+              </font>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="propertiesTab">
+      <attribute name="title">
+       <string>Properties</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QTableWidget" name="tableWidget"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="subItemsTab">
+      <attribute name="title">
+       <string>Sub Items</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="AddSubItemButton">
+         <property name="text">
+          <string>Add SubItem</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QTableWidget" name="subItemsTable"/>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Sub Total</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="subItemsTotalLineEdit">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>unitOfMeasurementComboBox</tabstop>
+  <tabstop>quantityLineEdit</tabstop>
+  <tabstop>priceLevelComboBox</tabstop>
+  <tabstop>priceLineEdit</tabstop>
+  <tabstop>discountLineEdit</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>AddSubItemButton</tabstop>
+  <tabstop>subItemsTable</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

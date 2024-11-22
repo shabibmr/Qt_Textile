@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ItemLabelData</class>
+ <widget class="QWidget" name="ItemLabelData">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>729</width>
+    <height>606</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Item Label Data</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Nutrition Facts</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(235, 235, 235);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QWidget" name="formLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>47</x>
+        <y>10</y>
+        <width>271</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="energyLabel">
+         <property name="text">
+          <string>Energy</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="energyLineEdit"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="carbohydrateGLabel">
+         <property name="text">
+          <string>Carbohydrate(g)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="carbohydrateGLineEdit"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="fatGLabel">
+         <property name="text">
+          <string>Fat(g)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="fatGLineEdit"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="proteinGLabel">
+         <property name="text">
+          <string>Protein(g)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="proteinGLineEdit"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="sugarGLabel">
+         <property name="text">
+          <string>Sugar(g)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="sugarGLineEdit"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="transFatLabel">
+         <property name="text">
+          <string>Trans Fat</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="transFatLineEdit"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="saturatedFatLabel">
+         <property name="text">
+          <string>Saturated Fat</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="saturatedFatLineEdit"/>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="cholestrolLabel">
+         <property name="text">
+          <string>Cholestrol</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="cholestrolLineEdit"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="crudeFibreLabel">
+         <property name="text">
+          <string>Crude Fibre</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="crudeFibreLineEdit"/>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="dietaryFibreLabel">
+         <property name="text">
+          <string>Dietary Fibre</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="dietaryFibreLineEdit"/>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="monoUnsaturatedFatLabel">
+         <property name="text">
+          <string>Mono unsaturated Fat</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QLineEdit" name="monoUnsaturatedFatLineEdit"/>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="polyunsaturatedFatLabel">
+         <property name="text">
+          <string>Polyunsaturated Fat</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QLineEdit" name="polyunsaturatedFatLineEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="3" rowspan="4">
+    <layout class="QFormLayout" name="formLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="allergenAdviceLabel">
+       <property name="text">
+        <string>Allergen advice</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPlainTextEdit" name="allergenAdviceText"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="ingredientsLabel">
+       <property name="text">
+        <string>Ingredients</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPlainTextEdit" name="ingredientsPlainText"/>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="nonVegLabel">
+     <property name="text">
+      <string>Non-veg</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QCheckBox" name="nonVegCheckBox"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="netWeightLabel">
+     <property name="text">
+      <string>Net weight</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="netWeightLineEdit"/>
+   </item>
+   <item row="3" column="2">
+    <widget class="QLineEdit" name="unitLineEdit"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="mRPLabel">
+     <property name="text">
+      <string>MRP</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="mRPLineEdit"/>
+   </item>
+   <item row="5" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>137</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="6" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

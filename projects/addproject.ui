@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddProject</class>
+ <widget class="QWidget" name="AddProject">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>633</width>
+    <height>453</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="4" column="2">
+    <widget class="QComboBox" name="projectStatusComboBox">
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="2">
+    <widget class="QLineEdit" name="emailLineEdit"/>
+   </item>
+   <item row="6" column="2">
+    <widget class="QDateEdit" name="startDateDateEdit">
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="4">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Add Project          </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLineEdit" name="projectNameLineEdit"/>
+   </item>
+   <item row="11" column="0">
+    <widget class="QLabel" name="emailLabel">
+     <property name="text">
+      <string>Email:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="2">
+    <widget class="QLineEdit" name="telephoneLineEdit"/>
+   </item>
+   <item row="12" column="0">
+    <widget class="QLabel" name="addressLabel">
+     <property name="text">
+      <string>Address:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QLabel" name="projectOwnerLabel">
+     <property name="text">
+      <string>Project Owner:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="endDateLabel">
+     <property name="text">
+      <string>End Date:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLineEdit" name="projectDescriptionLineEdit"/>
+   </item>
+   <item row="9" column="2">
+    <widget class="QLineEdit" name="contactPersonLineEdit"/>
+   </item>
+   <item row="3" column="2">
+    <widget class="QComboBox" name="projectOwnerComboBox">
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="projectDescriptionLabel">
+     <property name="text">
+      <string>Project Description:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QLabel" name="projectStatusLabel">
+     <property name="text">
+      <string>Project Status:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0" colspan="2">
+    <widget class="QLabel" name="contactPersonLabel">
+     <property name="text">
+      <string>Contact Person:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="startDateLabel">
+     <property name="text">
+      <string>Start Date:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="projectNameLabel">
+     <property name="text">
+      <string>Project Name:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="2">
+    <widget class="QDateEdit" name="endDateDateEdit">
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0">
+    <widget class="QLabel" name="telephoneLabel">
+     <property name="text">
+      <string>Telephone:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="customerNameLabel">
+     <property name="text">
+      <string>Customer Name:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2">
+    <widget class="QComboBox" name="customerNameComboBox">
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Detail</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="2">
+    <widget class="QPlainTextEdit" name="projectDetail"/>
+   </item>
+   <item row="12" column="2">
+    <widget class="QPlainTextEdit" name="addressLineTextEdit"/>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>projectNameLineEdit</tabstop>
+  <tabstop>projectDescriptionLineEdit</tabstop>
+  <tabstop>projectOwnerComboBox</tabstop>
+  <tabstop>projectStatusComboBox</tabstop>
+  <tabstop>startDateDateEdit</tabstop>
+  <tabstop>endDateDateEdit</tabstop>
+  <tabstop>customerNameComboBox</tabstop>
+  <tabstop>contactPersonLineEdit</tabstop>
+  <tabstop>telephoneLineEdit</tabstop>
+  <tabstop>emailLineEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

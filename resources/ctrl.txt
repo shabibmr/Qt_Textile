@@ -1,0 +1,1 @@
+localhost|gmdb|3306|user2grey|user2grey|B|A|1|B|

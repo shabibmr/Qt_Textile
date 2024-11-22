@@ -1,0 +1,1580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SalesCounterWindow</class>
+ <widget class="QMainWindow" name="SalesCounterWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>885</width>
+    <height>569</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Microsoft YaHei UI</family>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">.QWidget{
+background-color: rgb(255, 255, 127);
+}</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,0">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,1">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="dateLabel">
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(85, 85, 255);</string>
+            </property>
+            <property name="text">
+             <string>Date</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="companyNameLabel">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>2000</width>
+                <height>2000</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
+              <property name="lineWidth">
+               <number>1</number>
+              </property>
+              <property name="text">
+               <string>GreyMatter</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="wordWrap">
+               <bool>false</bool>
+              </property>
+              <property name="margin">
+               <number>5</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1">
+              <property name="spacing">
+               <number>3</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>1</number>
+                </property>
+                <layout class="QFormLayout" name="formLayout_2">
+                 <property name="leftMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>3</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_4">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(0, 85, 127);</string>
+                   </property>
+                   <property name="text">
+                    <string>POS ID</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="POSNoLabel">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI</family>
+                     <pointsize>14</pointsize>
+                     <weight>75</weight>
+                     <italic>false</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_3">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(0, 85, 127);</string>
+                   </property>
+                   <property name="text">
+                    <string>CASHIER </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="cashierNameLabel">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI</family>
+                     <pointsize>14</pointsize>
+                     <weight>75</weight>
+                     <italic>false</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(0, 85, 127);</string>
+                   </property>
+                   <property name="text">
+                    <string>BILL DATE    </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLabel" name="voucherDate">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI</family>
+                     <pointsize>14</pointsize>
+                     <weight>75</weight>
+                     <italic>false</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="label_2">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(0, 85, 127);</string>
+                   </property>
+                   <property name="text">
+                    <string>BILL NO:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QLabel" name="voucherNo">
+                   <property name="font">
+                    <font>
+                     <family>Segoe UI</family>
+                     <pointsize>14</pointsize>
+                     <weight>75</weight>
+                     <italic>false</italic>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="searchLine">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="placeholderText">
+             <string>Search...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QWidget" name="customerWidget" native="true">
+            <layout class="QFormLayout" name="formLayout_3">
+             <property name="leftMargin">
+              <number>9</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="customerNameLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Customer:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="customerNameLineEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="phoneNoLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Phone No.:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="phoneNoLineEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="addressLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Address:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QPlainTextEdit" name="addressTextEdit">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <attribute name="title">
+          <string>Items</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QTableWidget" name="tableWidget">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectRows</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_2">
+         <attribute name="title">
+          <string>Additional</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QTableWidget" name="additionalTableWidget"/>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="subTotalLabel">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>SUB TOTAL</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="subTotalLineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="vATAt5Label">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>GST TOTAL</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="vATAt5LineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="grandTotalLabel">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>GRAND TOTAL</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="grandTotalLineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="8" column="2">
+           <widget class="QToolButton" name="cashOutToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Cash Out</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QToolButton" name="refreshToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Refresh</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="2">
+           <widget class="QToolButton" name="modeOfPayToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Mode of Pay</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QToolButton" name="draftedBillsToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Drafted Bills</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QToolButton" name="itemDeleteToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Delete</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QToolButton" name="searchItemButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Search Item</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QToolButton" name="openTillButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Open Till</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QToolButton" name="shiftCloseButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Shift Close</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QToolButton" name="priceQuantityToggleButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Price/Qty</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QToolButton" name="adminButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Admin</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QToolButton" name="miscellaneousButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Misc</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QToolButton" name="reportsToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Reports</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QToolButton" name="draftToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Draft</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QToolButton" name="screenLockButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Screen Lock</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QToolButton" name="pickCallToolButton">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Pick Call</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QWidget" name="numberPadWidget" native="true"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>885</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(170, 0, 0);</string>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>MASTERS</string>
+    </property>
+    <addaction name="actionInventory_Groups"/>
+    <addaction name="actionInventory_Items"/>
+    <addaction name="actionUOM"/>
+    <addaction name="separator"/>
+    <addaction name="actionAccount_Groups"/>
+    <addaction name="actionLedgers_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrice_List"/>
+    <addaction name="actionGodowns"/>
+    <addaction name="actionEmployee"/>
+    <addaction name="actionSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit_2"/>
+   </widget>
+   <widget class="QMenu" name="menuTransactions">
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>TRANSACTION</string>
+    </property>
+    <addaction name="actionOrders"/>
+    <addaction name="actionSales"/>
+    <addaction name="actionPurchase"/>
+    <addaction name="actionPayment"/>
+    <addaction name="actionReceipt"/>
+    <addaction name="actionJournal"/>
+    <addaction name="separator"/>
+    <addaction name="actionSales_Orders_2"/>
+    <addaction name="actionSales_Return"/>
+    <addaction name="actionPurchase_Return"/>
+    <addaction name="separator"/>
+    <addaction name="actionStock_Entry"/>
+    <addaction name="actionStock_Journal"/>
+    <addaction name="separator"/>
+    <addaction name="actionShift"/>
+    <addaction name="actionLedger"/>
+    <addaction name="actionWork_Order"/>
+   </widget>
+   <widget class="QMenu" name="menuReports">
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>REPORTS</string>
+    </property>
+    <widget class="QMenu" name="menuSales_Report">
+     <property name="title">
+      <string>Sales Reports</string>
+     </property>
+     <addaction name="actionBillwise_Report"/>
+     <addaction name="actionItemwise_Sales"/>
+     <addaction name="actionGroupwise_Sales"/>
+     <addaction name="actionSales_Margin_Report"/>
+    </widget>
+    <widget class="QMenu" name="menuPurchase_Reports">
+     <property name="title">
+      <string>Purchase Reports</string>
+     </property>
+     <addaction name="actionItemwise_Purchase"/>
+    </widget>
+    <widget class="QMenu" name="menuAccounting_Reports">
+     <property name="title">
+      <string>Accounting Reports</string>
+     </property>
+     <addaction name="actionOutstanding_4"/>
+    </widget>
+    <widget class="QMenu" name="menuInventory_Reports">
+     <property name="title">
+      <string>Inventory Reports</string>
+     </property>
+     <widget class="QMenu" name="menuLedger">
+      <property name="title">
+       <string>Ledger</string>
+      </property>
+      <addaction name="actionLedger_Movement"/>
+      <addaction name="actionGroupwise_Movement"/>
+     </widget>
+     <addaction name="menuLedger"/>
+     <addaction name="actionItem_Movement"/>
+     <addaction name="actionNegative_Stock"/>
+    </widget>
+    <addaction name="actionToday_s_Bills"/>
+    <addaction name="menuSales_Report"/>
+    <addaction name="menuPurchase_Reports"/>
+    <addaction name="separator"/>
+    <addaction name="actionShiftwise_Report"/>
+    <addaction name="separator"/>
+    <addaction name="menuInventory_Reports"/>
+    <addaction name="separator"/>
+    <addaction name="actionLedger_Report"/>
+    <addaction name="menuAccounting_Reports"/>
+    <addaction name="separator"/>
+    <addaction name="actionTrial_Balance"/>
+    <addaction name="actionSales_Orders"/>
+    <addaction name="actionClosing_Stock"/>
+    <addaction name="actionRe_Order_Report"/>
+    <addaction name="separator"/>
+    <addaction name="actionDay_Book"/>
+    <addaction name="actionProfit_and_Loss"/>
+    <addaction name="actionBalance_Sheet"/>
+    <addaction name="actionVAT_Report"/>
+    <addaction name="separator"/>
+    <addaction name="actionComplimentary"/>
+    <addaction name="actionDiscount_Report"/>
+    <addaction name="separator"/>
+    <addaction name="actionDashboard"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="title">
+     <string>HELP</string>
+    </property>
+    <addaction name="actionContents"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuMenu"/>
+   <addaction name="menuTransactions"/>
+   <addaction name="menuReports"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionPurchase">
+   <property name="text">
+    <string>Purchase</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
+   </property>
+  </action>
+  <action name="actionPayment">
+   <property name="text">
+    <string>Payment</string>
+   </property>
+   <property name="shortcut">
+    <string>F4</string>
+   </property>
+  </action>
+  <action name="actionReceipt">
+   <property name="text">
+    <string>Receipt</string>
+   </property>
+   <property name="shortcut">
+    <string>F6</string>
+   </property>
+  </action>
+  <action name="actionShift">
+   <property name="text">
+    <string>Shift</string>
+   </property>
+   <property name="shortcut">
+    <string>F10</string>
+   </property>
+  </action>
+  <action name="actionDaily_Closing">
+   <property name="text">
+    <string>Daily Closing</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionLedgers">
+   <property name="text">
+    <string>Accounts</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
+  </action>
+  <action name="actionInventoryItem">
+   <property name="text">
+    <string>Inventory Item</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+I</string>
+   </property>
+  </action>
+  <action name="actionInventoryGroups">
+   <property name="text">
+    <string>Inventory Groups</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+G</string>
+   </property>
+  </action>
+  <action name="actionInventory_Items">
+   <property name="text">
+    <string>Inventory Items</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+I</string>
+   </property>
+  </action>
+  <action name="actionExit_2">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionToday_s_Bills">
+   <property name="text">
+    <string>Today's Bills</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionItemwiseSales">
+   <property name="text">
+    <string>Itemwise Sales</string>
+   </property>
+  </action>
+  <action name="actionLedger_Report">
+   <property name="text">
+    <string>Ledger Report</string>
+   </property>
+  </action>
+  <action name="actionClosing_Stock">
+   <property name="text">
+    <string>Closing Stock</string>
+   </property>
+  </action>
+  <action name="actionRe_Order_Report">
+   <property name="text">
+    <string>Re Order Report</string>
+   </property>
+  </action>
+  <action name="actionPayable">
+   <property name="text">
+    <string>Payable</string>
+   </property>
+  </action>
+  <action name="actionReceivable">
+   <property name="text">
+    <string>Receivable</string>
+   </property>
+  </action>
+  <action name="actionSales_Orders">
+   <property name="text">
+    <string>Sales Orders</string>
+   </property>
+  </action>
+  <action name="actionGroupwiseSales">
+   <property name="text">
+    <string>Groupwise Sales</string>
+   </property>
+  </action>
+  <action name="actionSales_Return">
+   <property name="text">
+    <string>Sales Return</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionInventory_Groups">
+   <property name="text">
+    <string>Inventory Groups</string>
+   </property>
+  </action>
+  <action name="actionContents">
+   <property name="text">
+    <string>Contents</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionAccount_Groups">
+   <property name="text">
+    <string>Account Groups</string>
+   </property>
+  </action>
+  <action name="actionLedgers_2">
+   <property name="text">
+    <string>Ledgers</string>
+   </property>
+  </action>
+  <action name="actionEmployee">
+   <property name="text">
+    <string>Employee</string>
+   </property>
+  </action>
+  <action name="actionJournal">
+   <property name="text">
+    <string>Journal</string>
+   </property>
+  </action>
+  <action name="actionDay_Book">
+   <property name="text">
+    <string>Day Book</string>
+   </property>
+  </action>
+  <action name="actionTrial_Balance">
+   <property name="text">
+    <string>Trial Balance</string>
+   </property>
+  </action>
+  <action name="actionProfit_and_Loss">
+   <property name="text">
+    <string>Profit and Loss</string>
+   </property>
+  </action>
+  <action name="actionBalance_Sheet">
+   <property name="text">
+    <string>Balance Sheet</string>
+   </property>
+  </action>
+  <action name="actionVAT_Report">
+   <property name="text">
+    <string>VAT Report</string>
+   </property>
+  </action>
+  <action name="actionPurchase_Return">
+   <property name="text">
+    <string>Purchase Return</string>
+   </property>
+  </action>
+  <action name="actionBillwise_Report">
+   <property name="text">
+    <string>Billwise Report</string>
+   </property>
+  </action>
+  <action name="actionItemwise_Sales">
+   <property name="text">
+    <string>Itemwise Sales</string>
+   </property>
+  </action>
+  <action name="actionGroupwise_Sales">
+   <property name="text">
+    <string>Groupwise Sales</string>
+   </property>
+  </action>
+  <action name="actionWaiterwise_Sales">
+   <property name="text">
+    <string>Waiterwise Sales</string>
+   </property>
+  </action>
+  <action name="actionServicewise_Sales">
+   <property name="text">
+    <string>Servicewise Sales</string>
+   </property>
+  </action>
+  <action name="actionTime_based_Sales">
+   <property name="text">
+    <string>Time based Sales</string>
+   </property>
+  </action>
+  <action name="actionComplimentary">
+   <property name="text">
+    <string>Complimentary</string>
+   </property>
+  </action>
+  <action name="actionDiscount_Report">
+   <property name="text">
+    <string>Discount Report</string>
+   </property>
+  </action>
+  <action name="actionShiftwise_Report">
+   <property name="text">
+    <string>Shiftwise Report</string>
+   </property>
+  </action>
+  <action name="actionDaily_Closing_Report">
+   <property name="text">
+    <string>Daily Closing Report</string>
+   </property>
+  </action>
+  <action name="actionGroup_Summary">
+   <property name="text">
+    <string>Group Summary</string>
+   </property>
+  </action>
+  <action name="actionStock_Entry">
+   <property name="text">
+    <string>Stock Entry</string>
+   </property>
+  </action>
+  <action name="actionStock_Journal">
+   <property name="text">
+    <string>Stock Journal</string>
+   </property>
+  </action>
+  <action name="actionUOM">
+   <property name="text">
+    <string>UOM</string>
+   </property>
+  </action>
+  <action name="actionSales">
+   <property name="text">
+    <string>Sales</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="actionSales_Margin_Report">
+   <property name="text">
+    <string>Sales Margin Report</string>
+   </property>
+  </action>
+  <action name="actionLedger">
+   <property name="text">
+    <string>Ledger</string>
+   </property>
+  </action>
+  <action name="actionOutstanding">
+   <property name="text">
+    <string>Outstanding Balance</string>
+   </property>
+  </action>
+  <action name="actionItemwise_Purchase">
+   <property name="text">
+    <string>Itemwise Purchase</string>
+   </property>
+  </action>
+  <action name="actionLedger_Report_2">
+   <property name="text">
+    <string>Ledger Report</string>
+   </property>
+  </action>
+  <action name="actionOutstanding_2">
+   <property name="text">
+    <string>Outstanding</string>
+   </property>
+  </action>
+  <action name="actionLedger_Movement">
+   <property name="text">
+    <string>Ledger Movement</string>
+   </property>
+  </action>
+  <action name="actionGroupwise_Movement">
+   <property name="text">
+    <string>Groupwise Movement</string>
+   </property>
+  </action>
+  <action name="actionOutstanding_3">
+   <property name="text">
+    <string>Outstanding</string>
+   </property>
+  </action>
+  <action name="actionOutstanding_4">
+   <property name="text">
+    <string>Outstanding</string>
+   </property>
+  </action>
+  <action name="actionItem_Movement">
+   <property name="text">
+    <string>Item Movement</string>
+   </property>
+  </action>
+  <action name="actionNegative_Stock">
+   <property name="text">
+    <string>Negative Stock</string>
+   </property>
+  </action>
+  <action name="actionDashboard">
+   <property name="text">
+    <string>Dashboard</string>
+   </property>
+  </action>
+  <action name="actionOrders">
+   <property name="text">
+    <string>Orders</string>
+   </property>
+  </action>
+  <action name="actionGodowns">
+   <property name="text">
+    <string>Godowns</string>
+   </property>
+  </action>
+  <action name="actionGodowns">
+   <property name="text">
+    <string>Godowns</string>
+   </property>
+  </action>
+  <action name="actionBalanceSheet">
+   <property name="text">
+    <string>Balance sheet</string>
+   </property>
+  </action>
+  <action name="actionPrice_List">
+   <property name="text">
+    <string>Price List</string>
+   </property>
+  </action>
+  <action name="actionSales_Orders_2">
+   <property name="text">
+    <string>Sales Orders</string>
+   </property>
+  </action>
+  <action name="actionWork_Order">
+   <property name="text">
+    <string>Work Order</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

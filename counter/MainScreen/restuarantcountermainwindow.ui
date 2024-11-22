@@ -1,0 +1,1333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RestuarantCounterMainWindow</class>
+ <widget class="QMainWindow" name="RestuarantCounterMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1264</width>
+    <height>930</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="font">
+   <font/>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font/>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,1,0,0">
+    <item>
+     <widget class="QWidget" name="verticalWidget1" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>2</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,1,0">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <property name="bottomMargin">
+          <number>3</number>
+         </property>
+         <item>
+          <widget class="QFrame" name="frame">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="dateLabel">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="text">
+               <string>Date</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QFormLayout" name="formLayout_2">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Bill #</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="BillNumber">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>number</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="searchLay">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidget">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>325</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-image: url(:/images/watermark.png);
+background-color: #e0f7fa;
+background-repeat: no-repeat;
+background-position: center;
+selection-background-color: #ffb115;</string>
+           </property>
+           <property name="alternatingRowColors">
+            <bool>true</bool>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="formLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <item row="2" column="0">
+            <widget class="QLabel" name="subTotalLabel">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Sub Total:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="subTotalLineEdit">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="vATAt5Label">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>GST</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="vATAt5LineEdit">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="grandTotalLabel">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Grand Total:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="grandTotalLineEdit">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QToolButton" name="selectWaiterToolButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0.8, y1:0, x2:0.9, y2:1, stop:0 rgba(192, 128, 102, 255), stop:1 rgba(255, 255, 255, 255));</string>
+             </property>
+             <property name="text">
+              <string>Select Waiter</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Waiter:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Table:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QToolButton" name="selectTableToolButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0.8, y1:0, x2:0.9, y2:1, stop:0 rgba(102, 128, 192, 255), stop:1 rgba(255, 255, 255, 255));</string>
+             </property>
+             <property name="text">
+              <string>Select Table</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="verticalWidget2" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_10" stretch="0,0,1">
+         <item>
+          <layout class="QHBoxLayout" name="extrasLayout" stretch="0,0,0,0,0,0,0,0,0,0">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QLabel" name="contactLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="openTillButton">
+               <property name="text">
+                <string>...</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="printOnOff">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>PRINT ON</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacerx">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="customerLayour"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="airportButton">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:#dedede</string>
+             </property>
+             <property name="text">
+              <string>Minimize</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="modeServiceLay"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="dineInToolButton">
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Dine In</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="takeAwayToolButton">
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Take Away</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="deliveryToolButton">
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Delivery</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="pickCallToolButton">
+             <property name="minimumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(0, 170, 255);</string>
+             </property>
+             <property name="text">
+              <string>Pick Call</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="switchButton">
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Switch</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="Line" name="line_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_9" stretch="6,0,9">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QWidget" name="groupWidget" native="true">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <layout class="QHBoxLayout" name="groupLayout">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="Line" name="line_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="itemWidget" native="true">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <layout class="QHBoxLayout" name="itemLayout">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_8">
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMinimumSize</enum>
+      </property>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1264</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMasters">
+    <property name="title">
+     <string>Masters</string>
+    </property>
+    <addaction name="actionInventory_Groups"/>
+    <addaction name="actionInventory_Items"/>
+    <addaction name="actionUom"/>
+    <addaction name="actionMeasurements"/>
+    <addaction name="actionGodowns"/>
+    <addaction name="separator"/>
+    <addaction name="actionAccount_Groups"/>
+    <addaction name="actionLedgers"/>
+    <addaction name="actionPriceList"/>
+    <addaction name="actionTables"/>
+    <addaction name="separator"/>
+    <addaction name="actionEmployee"/>
+    <addaction name="actionUserGroups"/>
+    <addaction name="actionSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuTransactions">
+    <property name="title">
+     <string>Transactions</string>
+    </property>
+    <addaction name="actionSales"/>
+    <addaction name="actionPurchase"/>
+    <addaction name="actionPayment"/>
+    <addaction name="actionReceipt"/>
+    <addaction name="actionJournal"/>
+    <addaction name="actionStockRequest"/>
+    <addaction name="actionReservations"/>
+    <addaction name="separator"/>
+    <addaction name="actionSales_Orders"/>
+    <addaction name="actionPurchase_Orders"/>
+    <addaction name="actionSales_Return"/>
+    <addaction name="actionPurchase_Return"/>
+    <addaction name="actionReceiptNote"/>
+    <addaction name="actionIndent"/>
+    <addaction name="actionStock_Entry"/>
+    <addaction name="actionStock_Journal"/>
+    <addaction name="actionWastage_Entry"/>
+    <addaction name="separator"/>
+    <addaction name="actionShift"/>
+    <addaction name="actionDaily_Closing"/>
+    <addaction name="actionSalesAdjustment"/>
+   </widget>
+   <widget class="QMenu" name="menuReports">
+    <property name="title">
+     <string>Reports</string>
+    </property>
+    <widget class="QMenu" name="menuSales_Report">
+     <property name="title">
+      <string>Sales Reports</string>
+     </property>
+     <addaction name="actionBillwise_Report"/>
+     <addaction name="actionItemwise_Sales"/>
+     <addaction name="actionDatewise_Sales"/>
+     <addaction name="actionGroupwise_Sales"/>
+     <addaction name="actionWaiterwise_Sales"/>
+     <addaction name="actionServicewise_Sales"/>
+     <addaction name="actionTime_based_Sales"/>
+     <addaction name="actionZomato_Report"/>
+     <addaction name="actionCustomerwise_Report"/>
+     <addaction name="actionSales_Margin_Report"/>
+     <addaction name="actionDeleted_Sales"/>
+     <addaction name="actionLedgerwise_Items"/>
+     <addaction name="actionSalesmanwiseServicewiseSales"/>
+    </widget>
+    <widget class="QMenu" name="menuTransaction_Summary">
+     <property name="title">
+      <string>Transaction Summary</string>
+     </property>
+     <addaction name="actionPurchase_Summary"/>
+     <addaction name="actionPO_Itemwise"/>
+     <addaction name="actionPayments"/>
+     <addaction name="actionReceipts"/>
+     <addaction name="actionDatewisePurchase"/>
+     <addaction name="actionReceiptNote_2"/>
+    </widget>
+    <addaction name="actionToday_s_Bills"/>
+    <addaction name="menuSales_Report"/>
+    <addaction name="actionPendingOrders_2"/>
+    <addaction name="actionPendingKOT"/>
+    <addaction name="separator"/>
+    <addaction name="menuTransaction_Summary"/>
+    <addaction name="actionShiftwise_Report"/>
+    <addaction name="actionDaily_Closing_Report"/>
+    <addaction name="actionRe_Order_Report"/>
+    <addaction name="separator"/>
+    <addaction name="actionLedger_Report"/>
+    <addaction name="actionGroup_Summary"/>
+    <addaction name="separator"/>
+    <addaction name="actionClosing_Stock"/>
+    <addaction name="separator"/>
+    <addaction name="actionCustomer_Ledger"/>
+    <addaction name="actionDay_Book"/>
+    <addaction name="actionGST_Report"/>
+    <addaction name="actionTrial_Balance"/>
+    <addaction name="actionProfit_and_Loss"/>
+    <addaction name="actionBalance_Sheet"/>
+    <addaction name="actionVAT_Report"/>
+    <addaction name="separator"/>
+    <addaction name="actionComplimentary"/>
+    <addaction name="actionDiscount_Report"/>
+    <addaction name="actionPurchaseItemReport"/>
+    <addaction name="actionNotifications"/>
+    <addaction name="separator"/>
+    <addaction name="actionSMS"/>
+    <addaction name="actionVisitors_Register"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionContents"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionKotPrinters"/>
+    <addaction name="actionFont"/>
+    <addaction name="actionSwitch_Language"/>
+   </widget>
+   <addaction name="menuMasters"/>
+   <addaction name="menuTransactions"/>
+   <addaction name="menuReports"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionInventory_Groups">
+   <property name="text">
+    <string>Inventory Groups</string>
+   </property>
+  </action>
+  <action name="actionInventory_Items">
+   <property name="text">
+    <string>Inventory Items</string>
+   </property>
+  </action>
+  <action name="actionAccount_Groups">
+   <property name="text">
+    <string>Account Groups</string>
+   </property>
+  </action>
+  <action name="actionLedgers">
+   <property name="text">
+    <string>Ledgers</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionEmployee">
+   <property name="text">
+    <string>Employee</string>
+   </property>
+  </action>
+  <action name="actionPurchase">
+   <property name="text">
+    <string>Purchase</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F8</string>
+   </property>
+  </action>
+  <action name="actionPayment">
+   <property name="text">
+    <string>Payment</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F6</string>
+   </property>
+  </action>
+  <action name="actionReceipt">
+   <property name="text">
+    <string>Receipt</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F7</string>
+   </property>
+  </action>
+  <action name="actionJournal">
+   <property name="text">
+    <string>Journal</string>
+   </property>
+  </action>
+  <action name="actionToday_s_Bills">
+   <property name="text">
+    <string>Today's Bills</string>
+   </property>
+  </action>
+  <action name="actionShift">
+   <property name="text">
+    <string>Shift</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F9</string>
+   </property>
+  </action>
+  <action name="actionDaily_Closing">
+   <property name="text">
+    <string>Daily Closing</string>
+   </property>
+  </action>
+  <action name="actionItemwise_Sales">
+   <property name="text">
+    <string>Itemwise Sales</string>
+   </property>
+  </action>
+  <action name="actionGroupwise_Sales">
+   <property name="text">
+    <string>Groupwise Sales</string>
+   </property>
+  </action>
+  <action name="actionDay_Book">
+   <property name="text">
+    <string>Day Book</string>
+   </property>
+  </action>
+  <action name="actionLedger_Report">
+   <property name="text">
+    <string>Ledger Report</string>
+   </property>
+  </action>
+  <action name="actionClosing_Stock">
+   <property name="text">
+    <string>Closing Stock</string>
+   </property>
+  </action>
+  <action name="actionRe_Order_Report">
+   <property name="text">
+    <string>Re Order Report</string>
+   </property>
+  </action>
+  <action name="actionTrial_Balance">
+   <property name="text">
+    <string>Trial Balance</string>
+   </property>
+  </action>
+  <action name="actionProfit_and_Loss">
+   <property name="text">
+    <string>Profit and Loss</string>
+   </property>
+  </action>
+  <action name="actionBalance_Sheet">
+   <property name="text">
+    <string>Balance Sheet</string>
+   </property>
+  </action>
+  <action name="actionContents">
+   <property name="text">
+    <string>Contents</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionPayable">
+   <property name="text">
+    <string>Payable</string>
+   </property>
+  </action>
+  <action name="actionReceivable">
+   <property name="text">
+    <string>Receivable</string>
+   </property>
+  </action>
+  <action name="actionVAT_Report">
+   <property name="text">
+    <string>VAT Report</string>
+   </property>
+  </action>
+  <action name="actionGroup_Summary">
+   <property name="text">
+    <string>Group Summary</string>
+   </property>
+  </action>
+  <action name="actionWaiterwise_Sales">
+   <property name="text">
+    <string>Waiterwise Sales</string>
+   </property>
+  </action>
+  <action name="actionServicewise_Sales">
+   <property name="text">
+    <string>Servicewise Sales</string>
+   </property>
+  </action>
+  <action name="actionShiftwise_Report">
+   <property name="text">
+    <string>Shiftwise Report</string>
+   </property>
+  </action>
+  <action name="actionDaily_Closing_Report">
+   <property name="text">
+    <string>Daily Closing Report</string>
+   </property>
+  </action>
+  <action name="actionTime_based_Sales">
+   <property name="text">
+    <string>Time based Sales</string>
+   </property>
+  </action>
+  <action name="actionZomato_Report">
+   <property name="text">
+    <string>Potafo Report</string>
+   </property>
+  </action>
+  <action name="actionComplimentary">
+   <property name="text">
+    <string>Complimentary</string>
+   </property>
+  </action>
+  <action name="actionDiscount_Report">
+   <property name="text">
+    <string>Discount Report</string>
+   </property>
+  </action>
+  <action name="actionBillwise_Report">
+   <property name="text">
+    <string>Billwise Report</string>
+   </property>
+  </action>
+  <action name="actionPurchase_Return">
+   <property name="text">
+    <string>Purchase Return</string>
+   </property>
+  </action>
+  <action name="actionKotPrinters">
+   <property name="text">
+    <string>Kot Printers</string>
+   </property>
+  </action>
+  <action name="actionStock_Entry">
+   <property name="text">
+    <string>Current Stock </string>
+   </property>
+  </action>
+  <action name="actionStock_Journal">
+   <property name="text">
+    <string>Stock IN/OUT</string>
+   </property>
+  </action>
+  <action name="actionStockRequest">
+   <property name="text">
+    <string>Stock Request</string>
+   </property>
+  </action>
+  <action name="actionDatewise_Sales">
+   <property name="text">
+    <string>Datewise Sales</string>
+   </property>
+  </action>
+  <action name="actionFont">
+   <property name="text">
+    <string>Font</string>
+   </property>
+  </action>
+  <action name="actionUom">
+   <property name="text">
+    <string>Units of Measurement</string>
+   </property>
+  </action>
+  <action name="actionWastage_Entry">
+   <property name="text">
+    <string>Wastage Entry</string>
+   </property>
+  </action>
+  <action name="actionPurchaseItemReport">
+   <property name="text">
+    <string>Purchase Item Report</string>
+   </property>
+  </action>
+  <action name="actionNotifications">
+   <property name="text">
+    <string>Notifications</string>
+   </property>
+  </action>
+  <action name="actionSales">
+   <property name="text">
+    <string>Sales</string>
+   </property>
+  </action>
+  <action name="actionPurchase_Summary">
+   <property name="text">
+    <string>Purchase Summary</string>
+   </property>
+  </action>
+  <action name="actionPurchase_Order">
+   <property name="text">
+    <string>Purchase Order</string>
+   </property>
+  </action>
+  <action name="actionPurchase_Orders">
+   <property name="text">
+    <string>Purchase Orders</string>
+   </property>
+  </action>
+  <action name="actionIndent">
+   <property name="text">
+    <string>Indents</string>
+   </property>
+  </action>
+  <action name="actionPriceList">
+   <property name="text">
+    <string>PriceList</string>
+   </property>
+  </action>
+  <action name="actionCustomerwise_Report">
+   <property name="text">
+    <string>Customerwise Report</string>
+   </property>
+  </action>
+  <action name="actionSales_Margin_Report">
+   <property name="text">
+    <string>Sales Margin Report</string>
+   </property>
+  </action>
+  <action name="actionSMS">
+   <property name="text">
+    <string>SMS</string>
+   </property>
+  </action>
+  <action name="actionSales_Orders">
+   <property name="text">
+    <string>Sales Orders</string>
+   </property>
+  </action>
+  <action name="actionCustomer_Ledger">
+   <property name="text">
+    <string>Customer Ledger</string>
+   </property>
+  </action>
+  <action name="actionSalesAdjustment">
+   <property name="text">
+    <string>Sales Adjustment</string>
+   </property>
+  </action>
+  <action name="actionVisitors_Register">
+   <property name="text">
+    <string>Visitors Register</string>
+   </property>
+  </action>
+  <action name="actionGST_Report">
+   <property name="text">
+    <string>VAT Report</string>
+   </property>
+  </action>
+  <action name="actionSales_Return">
+   <property name="text">
+    <string>Sales Return</string>
+   </property>
+  </action>
+  <action name="actionDeleted_Sales">
+   <property name="text">
+    <string>Deleted Sales</string>
+   </property>
+  </action>
+  <action name="actionGodowns">
+   <property name="text">
+    <string>Godowns</string>
+   </property>
+  </action>
+  <action name="actionLedgerwise_Items">
+   <property name="text">
+    <string>Ledgerwise Items</string>
+   </property>
+  </action>
+  <action name="actionPO_Itemwise">
+   <property name="text">
+    <string>PO Itemwise</string>
+   </property>
+  </action>
+  <action name="actionPayments">
+   <property name="text">
+    <string>Payments</string>
+   </property>
+  </action>
+  <action name="actionReceipts">
+   <property name="text">
+    <string>Receipts</string>
+   </property>
+  </action>
+  <action name="actionReceiptNote">
+   <property name="text">
+    <string>Receipt Note</string>
+   </property>
+  </action>
+  <action name="actionDatewisePurchase">
+   <property name="text">
+    <string>Datewise Purchase</string>
+   </property>
+  </action>
+  <action name="actionReceiptNote_2">
+   <property name="text">
+    <string>Receipt Note</string>
+   </property>
+  </action>
+  <action name="actionUserGroups">
+   <property name="text">
+    <string>User Groups</string>
+   </property>
+  </action>
+  <action name="actionPendingKOT">
+   <property name="text">
+    <string>Pending KOT</string>
+   </property>
+  </action>
+  <action name="actionPendingOrders_2">
+   <property name="text">
+    <string>Pending Orders</string>
+   </property>
+  </action>
+  <action name="actionSalesmanwiseServicewiseSales">
+   <property name="text">
+    <string>Salesmanwise ServicewiseSales</string>
+   </property>
+  </action>
+  <action name="actionSwitch_Language">
+   <property name="text">
+    <string>Switch Language</string>
+   </property>
+  </action>
+  <action name="actionTables">
+   <property name="text">
+    <string>Tables</string>
+   </property>
+  </action>
+  <action name="actionReservations">
+   <property name="text">
+    <string>Reservations</string>
+   </property>
+  </action>
+  <action name="actionMeasurements">
+   <property name="text">
+    <string>Measurements</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

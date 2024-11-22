@@ -1,0 +1,33 @@
+QWidget#POSMain
+{
+    background-color:#a9a9a9
+}
+QScrollArea#POSMain
+{
+    background-color:#a9a9a9
+}
+QLabel#POSMain
+{
+    background-color : rgb(70, 72, 70);
+    color : white;
+}
+QToolButton#POSMain
+{
+    background-color: rgb(200, 200, 201);
+}
+QHeaderView::section:horizontal
+{
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1,
+    stop:0 #616161, stop: 0.5 #505050, stop: 0.6 #434343, stop:1 #656565);
+    color: white; padding-left: 4px;
+    border: none; border-radius: 10px;
+    border-top-right-radius: 3px;
+}
+QTableWidget#POSMain
+{
+    background-color:#a9a9a9
+    background-image: url(:/images/watermark.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    selection-background-color: #ffb115;
+}

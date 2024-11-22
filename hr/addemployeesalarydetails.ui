@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddEmployeeSalaryDetails</class>
+ <widget class="QWidget" name="AddEmployeeSalaryDetails">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QFormLayout" name="formLayout_3">
+     <item row="1" column="0">
+      <widget class="QLabel" name="noOfWorkingHoursLabel">
+       <property name="text">
+        <string>No.Of Working Hours</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="noOfWorkingHoursSpinBox"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="basicSalaryLabel">
+       <property name="text">
+        <string>Basic Salary</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="basicSalaryLineEdit"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="hRALabel">
+       <property name="text">
+        <string>HRA</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="hRALineEdit"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="conveyanceLabel">
+       <property name="text">
+        <string>Conveyance</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="conveyanceLineEdit"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="dALabel">
+       <property name="text">
+        <string>DA</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="dALineEdit"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="weeklyPaidLeaveLabel">
+       <property name="text">
+        <string>Weekly Paid Leave</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QSpinBox" name="weeklyLeaveSpinBox"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="monthlyPaidLeaveLabel">
+       <property name="text">
+        <string>Monthly Paid Leave</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QSpinBox" name="MonthlySpinBox"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="annualPaidLeaveLabel">
+       <property name="text">
+        <string>Annual Paid Leave</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QSpinBox" name="AnnualLeaveSpinBox"/>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="hourlyPayForOverTimeLabel">
+       <property name="text">
+        <string>Hourly Pay For OverTime</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="hourlyPayForOverTimeLineEdit"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="salaryLedgerLabel">
+       <property name="text">
+        <string>Salary Ledger</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QWidget" name="salaryLedgerWidget" native="true">
+       <widget class="QWidget" name="verticalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>241</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="salaryLay"/>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
